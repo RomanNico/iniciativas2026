@@ -361,6 +361,212 @@ function observeReveal() {
     });
 
 }
+const iniciativas = [
+
+  { nombre: "Desarrollo automatizado de herramientas Comware", gerencia: "Soluciones Financieras", avance: 10 },
+  { nombre: "Asistente SWAT", gerencia: "Soluciones Financieras", avance: 12 },
+  { nombre: "Portal Integrado de Reportes Mensuales y Anuales", gerencia: "Compras y Logística", avance: 20 },
+  { nombre: "Planificación digital y control de cargas operativas", gerencia: "Servicios Generales", avance: 30 },
+  { nombre: "Canal móvil de solicitudes administrativas integrado a Arandas", gerencia: "Servicios Generales", avance: 65 },
+  { nombre: "Automatización Matriz Compromiso Contractual", gerencia: "Gobierno y Aseguramiento", avance: 12 },
+  { nombre: "Automatización Auditorias Casos", gerencia: "Gobierno y Aseguramiento", avance: 15 },
+  { nombre: "Enlace Cuentas por Pagar Invoway Sap", gerencia: "Contabilidad", avance: 35 },
+  { nombre: "Identificación Responsabilidades tributarias Municipios", gerencia: "Contabilidad", avance: 18 },
+  { nombre: "Chatbot Pág Web Omnicanal", gerencia: "Mercadeo", avance: 80 },
+  { nombre: "Presentación de informes gerenciales", gerencia: "Mercadeo", avance: 18 },
+  { nombre: "Indicadores Gestión Procesos", gerencia: "Gobierno y Aseguramiento", avance: 30 },
+  { nombre: "Informe Flujo de Caja consolidado", gerencia: "Soluciones Financieras", avance: 10 },
+  { nombre: "Consolidación Reservas y Puestos de Trabajo", gerencia: "Gobierno y Aseguramiento", avance: 45 },
+  { nombre: "Ecosistema Digital 360", gerencia: "Contabilidad", avance: 8 },
+
+  { nombre: "Automatización Radicación Incapacidades", gerencia: "Soluciones Financieras", avance: 15 },
+  { nombre: "Onboarding Digital Carnets", gerencia: "Soluciones Financieras", avance: 12 },
+  { nombre: "Optimización Reclutamiento", gerencia: "Soluciones Financieras", avance: 12 },
+  { nombre: "Afiliaciones Laborales", gerencia: "Soluciones Financieras", avance: 12 },
+  { nombre: "Estimativo Salarial", gerencia: "Arquitectura", avance: 10 },
+  { nombre: "Lectura análisis pliegos", gerencia: "Arquitectura", avance: 10 },
+  { nombre: "Automatización Legalizaciones", gerencia: "Contabilidad", avance: 15 },
+  { nombre: "Informe Inteligente Alcances", gerencia: "Arquitectura", avance: 12 },
+  { nombre: "Dimensionamiento RH", gerencia: "Arquitectura", avance: 30 },
+  { nombre: "Estimativo Salarial Inteligente", gerencia: "Arquitectura", avance: 8 },
+  { nombre: "Dashboard Activos", gerencia: "Compras y Logística", avance: 18 },
+  { nombre: "Cartilla Bienvenida Personal", gerencia: "Gestión Humana", avance: 20 },
+  { nombre: "Descriptivos Técnicos Base", gerencia: "Arquitectura", avance: 20 },
+  { nombre: "Plataforma Clientes Prospectos", gerencia: "Mercadeo", avance: 40 },
+  { nombre: "Liquidaciones Nómina", gerencia: "Contabilidad", avance: 15 },
+  { nombre: "Flujos Contables Legalizaciones", gerencia: "Soluciones Financieras", avance: 10 }
+
+];
+
+
+const colores = {
+
+  "Soluciones Financieras": "#4a9fff",
+  "Contabilidad": "#d4a843",
+  "Mercadeo": "#00d4ff",
+  "Gobierno y Aseguramiento": "#22cc88",
+  "Servicios Generales": "#f07830",
+  "Compras y Logística": "#ff5c8a",
+  "Arquitectura": "#8c7bff",
+  "Gestión Humana": "#9aa8c4"
+
+};
+
+
+/* =========================
+CANTIDAD DE INICIATIVAS
+========================= */
+
+const conteoGerencias = {};
+
+iniciativas.forEach(i => {
+
+  if (!conteoGerencias[i.gerencia]) {
+    conteoGerencias[i.gerencia] = 0;
+  }
+
+  conteoGerencias[i.gerencia]++;
+
+});
+
+
+const ordenCantidad = Object.entries(conteoGerencias)
+  .sort((a, b) => b[1] - a[1]);
+
+const labels = ordenCantidad.map(g => g[0]);
+const data = ordenCantidad.map(g => g[1]);
+const backgroundColors = labels.map(g => colores[g]);
+
+
+/* =========================
+GRAFICA 1
+========================= */
+
+Chart.register(ChartDataLabels);
+
+const ctxGrafica = document
+  .getElementById("graficaIniciativas")
+  .getContext("2d");
+
+new Chart(ctxGrafica, {
+
+  type: "bar",
+
+  data: {
+    labels: labels,
+    datasets: [{
+      label: "Cantidad de iniciativas",
+      data: data,
+      backgroundColor: backgroundColors
+    }]
+  },
+
+  options: {
+
+    responsive: true,
+
+    plugins: {
+
+      legend: { display: false },
+
+      datalabels: {
+        color: "#fff",
+        anchor: "end",
+        align: "top",
+        font: { size: 14, weight: "bold" }
+      }
+
+    },
+
+    scales: {
+      y: { beginAtZero: true }
+    }
+
+  }
+
+});
+
+
+/* =========================
+PROMEDIO AVANCE GERENCIA
+========================= */
+
+const avanceGerencias = {};
+
+iniciativas.forEach(i => {
+
+  if (!avanceGerencias[i.gerencia]) {
+
+    avanceGerencias[i.gerencia] = { total: 0, cantidad: 0 };
+
+  }
+
+  avanceGerencias[i.gerencia].total += i.avance;
+  avanceGerencias[i.gerencia].cantidad++;
+
+});
+
+
+const avanceOrdenado = Object.entries(avanceGerencias)
+  .map(([g, v]) => [g, v.total / v.cantidad])
+  .sort((a, b) => b[1] - a[1]);
+
+const labelsAvance = avanceOrdenado.map(g => g[0]);
+const dataAvance = avanceOrdenado.map(g => g[1].toFixed(1));
+
+
+/* =========================
+GRAFICA 2
+========================= */
+
+const ctxAvance = document
+  .getElementById("graficaAvanceGerencia")
+  .getContext("2d");
+
+new Chart(ctxAvance, {
+
+  type: "bar",
+
+  data: {
+    labels: labelsAvance,
+    datasets: [{
+      label: "Promedio avance %",
+      data: dataAvance,
+      backgroundColor: labelsAvance.map(g => colores[g])
+    }]
+  },
+
+  options: {
+
+    responsive: true,
+
+    plugins: {
+
+      legend: { display: false },
+
+      datalabels: {
+        color: "#fff",
+        anchor: "end",
+        align: "top",
+        formatter: value => value + "%",
+        font: { weight: "bold" }
+      }
+
+    },
+
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 100
+      }
+    }
+
+  },
+
+  plugins: [ChartDataLabels]
+
+});
+
 window.addEventListener('load', () => {
 
   document.querySelectorAll('.card')

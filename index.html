@@ -9,6 +9,8 @@
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;500&family=Mulish:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 </head>
 
 <body>
@@ -124,6 +126,51 @@
     <button class="chip" onclick="fc('prod','o',this)">🟠 Nivel 2</button>
     <button class="chip" onclick="fc('prod','g',this)">🟢 Nivel 3</button>
   </div>
+
+  <section style="padding:40px 80px">
+    <h2 style="margin-bottom:20px;font-size:22px">📊 Avance de Iniciativas por Gerencia</h2>
+    <div class="leyenda-gerencias">
+
+      <div class="item-leyenda" data-gerencia="Soluciones Financieras">
+        <span class="color-box soluciones"></span> Soluciones Financieras
+      </div>
+
+      <div class="item-leyenda" data-gerencia="Contabilidad">
+        <span class="color-box contabilidad"></span> Contabilidad
+      </div>
+
+      <div class="item-leyenda" data-gerencia="Mercadeo">
+        <span class="color-box mercadeo"></span> Mercadeo
+      </div>
+
+      <div class="item-leyenda" data-gerencia="Gobierno y Aseguramiento">
+        <span class="color-box aseguramiento"></span> Aseguramiento
+      </div>
+
+      <div class="item-leyenda" data-gerencia="Servicios Generales">
+        <span class="color-box servicios"></span> Servicios Generales
+      </div>
+
+      <div class="item-leyenda" data-gerencia="Compras y Logística">
+        <span class="color-box compras"></span> Compras y Logística
+      </div>
+
+      <div class="item-leyenda" data-gerencia="Arquitectura">
+        <span class="color-box arquitectura"></span> Arquitectura
+      </div>
+
+      <div class="item-leyenda" data-gerencia="Gestión Humana">
+        <span class="color-box gestion"></span> Gestión Humana
+      </div>
+
+    </div>
+    <canvas id="graficaIniciativas" height="60"></canvas>
+
+    <h2 style="margin-top:60px">📈 Promedio de Avance por Gerencia</h2>
+
+    <canvas id="graficaAvanceGerencia" height="75"></canvas>
+
+  </section>
   <main>
     <div class="panel on" id="panel-auto">
       <div class="summary reveal">

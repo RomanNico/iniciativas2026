@@ -727,6 +727,64 @@ main {
     box-shadow: 0 0 20px rgba(212, 168, 67, .1)
 }
 
+.leyenda-gerencias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.item-leyenda {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.color-box {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+}
+
+/* colores de gerencias */
+
+.soluciones {
+    background: #4a9fff;
+}
+
+.contabilidad {
+    background: #d4a843;
+}
+
+.mercadeo {
+    background: #00d4ff;
+}
+
+.aseguramiento {
+    background: #22cc88;
+}
+
+.servicios {
+    background: #f07830;
+}
+
+.compras {
+    background: #ff5c8a;
+}
+
+.arquitectura {
+    background: #8c7bff;
+}
+
+.gestion {
+    background: #9aa8c4;
+}
+
 main {
     padding: 0 80px 120px
 }
