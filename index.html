@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciativas 2026</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;500&family=Mulish:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
+  <canvas id="cosmos"></canvas>
+  <div class="aurora">
+    <div class="aurora-orb ao1"></div>
+    <div class="aurora-orb ao2"></div>
+    <div class="aurora-orb ao3"></div>
+    <div class="aurora-orb ao4"></div>
+  </div>
+  <div id="intro">
+    <div class="intro-logo">COMWARE</div>
+    <div class="intro-line"></div>
+    <div class="intro-sub">Iniciativas Estratégicas · 2026</div>
+    <div class="intro-bar">
+      <div class="intro-progress"></div>
+    </div>
+  </div>
+  <header class="hero">
+    <div class="hero-top">
+      <div class="brand">
+        <div class="brand-mark"><img src="img/icono.png" alt=""></div>
+        <div class="brand-name">Comware</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px">
+        <div class="live-badge">
+          <div class="live-dot"></div><span>En Ejecución · Live</span>
+        </div>
+        <span class="hero-date">· 2026</span>
+      </div>
+    </div>
+    <div class="hero-body">
+      <div>
+        <div class="eyebrow">
+          <div class="eyebrow-line"></div><span class="eyebrow-text">Innovación &amp; Tecnología · Portafolio
+            Completo</span>
+        </div>
+        <h1>Iniciativas <em>Estratégicas</em><br><strong>de Automatización</strong><br>y Producto</h1>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-n kn-gold" data-count="32">0</div>
+          <div class="kpi-div"></div>
+          <div class="kpi-l">Total<br>Iniciativas</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-n" data-count="15">0</div>
+          <div class="kpi-div"></div>
+          <div class="kpi-l">Auto-<br>matización</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-n" data-count="16">0</div>
+          <div class="kpi-div"></div>
+          <div class="kpi-l">Producto<br>Scrum</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-n kn-red" data-count="2">0</div>
+          <div class="kpi-div"></div>
+          <div class="kpi-l">Casi en<br>Producción</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-n kn-green" data-count="5">0</div>
+          <div class="kpi-div"></div>
+          <div class="kpi-l">Ejecución<br>Activa</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-n kn-cyan" style="font-size:18px;margin-top:4px">Alto</div>
+          <div class="kpi-div"></div>
+          <div class="kpi-l">Impacto<br>General</div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav class="nav">
+    <div class="tab on" onclick="switchTab('auto')">⚙ Automatización <span class="tab-badge">15</span></div>
+    <div class="tab" onclick="switchTab('prod')">🚀 Producto · Scrum <span class="tab-badge">16</span></div>
+    <div class="ndiv"></div>
+    <span class="nlabel">Gerencia</span>
+    <select id="filtroGerencia" onchange="buscaAvanzado()" class="nsel">
+      <option value="all">Todas las gerencias</option>
+      <option value="soluciones">Soluciones Financieras</option>
+      <option value="compras">Compras y Logística</option>
+      <option value="servicios">Servicios Generales</option>
+      <option value="aseguramiento">Gobierno y Aseguramiento</option>
+      <option value="contabilidad">Contabilidad</option>
+      <option value="mercadeo">Mercadeo</option>
+      <option value="gestion">Gestión Humana</option>
+      <option value="arquitectura">Arquitectura - Tercerización</option>
+    </select>
+    <div class="swrap">
+      <span class="sico">🔎</span>
+      <input type="text" id="buscador" placeholder="Buscar iniciativa, desarrollador o área..."
+        onkeyup="buscaAvanzado()" class="sinp">
+      <button onclick="limpiarBusqueda()" class="sclr">✕</button>
+      <span id="contadorResultados" class="scnt"></span>
+    </div>
+  </nav>
+  <div class="filter-row" id="fa">
+    <span class="flbl">Filtrar:</span>
+    <button class="chip on" onclick="fc('auto','all',this)">Todas</button>
+    <button class="chip" onclick="fc('auto','r',this)">🔴 Nivel 1</button>
+    <button class="chip" onclick="fc('auto','o',this)">🟠 Nivel 2</button>
+    <button class="chip" onclick="fc('auto','y',this)">🟡 Nivel 3</button>
+    <button class="chip" onclick="fc('auto','g',this)">🟢 Nivel 4</button>
+  </div>
+  <div class="filter-row" id="fp" style="display:none">
+    <span class="flbl">Filtrar:</span>
+    <button class="chip on" onclick="fc('prod','all',this)">Todas</button>
+    <button class="chip" onclick="fc('prod','r',this)">🔴 Nivel 1</button>
+    <button class="chip" onclick="fc('prod','o',this)">🟠 Nivel 2</button>
+    <button class="chip" onclick="fc('prod','g',this)">🟢 Nivel 3</button>
+  </div>
+  <main>
+    <div class="panel on" id="panel-auto">
+      <div class="summary reveal">
+        <div class="sum-card">
+          <div class="sum-n" style="color:var(--r)">5</div>
+          <div class="sum-d">Nivel 1 — Mayor complejidad, iniciar hoy</div>
+        </div>
+        <div class="sum-card">
+          <div class="sum-n" style="color:var(--o)">5</div>
+          <div class="sum-d">Nivel 2 — Complejidad alta, en paralelo</div>
+        </div>
+        <div class="sum-card">
+          <div class="sum-n" style="color:var(--y)">4</div>
+          <div class="sum-d">Nivel 3 — Complejidad media</div>
+        </div>
+        <div class="sum-card">
+          <div class="sum-n" style="color:var(--g)">2</div>
+          <div class="sum-d">Nivel 4 — Quick wins, cerrar pronto</div>
+        </div>
+        <div class="sum-card">
+          <div class="sum-n" style="color:var(--b)">15</div>
+          <div class="sum-d">Total iniciativas automatización</div>
+        </div>
+      </div>
+      <div class="sec-hd reveal"><span class="sec-pill pill-r">🔴 Nivel 1</span><span class="sec-title">Las Más
+          Difíciles — Empezar Inmediatamente</span>
+        <div class="sec-rule"></div><span class="sec-hint">Mayor riesgo si no se inician ahora</span>
+      </div>
+      <div class="grid reveal" id="grid-auto">
+        <div class="card t-r" data-lvl="r">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-130<br>Contabilidad · CC 10687</span><span
+              class="c-pri pr-critica">Muy Alta</span></div>
+          <div class="c-title">Ecosistema Digital 360 — Transformación Operativa Integrada</div>
+          <div class="c-area">Contabilidad y Control Interno — Jefrey Román</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">8%</span></div>
+            <div class="bar-bg">
+              <div class="bar br" data-w="8"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">SAP</span><span class="tag">Aranda</span><span
+              class="tag">Jira</span><span class="tag">Invoway</span><span class="tag">Nova</span><span
+              class="tag">IA</span><span class="tag">Portales</span></div>
+          <div class="c-alert ar">🔴 Iniciativa más grande del portafolio. Integra 5 sistemas + portales internos + IA.
+            Empezar de inmediato.</div><button class="c-expand" onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Fragmentación de información y sistemas identificados
+            </div>
+            <div class="s-item done"><span class="s-ico">✔</span>Definición conceptual de procesos a integrar</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Beneficios estratégicos definidos</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Levantamiento detallado de procesos por área</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Arquitectura de integración entre sistemas</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Modelado de datos centralizado</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseño técnico de portales y automatizaciones</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Pruebas piloto por módulo</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JR</div>Jefrey Román
+            </div><span class="c-imp imp-ma">Muy Alto</span>
+          </div>
+        </div>
+        <div class="card t-r" data-lvl="r">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-65 · IN-127<br>Soluciones Financieras · CC 10729</span><span
+              class="c-pri pr-critica">Muy Alta</span></div>
+          <div class="c-title">Asistente SWAT — Plataforma Centralizada de IA Interna</div>
+          <div class="c-area">Soluciones Financieras — Nicolás Durán</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">12%</span></div>
+            <div class="bar-bg">
+              <div class="bar br" data-w="12"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">4 Asistentes IA</span><span class="tag">Arquitectura Modular</span><span
+              class="tag">APIs ERP</span><span class="tag">Transversal</span></div>
+          <div class="c-alert ar">🔴 Impacto transversal. 4 asistentes: Transversal, Arquitectura, Contabilidad y RRHH.
+          </div><button class="c-expand" onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Alcance y arquitectura conceptual definidos</div>
+            <div class="s-item done"><span class="s-ico">✔</span>4 asistentes y beneficios estructurados</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Levantamiento técnico formal por asistente</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Roadmap detallado + prototipo inicial</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Integraciones API con ERP y sistemas corporativos</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">ND</div>Nicolás Durán
+            </div><span class="c-imp imp-ma">Muy Alto</span>
+          </div>
+        </div>
+        <div class="card t-r" data-lvl="r">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-42 · AUT-692<br>Mercadeo · CC 10683</span><span
+              class="c-pri pr-muy-alta">Muy Alta</span></div>
+          <div class="c-title">Automatización Presentación de Informes Gerenciales — Junta</div>
+          <div class="c-area">Gerencia de Mercadeo — Camilo López</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">18%</span></div>
+            <div class="bar-bg">
+              <div class="bar br" data-w="18"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">CRM</span><span class="tag">Excel Financiero</span><span
+              class="tag">Auto-PowerPoint</span><span class="tag">Dashboard</span></div><button class="c-expand"
+            onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Fuentes identificadas (CRM + Excel financiero)</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Sesión de validación con involucrados agendada</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Levantamiento de indicadores + modelo consolidación
+            </div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Plantilla automática + desarrollo completo</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">CL</div>C. López
+            </div><span class="c-imp imp-ma">Muy Alto</span>
+          </div>
+        </div>
+        <div class="card t-r" data-lvl="r">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-37 · IN-113<br>Soluciones Financieras · CC 10729</span><span
+              class="c-pri pr-muy-alta">Muy Alta</span></div>
+          <div class="c-title">Informe Flujo de Caja Consolidado</div>
+          <div class="c-area">Soluciones Financieras — Oscar Gómez</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">10%</span></div>
+            <div class="bar-bg">
+              <div class="bar br" data-w="10"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">NOVA</span><span class="tag">Modelo Financiero</span><span
+              class="tag">&gt;$500M</span><span class="tag">Análisis Prob.</span></div>
+          <div class="c-alert ay">⚠️ Iniciativa actualmente en pausa. Reactivar cuando se libere capacidad.</div><button
+            class="c-expand" onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Alcance estratégico y NOVA como motor definidos</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Insumos principales identificados</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Levantamiento técnico + modelo financiero</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Tablero consolidado + desarrollo automatización</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">OG</div>Oscar Gómez
+            </div><span class="c-imp imp-ma">Muy Alto</span>
+          </div>
+        </div>
+        <div class="card t-r" data-lvl="r">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-41 · AUT-698<br>Aseguramiento · CC 10692</span><span
+              class="c-pri pr-muy-alta">Muy Alta</span></div>
+          <div class="c-title">Indicadores de Gestión ISO — Automatización de Procesos</div>
+          <div class="c-area">Gerencia Aseguramiento — Juan David Rodríguez</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">30%</span></div>
+            <div class="bar-bg">
+              <div class="bar br" data-w="30"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">ISO</span><span class="tag">Tablero Consolidado</span><span
+              class="tag">Alertas Auto</span><span class="tag">Fórmulas Dinámicas</span></div><button class="c-expand"
+            onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Informe inicial + flujo AS-IS elaborado</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Actores, limitaciones y subtareas cerradas</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Fase exploratoria completada</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Levantamiento con jefe + modelado TO-BE</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseño técnico + primera versión funcional</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JD</div>J. Rodríguez
+            </div><span class="c-imp imp-ma">Muy Alto</span>
+          </div>
+        </div>
+      </div>
+      <div class="sec-hd reveal"><span class="sec-pill pill-o">🟠 Nivel 2</span><span class="sec-title">Complejidad Alta
+          — Iniciar en Paralelo al Nivel 1</span>
+        <div class="sec-rule"></div>
+      </div>
+      <div class="grid reveal">
+        <div class="card t-o" data-lvl="o">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-54 · AUT-710<br>Contabilidad · CC 10687</span><span
+              class="c-pri pr-muy-alta">Muy Alta</span></div>
+          <div class="c-title">Enlace Cuentas por Pagar Invoway ↔ SAP</div>
+          <div class="c-area">Contabilidad y Control Interno — Saritha González</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">35%</span></div>
+            <div class="bar-bg">
+              <div class="bar bo" data-w="35"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">Invoway API</span><span class="tag">SAP</span><span class="tag">Archivo
+              Plano</span><span class="tag">Cargue Masivo</span></div><button class="c-expand" onclick="tc(this)">▼ Ver
+            estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Propuesta técnica MVP por fases estructurada</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Flujo de automatización y nodos definidos</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Campos requeridos SAP identificados</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Reunión en proceso con solicitante</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Confirmación técnica API Invoway + desarrollo</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Pruebas piloto en SAP</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">SG</div>S. González
+            </div><span class="c-imp imp-a">Alto</span>
+          </div>
+        </div>
+        <div class="card t-o" data-lvl="o">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-63 · IN-126<br>Compras y Logística · CC 10689</span><span
+              class="c-pri pr-alta">Alta</span></div>
+          <div class="c-title">Portal Integrado de Reportes Mensuales y Anuales (PyG)</div>
+          <div class="c-area">Compras, Logística e Inventarios — Santiago Moreno</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">20%</span></div>
+            <div class="bar-bg">
+              <div class="bar bo" data-w="20"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">SAP</span><span class="tag">Jira</span><span class="tag">APIs
+              Internas</span><span class="tag">PyG</span></div><button class="c-expand" onclick="tc(this)">▼ Ver estado
+            detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Objetivo + integraciones identificadas</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Subtarea AUT-700 creada + evidencia visual</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Modelo de datos consolidado + diseño técnico</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Desarrollo portal + pruebas funcionales</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">SM</div>S. Moreno
+            </div><span class="c-imp imp-a">Alto</span>
+          </div>
+        </div>
+        <div class="card t-o" data-lvl="o">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-52 · AUT-712<br>Contabilidad · CC 10687</span><span
+              class="c-pri pr-alta">Alta</span></div>
+          <div class="c-title">Identificación Responsabilidades Tributarias en Municipios</div>
+          <div class="c-area">Contabilidad — Juan David Rodríguez</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">18%</span></div>
+            <div class="bar-bg">
+              <div class="bar bo" data-w="18"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">IA PDF</span><span class="tag">SAP</span><span class="tag">40
+              municipios/mes</span><span class="tag">50-300 págs</span></div><button class="c-expand"
+            onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Archivos ejemplo disponibles (acuerdo + tabla + SAP)
+            </div>
+            <div class="s-item done"><span class="s-ico">✔</span>Reunión agendada para levantamiento</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Modelo de datos + diseño flujo IA</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Pruebas piloto con acuerdos reales</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JD</div>J. Rodríguez
+            </div><span class="c-imp imp-a">Alto</span>
+          </div>
+        </div>
+        <div class="card t-o" data-lvl="o">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-58 · IN-121<br>Aseguramiento · CC 10692</span><span
+              class="c-pri pr-alta">Alta</span></div>
+          <div class="c-title">Automatización Matriz de Compromisos Contractuales</div>
+          <div class="c-area">Aseguramiento de Soluciones — Edwin León</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">12%</span></div>
+            <div class="bar-bg">
+              <div class="bar bo" data-w="12"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">BPO</span><span class="tag">ITO</span><span
+              class="tag">Contratos</span><span class="tag">Seguimiento</span></div><button class="c-expand"
+            onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Problema, alcance y beneficios documentados</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Levantamiento detallado + modelo de datos</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseño técnico + planificación de desarrollo</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">EL</div>E. León
+            </div><span class="c-imp imp-a">Alto</span>
+          </div>
+        </div>
+        <div class="card t-o" data-lvl="o">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-57 · IN-120<br>Aseguramiento · CC 10692</span><span
+              class="c-pri pr-alta">Alta</span></div>
+          <div class="c-title">Automatización Auditorías de Casos — Bot ITSM</div>
+          <div class="c-area">Aseguramiento de Soluciones — Sahra Gómez</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">15%</span></div>
+            <div class="bar-bg">
+              <div class="bar bo" data-w="15"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">ITSM Aranda</span><span class="tag">Bot Evaluación</span><span
+              class="tag">Comwquality</span><span class="tag">Matrices Calidad</span></div><button class="c-expand"
+            onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Proceso actual y matrices de calidad identificados
+            </div>
+            <div class="s-item done"><span class="s-ico">✔</span>Alcance BPO e ITO definido</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Definición técnica del bot + integración ITSM</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Modelo evaluación automatizada + planificación</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">SG</div>Sahra Gómez
+            </div><span class="c-imp imp-a">Alto</span>
+          </div>
+        </div>
+      </div>
+      <div class="sec-hd reveal"><span class="sec-pill pill-y">🟡 Nivel 3</span><span class="sec-title">Complejidad
+          Media — Desarrollo Manejable</span>
+        <div class="sec-rule"></div>
+      </div>
+      <div class="grid reveal">
+        <div class="card t-y" data-lvl="y">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-60 · AUT-702<br>Servicios Generales · CC 10690</span><span
+              class="c-pri pr-media">Media-Alta</span></div>
+          <div class="c-title">Planificación Digital y Control de Cargas Operativas</div>
+          <div class="c-area">Servicios Generales — Juan David Rodríguez</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">30%</span></div>
+            <div class="bar-bg">
+              <div class="bar by" data-w="30"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">App Móvil</span><span class="tag">Dashboard</span><span
+              class="tag">Indicadores</span></div><button class="c-expand" onclick="tc(this)">▼ Ver estado
+            detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Diagrama conceptual y componentes tecnológicos
+              definidos</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Fase exploratoria y actividades cerradas</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Reunión validación + diseño técnico detallado</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Planificación formal + desarrollo</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JD</div>J. Rodríguez
+            </div><span class="c-imp imp-a">Medio-Alto</span>
+          </div>
+        </div>
+        <div class="card t-y" data-lvl="y">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-59 · IN-122<br>Servicios Generales · CC 10690</span><span
+              class="c-pri pr-alta">Alta</span></div>
+          <div class="c-title">Canal Móvil de Solicitudes Administrativas + Aranda</div>
+          <div class="c-area">Servicios Generales — Santiago Moreno</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">65%</span></div>
+            <div class="bar-bg">
+              <div class="bar by" data-w="65"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">n8n ✓</span><span class="tag">Mini App ✓</span><span class="tag">BD
+              ✓</span><span class="tag">Aranda API</span></div>
+          <div class="c-alert ao">🟠 Muy avanzado. Solo falta integración Aranda + paso a productivo.</div><button
+            class="c-expand" onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Mini app frontend + backend desarrollada</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Flujo n8n + webhook + base de datos operativa</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Pruebas funcionales y coordinación realizadas</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Integración final API Aranda</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Ajustes finales + paso a productivo</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">SM</div>S. Moreno
+            </div><span class="c-imp imp-a">Medio-Alto</span>
+          </div>
+        </div>
+        <div class="card t-y" data-lvl="y">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-35 · IN-112<br>Aseguramiento · CC 10692</span><span
+              class="c-pri pr-alta">Alta</span></div>
+          <div class="c-title">Consolidación Reservas, Ocupación y Costos por Puestos de Trabajo</div>
+          <div class="c-area">Gerencia Aseguramiento — Santiago Moreno</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">45%</span></div>
+            <div class="bar-bg">
+              <div class="bar by" data-w="45"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">Power BI</span><span class="tag">MVP Excel ✓</span><span
+              class="tag">HTML/JS</span><span class="tag">3 Sedes</span></div><button class="c-expand"
+            onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>MVP consolidando sedes Centro, Cali y Medellín</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Cálculos automáticos y desarrollo visual HTML/JS</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Análisis archivos reales y planos de sedes</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Reunión formal con solicitante + conexión a BD</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Validación con Contabilidad + paso a producción</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">SM</div>S. Moreno
+            </div><span class="c-imp imp-a">Alto</span>
+          </div>
+        </div>
+        <div class="card t-y" data-lvl="y">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-111 · IN-129<br>Corporativo — Todas las Áreas</span><span
+              class="c-pri pr-media">Media</span></div>
+          <div class="c-title">Desarrollo Automatizado Herramientas Comware (Paraguas)</div>
+          <div class="c-area">Soluciones Financieras — Jefrey Román</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">10%</span></div>
+            <div class="bar-bg">
+              <div class="bar by" data-w="10"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">SAP</span><span class="tag">INVOWAY</span><span
+              class="tag">NOVA</span><span class="tag">Iniciativa Paraguas</span></div><button class="c-expand"
+            onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Idea, beneficios y alcance general definidos</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Sistemas identificados (SAP, INVOWAY, NOVA, etc.)</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Levantamiento detallado por áreas</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseño técnico + planificación formal (Gantt)</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JR</div>Jefrey Román
+            </div><span class="c-imp imp-a">Alto</span>
+          </div>
+        </div>
+      </div>
+      <div class="sec-hd reveal"><span class="sec-pill pill-g">🟢 Nivel 4</span><span class="sec-title">Quick Wins —
+          Cierres Rápidos y Visibles</span>
+        <div class="sec-rule"></div>
+      </div>
+      <div class="grid reveal">
+        <div class="card t-g" data-lvl="g">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-47 · AUT-693<br>Mercadeo · CC 10683</span><span
+              class="c-pri pr-critica">Crítica</span></div>
+          <div class="c-title">Chatbot Pág Web Omnicanal</div>
+          <div class="c-area">Gerencia de Mercadeo — Nicolás Durán</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">80%</span></div>
+            <div class="bar-bg">
+              <div class="bar bg" data-w="80"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">n8n ✓</span><span class="tag">NOVA ✓</span><span class="tag">WhatsApp
+              API</span><span class="tag">CRM</span><span class="tag">Frontend ✓</span></div>
+          <div class="c-alert ar">🔴 Cerrar esta semana. Ya está casi listo. Impacta leads e ingresos directamente.
+          </div><button class="c-expand" onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Integración frontend ↔ n8n ↔ NOVA operativa</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Flujo pregunta-respuesta funcional y probado</div>
+            <div class="s-item done"><span class="s-ico">✔</span>HTML/CSS responsive producción-ready</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Validación con solicitante realizada</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Insumos finales para entrenamiento IA</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Ajustes lógica conversacional + paso a producción</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">ND</div>Nicolás Durán
+            </div><span class="c-imp imp-ma">Muy Alto</span>
+          </div>
+        </div>
+      </div>
+      <div class="sec-hd reveal" style="margin-top:20px"><span class="sec-pill pill-b">📅 Gantt</span><span
+          class="sec-title">Cronograma de Ejecución — Automatización</span>
+        <div class="sec-rule"></div>
+      </div>
+      <div class="gantt-placeholder reveal"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+          stroke-width="1.2">
+          <rect x="3" y="4" width="18" height="16" rx="2" />
+          <path d="M3 9h18M8 2v4M16 2v4M7 13h4M7 17h8" />
+        </svg>Los diagramas de Gantt se integrarán aquí cuando sean provistos.<br><span
+          style="font-size:11px;opacity:.4">Sección lista para recibir el cronograma por iniciativa.</span></div>
+    </div>
+    <div class="panel" id="panel-prod">
+      <div class="summary reveal">
+        <div class="sum-card">
+          <div class="sum-n" style="color:var(--r)">5</div>
+          <div class="sum-d">Nivel 1 — Mayor dificultad, iniciar hoy</div>
+        </div>
+        <div class="sum-card">
+          <div class="sum-n" style="color:var(--o)">5</div>
+          <div class="sum-d">Nivel 2 — Complejidad media, en ejecución</div>
+        </div>
+        <div class="sum-card">
+          <div class="sum-n" style="color:var(--g)">6</div>
+          <div class="sum-d">Nivel 3 — Implementación rápida</div>
+        </div>
+        <div class="sum-card">
+          <div class="sum-n" style="color:var(--gold2)">16</div>
+          <div class="sum-d">Total iniciativas Producto/Scrum</div>
+        </div>
+      </div>
+      <div class="sec-hd reveal"><span class="sec-pill pill-r">🔴 Nivel 1</span><span class="sec-title">Las Más
+          Difíciles — Empezar Ya</span>
+        <div class="sec-rule"></div><span class="sec-hint">Mayor riesgo si no inician hoy</span>
+      </div>
+      <div class="grid reveal" id="grid-prod">
+        <div class="card t-r" data-lvl="r">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-131 · PQE-2261<br>Soluciones Financieras · CC 10729</span><span
+              class="c-pri pr-critica">Muy Alta</span></div>
+          <div class="c-title">Automatización de Flujos Contables y Legalizaciones (Invoway-SAP)</div>
+          <div class="c-area">Soluciones Financieras — Jeimy Bernal</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">10%</span></div>
+            <div class="bar-bg">
+              <div class="bar br" data-w="10"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">Invoway</span><span class="tag">SAP</span><span
+              class="tag">Legalizaciones</span><span class="tag">Activos Fijos</span></div>
+          <div class="c-alert ar">🔴 Iniciativa más compleja del portafolio Producto. Integra Invoway + SAP + App
+            interna + activos fijos.</div><button class="c-expand" onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Problema operativo y sistemas involucrados definidos
+            </div>
+            <div class="s-item done"><span class="s-ico">✔</span>Alcance general y beneficio esperado documentados</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Levantamiento detallado flujo contable actual</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Reglas contables + arquitectura de integración</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseño herramienta legalizaciones + desarrollo SAP
+            </div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Pruebas piloto con casos reales</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JB</div>Jeimy Bernal
+            </div><span class="c-imp imp-a">Alto</span>
+          </div>
+        </div>
+        <div class="card t-r" data-lvl="r">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-104 · PQE-2213<br>Arquitectura · CC 10695</span><span
+              class="c-pri pr-critica">Muy Alta</span></div>
+          <div class="c-title">Lectura y Análisis Inteligente de Pliegos con IA</div>
+          <div class="c-area">Arquitectura / Tercerización — Jeimy Bernal</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">10%</span></div>
+            <div class="bar-bg">
+              <div class="bar br" data-w="10"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">IA Semántica</span><span class="tag">SharePoint</span><span
+              class="tag">Licitaciones</span><span class="tag">Comparación Versiones</span></div><button
+            class="c-expand" onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>SharePoint como repositorio oficial definido</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Meta: -20% tiempo de revisión de pliegos</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Modelo: descalificable/puntuable/deseable</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Motor comparación versiones + prototipo IA</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Pruebas piloto con pliegos reales</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JB</div>Jeimy Bernal
+            </div><span class="c-imp imp-ma">Muy Alto</span>
+          </div>
+        </div>
+        <div class="card t-r" data-lvl="r">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-46 · PQE-2198<br>Arquitectura · CC 10695</span><span
+              class="c-pri pr-critica">Muy Alta</span></div>
+          <div class="c-title">Generador Automático de Dimensionamiento de RH</div>
+          <div class="c-area">Arquitectura / Tercerización — Jeimy Bernal</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">30%</span></div>
+            <div class="bar-bg">
+              <div class="bar br" data-w="30"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">Erlang C</span><span class="tag">SLA/TMO</span><span class="tag">Contact
+              Center</span><span class="tag">Motor Matemático</span></div><button class="c-expand" onclick="tc(this)">▼
+            Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Reunión inicial + variables clave definidas</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Método Erlang C identificado; roles a dimensionar</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Bloqueos y preguntas técnicas estructuradas</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Entrega de fórmulas y bases históricas</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Modelo matemático definitivo + interfaz + prototipo
+            </div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JB</div>Jeimy Bernal
+            </div><span class="c-imp imp-ma">Muy Alto</span>
+          </div>
+        </div>
+        <div class="card t-r" data-lvl="r">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-45 · PQE-2197<br>Arquitectura · CC 10695</span><span
+              class="c-pri pr-critica">Muy Alta</span></div>
+          <div class="c-title">Estimativo Salarial Inteligente Multi-fuente</div>
+          <div class="c-area">Arquitectura / Desarrollo de Negocios — Jeimy Bernal</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">8%</span></div>
+            <div class="bar-bg">
+              <div class="bar br" data-w="8"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">Multi-fuente</span><span class="tag">IA Semántica</span><span
+              class="tag">Base Interna</span><span class="tag">Licitaciones</span></div><button class="c-expand"
+            onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Problema + impacto + integración interna/externa</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Necesidad de trazabilidad de fuente definida</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Fuentes externas + normalización salarial</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Prototipo + validación con casos reales</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JB</div>Jeimy Bernal
+            </div><span class="c-imp imp-ma">Muy Alto</span>
+          </div>
+        </div>
+        <div class="card t-r" data-lvl="r">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-107 · PQE-2216<br>Soluciones Financieras · CC 10729</span><span
+              class="c-pri pr-muy-alta">Muy Alta</span></div>
+          <div class="c-title">Automatización y Control Integral de Afiliaciones Laborales</div>
+          <div class="c-area">Soluciones Financieras — Jeimy Bernal</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">12%</span></div>
+            <div class="bar-bg">
+              <div class="bar br" data-w="12"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">CCF/EPS/ARL</span><span class="tag">UGPP</span><span class="tag">Panel
+              Control</span><span class="tag">-40% tiempo</span></div><button class="c-expand" onclick="tc(this)">▼ Ver
+            estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Meta: reducir 40% tiempos de afiliación</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Componentes funcionales definidos a alto nivel</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Levantamiento detallado + puntos críticos UGPP</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Panel de control + desarrollo + pruebas</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JB</div>Jeimy Bernal
+            </div><span class="c-imp imp-ma">Muy Alto</span>
+          </div>
+        </div>
+      </div>
+      <div class="sec-hd reveal"><span class="sec-pill pill-o">🟠 Nivel 2</span><span class="sec-title">Complejidad
+          Media — En Desarrollo Activo</span>
+        <div class="sec-rule"></div>
+      </div>
+      <div class="grid reveal">
+        <div class="card t-o" data-lvl="o">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-110 · PQE-2189<br>Soluciones Financieras · CC 10729</span><span
+              class="c-pri pr-alta">Alta</span></div>
+          <div class="c-title">Automatización Radicación y Auditoría de Incapacidades</div>
+          <div class="c-area">Soluciones Financieras — Jeimy Bernal</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">15%</span></div>
+            <div class="bar-bg">
+              <div class="bar bo" data-w="15"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">PDF Editable</span><span class="tag">Anti-fraude</span><span
+              class="tag">Recobro</span><span class="tag">Panel</span></div><button class="c-expand"
+            onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Riesgos de fraude documental identificados</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Indicador de efectividad de recobro definido</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Arquitectura + detector PDF editable</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Panel seguimiento + indicadores</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JB</div>Jeimy Bernal
+            </div><span class="c-imp imp-a">Alto</span>
+          </div>
+        </div>
+        <div class="card t-o" data-lvl="o">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-55 · PQE-2203<br>Contabilidad · CC 10687</span><span
+              class="c-pri pr-alta">Alta</span></div>
+          <div class="c-title">Automatización Legalizaciones — Caja Menor, Anticipos, TC</div>
+          <div class="c-area">Contabilidad y Control Interno — Jeimy Bernal</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">15%</span></div>
+            <div class="bar-bg">
+              <div class="bar bo" data-w="15"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">IA PDF</span><span class="tag">SAP</span><span
+              class="tag">Intranet</span><span class="tag">20% ahorro</span></div><button class="c-expand"
+            onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Archivos ejemplo + integración SAP+Intranet definida
+            </div>
+            <div class="s-item done"><span class="s-ico">✔</span>Beneficio cuantificado: 20% ahorro mensual</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Estructura exacta archivo plano SAP</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseño flujo IA + desarrollo + pruebas</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JB</div>Jeimy Bernal
+            </div><span class="c-imp imp-a">Alto</span>
+          </div>
+        </div>
+        <div class="card t-o" data-lvl="o">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-108 · PQE-2217<br>Soluciones Financieras · CC 10729</span><span
+              class="c-pri pr-alta">Alta</span></div>
+          <div class="c-title">Optimización del Reclutamiento — Primer Filtro Automatizado</div>
+          <div class="c-area">Soluciones Financieras — Jeimy Bernal</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">12%</span></div>
+            <div class="bar-bg">
+              <div class="bar bo" data-w="12"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">Chatbot HV</span><span class="tag">Motor Reglas</span><span
+              class="tag">-70% filtro</span></div><button class="c-expand" onclick="tc(this)">▼ Ver estado
+            detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Meta: 70% reducción tiempo primer filtro</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Alcance: procesos masivos y cargos recurrentes</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Criterios de clasificación por tipo de cargo</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseño chatbot + desarrollo + pruebas</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JB</div>Jeimy Bernal
+            </div><span class="c-imp imp-a">Alto</span>
+          </div>
+        </div>
+        <div class="card t-o" data-lvl="o">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-106 · PQE-2215<br>Arquitectura · CC 10695</span><span
+              class="c-pri pr-alta">Alta</span></div>
+          <div class="c-title">Estimativo Salarial — Versión Base para Pliegos</div>
+          <div class="c-area">Arquitectura / Tercerización — Jeimy Bernal</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">10%</span></div>
+            <div class="bar-bg">
+              <div class="bar bo" data-w="10"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">Portales Empleo</span><span class="tag">Base Interna</span><span
+              class="tag">-70% búsqueda</span></div><button class="c-expand" onclick="tc(this)">▼ Ver estado
+            detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Base interna definida; 70% optimización cuantificada
+            </div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Fuentes externas + modelo datos salarial</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Motor búsqueda + criterios perfil + pruebas</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JB</div>Jeimy Bernal
+            </div><span class="c-imp imp-a">Alto</span>
+          </div>
+        </div>
+        <div class="card t-o" data-lvl="o">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-56 · AUT-708<br>Mercadeo · CC 10683</span><span
+              class="c-pri pr-alta">Alta</span></div>
+          <div class="c-title">Plataforma Central de Datos de Clientes y Prospectos</div>
+          <div class="c-area">Gerencia de Mercadeo — Jeimy Bernal</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">40%</span></div>
+            <div class="bar-bg">
+              <div class="bar bo" data-w="40"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">CRM</span><span class="tag">Excel-BD</span><span
+              class="tag">Scoring</span><span class="tag">Flujo Auto ✓</span></div><button class="c-expand"
+            onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Flujo actualización Excel hijo-main operativo</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Validación duplicados + notificación correo</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Validación con solicitante iniciada</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Modelo datos persona/empresa + integración CRM</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Scoring + enriquecimiento externo</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JB</div>Jeimy Bernal
+            </div><span class="c-imp imp-a">Alto</span>
+          </div>
+        </div>
+      </div>
+      <div class="sec-hd reveal"><span class="sec-pill pill-g">🟢 Nivel 3</span><span class="sec-title">Implementación
+          Rápida — Quick Wins de Producto</span>
+        <div class="sec-rule"></div>
+      </div>
+      <div class="grid reveal">
+        <div class="card t-g" data-lvl="g">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-44 · PQE-2196<br>Compras y Logística · CC 10689</span><span
+              class="c-pri pr-alta">Alta</span></div>
+          <div class="c-title">Dashboard Interactivo de Activos Corporativos</div>
+          <div class="c-area">Compras, Logística e Inventarios — Jeimy Bernal</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">18%</span></div>
+            <div class="bar-bg">
+              <div class="bar bg" data-w="18"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">Power BI</span><span class="tag">CMDB</span><span
+              class="tag">SAP</span><span class="tag">Aranda</span></div><button class="c-expand" onclick="tc(this)">▼
+            Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Archivo consolidado base + sistemas fuente disponibles
+            </div>
+            <div class="s-item done"><span class="s-ico">✔</span>Variables clave y herramienta (Power BI) definidas
+            </div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Modelo datos unificado + KPIs específicos</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Desarrollo dashboard + validación áreas usuarias</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JB</div>Jeimy Bernal
+            </div><span class="c-imp imp-a">Alto</span>
+          </div>
+        </div>
+        <div class="card t-g" data-lvl="g">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-53 · IN-128<br>Contabilidad · CC 10687</span><span
+              class="c-pri pr-media">Media-Alta</span></div>
+          <div class="c-title">Liquidaciones y Capacitaciones de Nómina — SAP</div>
+          <div class="c-area">Contabilidad y Control Interno — Jeimy Bernal</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">15%</span></div>
+            <div class="bar-bg">
+              <div class="bar bg" data-w="15"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">SAP</span><span class="tag">Excel-Plano</span><span
+              class="tag">16-24h/mes ahorro</span></div><button class="c-expand" onclick="tc(this)">▼ Ver estado
+            detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Beneficio cuantificado: 16-24h laborales/mes</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Problema, alcance e impacto definidos</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Levantamiento técnico + estructura archivo SAP</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Desarrollo flujo automatizado + pruebas piloto</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JB</div>Jeimy Bernal
+            </div><span class="c-imp imp-m">Medio</span>
+          </div>
+        </div>
+        <div class="card t-g" data-lvl="g">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-34 · PQE-2190<br>Gestión Humana · CC 10686</span><span
+              class="c-pri pr-media">Media-Alta</span></div>
+          <div class="c-title">Envío Automático Cartilla de Bienvenida — Personal Nuevo</div>
+          <div class="c-area">Gestión Humana — Jeimy Bernal</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">20%</span></div>
+            <div class="bar-bg">
+              <div class="bar bg" data-w="20"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">Trigger Estado</span><span class="tag">Correo Auto</span><span
+              class="tag">Teams URL</span><span class="tag">Log Envío</span></div><button class="c-expand"
+            onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Requerimiento completamente documentado</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Plantillas, insumos y flujo listos</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Stakeholders y criterios de aceptación definidos</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Disparador automático + parametrización HTML</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Control de unicidad + log + pruebas funcionales</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JB</div>Jeimy Bernal
+            </div><span class="c-imp imp-a">Medio-Alto</span>
+          </div>
+        </div>
+        <div class="card t-g" data-lvl="g">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-109 · PQE-2218<br>Soluciones Financieras · CC 10729</span><span
+              class="c-pri pr-media">Media-Alta</span></div>
+          <div class="c-title">Onboarding Digital Gamificado y Automatización de Carnets</div>
+          <div class="c-area">Soluciones Financieras / Gestión Humana — Jeimy Bernal</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">12%</span></div>
+            <div class="bar-bg">
+              <div class="bar bg" data-w="12"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">Gamificación</span><span class="tag">Carnet Auto</span><span
+              class="tag">-60% carnetización</span></div><button class="c-expand" onclick="tc(this)">▼ Ver estado
+            detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Meta: 60% reducción en carnetización</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Componentes técnicos definidos a alto nivel</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Levantamiento flujo actual + diseño funcional</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Plantilla automatizada + integración BD + pruebas</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JB</div>Jeimy Bernal
+            </div><span class="c-imp imp-a">Medio-Alto</span>
+          </div>
+        </div>
+        <div class="card t-g" data-lvl="g">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-105 · AUT-713<br>Arquitectura · CC 10695</span><span
+              class="c-pri pr-media">Media</span></div>
+          <div class="c-title">Generación Automatizada de Descriptivos Técnicos Base</div>
+          <div class="c-area">Arquitectura - Tercerización — Jeimy Bernal</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">20%</span></div>
+            <div class="bar-bg">
+              <div class="bar bg" data-w="20"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">Asistente IA</span><span class="tag">Mesa Servicio</span><span
+              class="tag">Contact Center</span></div><button class="c-expand" onclick="tc(this)">▼ Ver estado
+            detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Informe inicial con brechas y riesgos elaborado</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Contexto documentado</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Validación flujo con solicitante</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseño del asistente + desarrollo</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JB</div>Jeimy Bernal
+            </div><span class="c-imp imp-a">Medio-Alto</span>
+          </div>
+        </div>
+        <div class="card t-g" data-lvl="g">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-47 · PEQ-2199<br>Arquitectura · CC 10695</span><span
+              class="c-pri pr-muy-alta">Muy Alta</span></div>
+          <div class="c-title">Informe Inteligente — Resumen de Alcances (RFP)</div>
+          <div class="c-area">Arquitectura / Tercerización — Jeimy Bernal</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">12%</span></div>
+            <div class="bar-bg">
+              <div class="bar bg" data-w="12"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">Formulario IA</span><span class="tag">Word/PDF Export</span><span
+              class="tag">SharePoint</span><span class="tag">Power App</span></div><button class="c-expand"
+            onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Flujo funcional conceptualizado</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Sistemas involucrados identificados</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Preguntas guía + modelo de clasificación técnica</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseño interfaz + prototipo + pruebas con RFP</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JB</div>Jeimy Bernal
+            </div><span class="c-imp imp-ma">Muy Alto</span>
+          </div>
+        </div>
+      </div>
+      <div class="sec-hd reveal" style="margin-top:20px"><span class="sec-pill pill-b">📅 Gantt</span><span
+          class="sec-title">Cronograma de Ejecución — Producto / Scrum</span>
+        <div class="sec-rule"></div>
+      </div>
+      <div class="gantt-placeholder reveal"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+          stroke-width="1.2">
+          <rect x="3" y="4" width="18" height="16" rx="2" />
+          <path d="M3 9h18M8 2v4M16 2v4M7 13h4M7 17h8" />
+        </svg>Los diagramas de Gantt se integrarán aquí cuando sean provistos.<br><span
+          style="font-size:11px;opacity:.4">Sección lista para recibir el cronograma por iniciativa.</span></div>
+    </div>
+  </main>
+</body>
+<script src="js/script.js"></script>
+
+</html>
