@@ -363,21 +363,20 @@ function observeReveal() {
 }
 const iniciativas = [
 
-  { nombre: "Desarrollo automatizado de herramientas Comware", gerencia: "Soluciones Financieras", avance: 10 },
-  { nombre: "Asistente SWAT", gerencia: "Soluciones Financieras", avance: 12 },
+  { nombre: "Desarrollo automatizado de herramientas Comware", gerencia: "Soluciones Financieras", avance: 15 },
+  { nombre: "Asistente SWAT", gerencia: "Soluciones Financieras", avance: 20 },
   { nombre: "Portal Integrado de Reportes Mensuales y Anuales", gerencia: "Compras y Logística", avance: 20 },
-  { nombre: "Planificación digital y control de cargas operativas", gerencia: "Servicios Generales", avance: 30 },
-  { nombre: "Canal móvil de solicitudes administrativas integrado a Arandas", gerencia: "Servicios Generales", avance: 65 },
-  { nombre: "Automatización Matriz Compromiso Contractual", gerencia: "Gobierno y Aseguramiento", avance: 12 },
-  { nombre: "Automatización Auditorias Casos", gerencia: "Gobierno y Aseguramiento", avance: 15 },
-  { nombre: "Enlace Cuentas por Pagar Invoway Sap", gerencia: "Contabilidad", avance: 35 },
-  { nombre: "Identificación Responsabilidades tributarias Municipios", gerencia: "Contabilidad", avance: 18 },
-  { nombre: "Chatbot Pág Web Omnicanal", gerencia: "Mercadeo", avance: 80 },
-  { nombre: "Presentación de informes gerenciales", gerencia: "Mercadeo", avance: 18 },
-  { nombre: "Indicadores Gestión Procesos", gerencia: "Gobierno y Aseguramiento", avance: 30 },
-  { nombre: "Informe Flujo de Caja consolidado", gerencia: "Soluciones Financieras", avance: 10 },
-  { nombre: "Consolidación Reservas y Puestos de Trabajo", gerencia: "Gobierno y Aseguramiento", avance: 45 },
-  { nombre: "Ecosistema Digital 360", gerencia: "Contabilidad", avance: 8 },
+  { nombre: "Planificación digital y control de cargas operativas", gerencia: "Servicios Generales", avance: 32 },
+  { nombre: "Canal móvil de solicitudes administrativas integrado a Arandas", gerencia: "Servicios Generales", avance: 70 },
+  { nombre: "Automatización Matriz Compromiso Contractual", gerencia: "Gobierno y Aseguramiento", avance: 25 },
+  { nombre: "Automatización Auditorias Casos", gerencia: "Gobierno y Aseguramiento", avance: 30 },
+  { nombre: "Enlace Cuentas por Pagar Invoway Sap", gerencia: "Contabilidad", avance: 40 },
+  { nombre: "Identificación Responsabilidades tributarias Municipios", gerencia: "Contabilidad", avance: 28 },
+  { nombre: "Chatbot Pág Web Omnicanal", gerencia: "Mercadeo", avance: 85 },
+  { nombre: "Presentación de informes gerenciales", gerencia: "Mercadeo", avance: 22 },
+  { nombre: "Indicadores Gestión Procesos", gerencia: "Gobierno y Aseguramiento", avance: 35 },
+  { nombre: "Informe Flujo de Caja consolidado", gerencia: "Soluciones Financieras", avance: 70 },
+  { nombre: "Ecosistema Digital 360", gerencia: "Contabilidad", avance: 15 },
 
   { nombre: "Automatización Radicación Incapacidades", gerencia: "Soluciones Financieras", avance: 15 },
   { nombre: "Onboarding Digital Carnets", gerencia: "Soluciones Financieras", avance: 12 },
@@ -398,6 +397,24 @@ const iniciativas = [
 
 ];
 
+function toggleGraficas() {
+
+  const graficas = document.getElementById("seccionGraficas");
+  const btn = document.getElementById("btnGraficas");
+
+  if (graficas.style.display === "none") {
+
+    graficas.style.display = "block";
+    btn.innerText = "📉Ocultar gráficas";
+
+  } else {
+
+    graficas.style.display = "none";
+    btn.innerText = "📊Ver gráficas";
+
+  }
+
+}
 
 const colores = {
 
