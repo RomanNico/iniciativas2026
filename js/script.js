@@ -195,6 +195,9 @@ function switchTab(t) {
 
   aplicarFiltros();
 
+  calcularEstados(t);
+  calcularTotal(t);
+
   setTimeout(animateBars, 80);
 
 }
@@ -363,37 +366,37 @@ function observeReveal() {
 }
 const iniciativas = [
 
-  { nombre: "Desarrollo automatizado de herramientas Comware", gerencia: "Soluciones Financieras", avance: 15 },
-  { nombre: "Asistente SWAT", gerencia: "Soluciones Financieras", avance: 20 },
-  { nombre: "Portal Integrado de Reportes Mensuales y Anuales", gerencia: "Compras y Logística", avance: 20 },
-  { nombre: "Planificación digital y control de cargas operativas", gerencia: "Servicios Generales", avance: 32 },
-  { nombre: "Canal móvil de solicitudes administrativas integrado a Arandas", gerencia: "Servicios Generales", avance: 70 },
-  { nombre: "Automatización Matriz Compromiso Contractual", gerencia: "Gobierno y Aseguramiento", avance: 25 },
-  { nombre: "Automatización Auditorias Casos", gerencia: "Gobierno y Aseguramiento", avance: 30 },
-  { nombre: "Enlace Cuentas por Pagar Invoway Sap", gerencia: "Contabilidad", avance: 40 },
-  { nombre: "Identificación Responsabilidades tributarias Municipios", gerencia: "Contabilidad", avance: 28 },
-  { nombre: "Chatbot Pág Web Omnicanal", gerencia: "Mercadeo", avance: 85 },
-  { nombre: "Presentación de informes gerenciales", gerencia: "Mercadeo", avance: 22 },
-  { nombre: "Indicadores Gestión Procesos", gerencia: "Gobierno y Aseguramiento", avance: 35 },
-  { nombre: "Informe Flujo de Caja consolidado", gerencia: "Soluciones Financieras", avance: 70 },
-  { nombre: "Ecosistema Digital 360", gerencia: "Contabilidad", avance: 15 },
+  { nombre: "Desarrollo automatizado de herramientas Comware", tipo: "auto", gerencia: "Soluciones Financieras", avance: 15 },
+  { nombre: "Asistente SWAT", tipo: "auto", gerencia: "Soluciones Financieras", avance: 35 },
+  { nombre: "Portal Integrado de Reportes Mensuales y Anuales", tipo: "auto", gerencia: "Compras y Logística", avance: 20 },
+  { nombre: "Planificación digital y control de cargas operativas", tipo: "auto", gerencia: "Servicios Generales", avance: 45 },
+  { nombre: "Canal móvil de solicitudes administrativas", tipo: "auto", gerencia: "Servicios Generales", avance: 70 },
+  { nombre: "Automatización Matriz Compromiso Contractual", tipo: "auto", gerencia: "Gobierno y Aseguramiento", avance: 80 },
+  { nombre: "Automatización Auditorias Casos", tipo: "auto", gerencia: "Gobierno y Aseguramiento", avance: 30 },
+  { nombre: "Enlace Cuentas por Pagar Invoway Sap", tipo: "auto", gerencia: "Contabilidad", avance: 50 },
+  { nombre: "Identificación Responsabilidades tributarias Municipios", tipo: "auto", gerencia: "Contabilidad", avance: 35 },
+  { nombre: "Chatbot Pág Web Omnicanal", tipo: "auto", gerencia: "Mercadeo", avance: 90 },
+  { nombre: "Presentación de informes gerenciales", tipo: "auto", gerencia: "Mercadeo", avance: 30 },
+  { nombre: "Indicadores Gestión Procesos", tipo: "auto", gerencia: "Gobierno y Aseguramiento", avance: 40 },
+  { nombre: "Informe Flujo de Caja consolidado", tipo: "auto", gerencia: "Soluciones Financieras", avance: 85 },
+  { nombre: "Ecosistema Digital 360", tipo: "auto", gerencia: "Contabilidad", avance: 15 },
+  { nombre: "Informe Inteligente Alcances", tipo: "auto", gerencia: "Arquitectura", avance: 12 },
+  { nombre: "Optimización Reclutamiento", tipo: "auto", gerencia: "Soluciones Financieras", avance: 12 },
+  { nombre: "Liquidaciones Nómina", tipo: "auto", gerencia: "Contabilidad", avance: 15 },
 
-  { nombre: "Automatización Radicación Incapacidades", gerencia: "Soluciones Financieras", avance: 15 },
-  { nombre: "Onboarding Digital Carnets", gerencia: "Soluciones Financieras", avance: 12 },
-  { nombre: "Optimización Reclutamiento", gerencia: "Soluciones Financieras", avance: 12 },
-  { nombre: "Afiliaciones Laborales", gerencia: "Soluciones Financieras", avance: 12 },
-  { nombre: "Estimativo Salarial", gerencia: "Arquitectura", avance: 10 },
-  { nombre: "Lectura análisis pliegos", gerencia: "Arquitectura", avance: 10 },
-  { nombre: "Automatización Legalizaciones", gerencia: "Contabilidad", avance: 15 },
-  { nombre: "Informe Inteligente Alcances", gerencia: "Arquitectura", avance: 12 },
-  { nombre: "Dimensionamiento RH", gerencia: "Arquitectura", avance: 30 },
-  { nombre: "Estimativo Salarial Inteligente", gerencia: "Arquitectura", avance: 8 },
-  { nombre: "Dashboard Activos", gerencia: "Compras y Logística", avance: 18 },
-  { nombre: "Cartilla Bienvenida Personal", gerencia: "Gestión Humana", avance: 20 },
-  { nombre: "Descriptivos Técnicos Base", gerencia: "Arquitectura", avance: 20 },
-  { nombre: "Plataforma Clientes Prospectos", gerencia: "Mercadeo", avance: 40 },
-  { nombre: "Liquidaciones Nómina", gerencia: "Contabilidad", avance: 15 },
-  { nombre: "Flujos Contables Legalizaciones", gerencia: "Soluciones Financieras", avance: 10 }
+  { nombre: "Automatización Radicación Incapacidades", tipo: "prod", gerencia: "Soluciones Financieras", avance: 15 },
+  { nombre: "Onboarding Digital Carnets", tipo: "prod", gerencia: "Soluciones Financieras", avance: 12 },
+  { nombre: "Afiliaciones Laborales", tipo: "prod", gerencia: "Soluciones Financieras", avance: 12 },
+  { nombre: "Estimativo Salarial", tipo: "prod", gerencia: "Arquitectura", avance: 10 },
+  { nombre: "Lectura análisis pliegos", tipo: "prod", gerencia: "Arquitectura", avance: 10 },
+  { nombre: "Automatización Legalizaciones", tipo: "prod", gerencia: "Contabilidad", avance: 15 },
+  { nombre: "Dimensionamiento RH", tipo: "prod", gerencia: "Arquitectura", avance: 30 },
+  { nombre: "Estimativo Salarial Inteligente", tipo: "prod", gerencia: "Arquitectura", avance: 8 },
+  { nombre: "Dashboard Activos", tipo: "prod", gerencia: "Compras y Logística", avance: 18 },
+  { nombre: "Cartilla Bienvenida Personal", tipo: "prod", gerencia: "Gestión Humana", avance: 20 },
+  { nombre: "Descriptivos Técnicos Base", tipo: "prod", gerencia: "Arquitectura", avance: 20 },
+  { nombre: "Plataforma Clientes Prospectos", tipo: "prod", gerencia: "Mercadeo", avance: 40 },
+  { nombre: "Flujos Contables Legalizaciones", tipo: "prod", gerencia: "Soluciones Financieras", avance: 10 }
 
 ];
 
@@ -446,6 +449,15 @@ iniciativas.forEach(i => {
 
 });
 
+function calcularTotal(panel) {
+
+  const total = iniciativas.filter(i => i.tipo === panel).length;
+
+  document.getElementById("estadoTotal").innerText = total;
+
+}
+
+calcularTotal();
 
 const ordenCantidad = Object.entries(conteoGerencias)
   .sort((a, b) => b[1] - a[1]);
@@ -583,6 +595,91 @@ new Chart(ctxAvance, {
   plugins: [ChartDataLabels]
 
 });
+
+/* =========================
+AVANCE GLOBAL PORTAFOLIO
+========================= */
+
+function calcularAvanceGlobal() {
+
+  let total = 0;
+
+  iniciativas.forEach(i => {
+    total += i.avance;
+  });
+
+  const promedio = Math.round(total / iniciativas.length);
+
+  document.getElementById("avanceGlobal").innerText = promedio + "%";
+
+  const barra = document.getElementById("barraGlobal");
+
+  setTimeout(() => {
+    barra.style.width = promedio + "%";
+  }, 400);
+
+}
+
+calcularAvanceGlobal();
+/* =========================
+ESTADOS DEL PORTAFOLIO
+========================= */
+
+function calcularEstados(panel) {
+
+  let levantamiento = 0;
+  let desarrollo = 0;
+  let validacion = 0;
+  let espera = 0;
+  let produccion = 0;
+
+  iniciativas
+    .filter(i => i.tipo === panel)
+    .forEach(i => {
+
+      if (i.avance < 30) levantamiento++;
+
+      else if (i.avance <= 50) desarrollo++;
+
+      else if (i.avance <= 80) validacion++;
+
+      else if (i.avance <= 100) espera++;
+
+      else produccion++;
+
+    });
+
+  document.getElementById("estadoAnalisis").innerText = levantamiento;
+  document.getElementById("estadoDesarrollo").innerText = desarrollo;
+  document.getElementById("estadoValidacion").innerText = validacion;
+  document.getElementById("estadoEspera").innerText = espera;
+  document.getElementById("estadoProduccion").innerText = produccion;
+
+}
+
+calcularEstados("auto");
+calcularTotal("auto");
+
+function animarEstados() {
+
+  const total = iniciativas.length;
+
+  const a = parseInt(document.getElementById("estadoAnalisis").innerText);
+  const d = parseInt(document.getElementById("estadoDesarrollo").innerText);
+  const v = parseInt(document.getElementById("estadoValidacion").innerText);
+  const e = parseInt(document.getElementById("estadoEspera").innerText);
+  const p = parseInt(document.getElementById("estadoProduccion").innerText);
+
+  document.getElementById("barTotal").style.width = "100%";
+  document.getElementById("barAnalisis").style.width = (a / total * 100) + "%";
+  document.getElementById("barDev").style.width = (d / total * 100) + "%";
+  document.getElementById("barValidacion").style.width = (v / total * 100) + "%";
+  document.getElementById("barEspera").style.width = (e / total * 100) + "%";
+  document.getElementById("barProd").style.width = (p / total * 100) + "%";
+
+}
+
+setTimeout(animarEstados, 400);
 
 window.addEventListener('load', () => {
 

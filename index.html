@@ -60,12 +60,12 @@
           <div class="kpi-l">Total<br>Iniciativas</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-n" data-count="14">0</div>
+          <div class="kpi-n" data-count="17">0</div>
           <div class="kpi-div"></div>
           <div class="kpi-l">Auto-<br>matización</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-n" data-count="16">0</div>
+          <div class="kpi-n" data-count="13">0</div>
           <div class="kpi-div"></div>
           <div class="kpi-l">Producto<br>Scrum</div>
         </div>
@@ -86,10 +86,22 @@
         </div>
       </div>
     </div>
+    <div class="portfolio-progress">
+
+      <div class="portfolio-head">
+        <span>Avance global del portafolio</span>
+        <span id="avanceGlobal">0%</span>
+      </div>
+
+      <div class="portfolio-bar-bg">
+        <div id="barraGlobal"></div>
+      </div>
+
+    </div>
   </header>
   <nav class="nav">
-    <div class="tab on" onclick="switchTab('auto')">⚙ Automatización <span class="tab-badge">14</span></div>
-    <div class="tab" onclick="switchTab('prod')">🚀 Producto · Scrum <span class="tab-badge">16</span></div>
+    <div class="tab on" onclick="switchTab('auto')">⚙ Automatización <span class="tab-badge">17</span></div>
+    <div class="tab" onclick="switchTab('prod')">🚀 Producto · Scrum <span class="tab-badge">13</span></div>
     <div class="ndiv"></div>
     <span class="nlabel">Gerencia</span>
     <select id="filtroGerencia" onchange="buscaAvanzado()" class="nsel">
@@ -135,7 +147,7 @@
 
     <div id="contenedorGraficas">
 
-      <h2 style="margin-bottom:20px;font-size:22px">📊 Avance de Iniciativas por Gerencia</h2>
+      <h2 style="margin-bottom:20px;font-size:22px">📊 Iniciativas por Gerencia</h2>
       <div class="leyenda-gerencias">
 
         <div class="item-leyenda" data-gerencia="Soluciones Financieras">
@@ -179,35 +191,83 @@
     </div>
 
   </section>
+  <div class="panel-estados">
+    <div class="estado-grid">
+
+      <div class="estado-card estado-analisis">
+        <div class="estado-icon">📋</div>
+        <div class="estado-num" id="estadoAnalisis">0</div>
+        <div class="estado-label">Levantamiento de información</div>
+        <div class="estado-bar"><span id="barAnalisis"></span></div>
+      </div>
+      <div class="estado-card estado-dev">
+        <div class="estado-icon">⚙</div>
+        <div class="estado-num" id="estadoDesarrollo">0</div>
+        <div class="estado-label">En desarrollo</div>
+        <div class="estado-bar"><span id="barDev"></span></div>
+      </div>
+      <div class="estado-card estado-validacion">
+        <div class="estado-icon">🚀</div>
+        <div class="estado-num" id="estadoValidacion">0</div>
+        <div class="estado-label">Pronto a salir</div>
+        <div class="estado-bar"><span id="barValidacion"></span></div>
+      </div>
+      <div class="estado-card estado-espera">
+        <div class="estado-icon">⏳</div>
+        <div class="estado-num" id="estadoEspera">0</div>
+        <div class="estado-label">En espera para producción</div>
+        <div class="estado-bar"><span id="barEspera"></span></div>
+      </div>
+      <div class="estado-card estado-prod">
+        <div class="estado-icon">✅</div>
+        <div class="estado-num" id="estadoProduccion">0</div>
+        <div class="estado-label">En producción</div>
+        <div class="estado-bar"><span id="barProd"></span></div>
+      </div>
+      <div class="estado-card total">
+        <div class="estado-icon">📊</div>
+        <div class="estado-num" id="estadoTotal">0</div>
+        <div class="estado-label">Total iniciativas</div>
+        <div class="estado-bar"><span id="barTotal"></span></div>
+      </div>
+
+    </div>
+
+  </div>
   <main>
     <div class="panel on" id="panel-auto">
-      <div class="summary reveal">
-        <div class="sum-card">
-          <div class="sum-n" style="color:var(--r)">5</div>
-          <div class="sum-d">Nivel 1 — Mayor complejidad, iniciar hoy</div>
-        </div>
-        <div class="sum-card">
-          <div class="sum-n" style="color:var(--o)">5</div>
-          <div class="sum-d">Nivel 2 — Complejidad alta, en paralelo</div>
-        </div>
-        <div class="sum-card">
-          <div class="sum-n" style="color:var(--y)">4</div>
-          <div class="sum-d">Nivel 3 — Complejidad media</div>
-        </div>
-        <div class="sum-card">
-          <div class="sum-n" style="color:var(--g)">2</div>
-          <div class="sum-d">Nivel 4 — Quick wins, cerrar pronto</div>
-        </div>
-        <div class="sum-card">
-          <div class="sum-n" style="color:var(--b)">14</div>
-          <div class="sum-d">Total iniciativas automatización</div>
-        </div>
-      </div>
       <div class="sec-hd reveal"><span class="sec-pill pill-r">🔴 Nivel 1</span><span class="sec-title">Las Más
           Difíciles — Empezar Inmediatamente</span>
         <div class="sec-rule"></div><span class="sec-hint">Mayor riesgo si no se inician ahora</span>
       </div>
       <div class="grid reveal" id="grid-auto">
+        <div class="card t-r" data-lvl="r">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-47 · PEQ-2199<br>Arquitectura · CC 10695</span><span
+              class="c-pri pr-muy-alta">Muy Alta</span></div>
+          <div class="c-title">Informe Inteligente — Resumen de Alcances (RFP)</div>
+          <div class="c-area">Arquitectura / Tercerización — Jefrey Roman</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">12%</span></div>
+            <div class="bar-bg">
+              <div class="bar br" data-w="12"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">Formulario IA</span><span class="tag">Word/PDF Export</span><span
+              class="tag">SharePoint</span><span class="tag">Power App</span></div><button class="c-expand"
+            onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Flujo funcional conceptualizado</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Sistemas involucrados identificados</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Preguntas guía + modelo de clasificación técnica</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseño interfaz + prototipo + pruebas con RFP</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">JR</div>J. Roman
+            </div><span class="c-imp imp-ma">Muy Alto</span>
+          </div>
+        </div>
         <div class="card t-r" data-lvl="r">
           <div class="cg"></div>
           <div class="card-top"><span class="c-id">IN-130<br>Contabilidad · CC 10687</span><span
@@ -227,23 +287,23 @@
             Empezar de inmediato.</div><button class="c-expand" onclick="tc(this)">▼ Ver estado detallado</button>
           <div class="c-status">
 
-            <div class="s-item done"><span class="s-ico">✔</span>Reunión inicial realizada con la solicitante</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Levantamiento inicial realizado con la solicitante
+            </div>
             <div class="s-item done"><span class="s-ico">✔</span>Sistemas involucrados identificados (SAP, Aranda, Jira,
               Invoway y Nova)</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Se identificó que varios proyectos ya existen en otras
-              iniciativas</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Análisis de iniciativas existentes relacionadas</div>
 
-            <div class="s-item todo"><span class="s-ico">⏳</span>Recepción de documento con levantamiento de ideas
-              restantes</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Definición de arquitectura de integración</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Diseño del modelo de datos</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Inicio del desarrollo de los 4 proyectos faltantes
+            <div class="s-item todo"><span class="s-ico">⏳</span>Recepción del documento con el levantamiento detallado
+              de ideas restantes</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Definir arquitectura de integración entre plataformas
             </div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseñar modelo de datos unificado</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Iniciar desarrollo de los 4 proyectos restantes</div>
 
           </div>
           <div class="c-foot">
             <div class="c-who">
-              <div class="avatar">JR</div>Jefrey Román
+              <div class="avatar">JR</div>J. Roman
             </div><span class="c-imp imp-ma">Muy Alto</span>
           </div>
         </div>
@@ -254,9 +314,9 @@
           <div class="c-title">Asistente SWAT — Plataforma Centralizada de IA Interna</div>
           <div class="c-area">Soluciones Financieras — Nicolás Durán</div>
           <div class="c-prog">
-            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">20%</span></div>
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">35%</span></div>
             <div class="bar-bg">
-              <div class="bar br" data-w="20"></div>
+              <div class="bar br" data-w="35"></div>
             </div>
           </div>
           <div class="c-tags"><span class="tag">4 Asistentes IA</span><span class="tag">Arquitectura Modular</span><span
@@ -267,19 +327,20 @@
 
             <div class="s-item done"><span class="s-ico">✔</span>Arquitectura conceptual de asistentes definida</div>
             <div class="s-item done"><span class="s-ico">✔</span>Asistente de arquitectura desarrollado</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Interfaz interactiva conectada con NOVA</div>
 
-            <div class="s-item todo"><span class="s-ico">⏳</span>Presentación del asistente de arquitectura para
-              validación</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Validación del asistente de arquitectura con el área
+              solicitante</div>
             <div class="s-item todo"><span class="s-ico">⏳</span>Levantamiento de requerimientos del asistente de
               gestión humana</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Levantamiento del asistente transversal</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Desarrollo de asistentes restantes</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Integración con sistemas corporativos</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Evaluar viabilidad del asistente transversal</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Desarrollar asistentes restantes</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Integrar asistentes con sistemas corporativos</div>
 
           </div>
           <div class="c-foot">
             <div class="c-who">
-              <div class="avatar">ND</div>Nicolás Durán
+              <div class="avatar">ND</div>N. Durán
             </div><span class="c-imp imp-ma">Muy Alto</span>
           </div>
         </div>
@@ -290,9 +351,9 @@
           <div class="c-title">Automatización Presentación de Informes Gerenciales — Junta</div>
           <div class="c-area">Gerencia de Mercadeo — Nicolás Durán</div>
           <div class="c-prog">
-            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">22%</span></div>
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">30%</span></div>
             <div class="bar-bg">
-              <div class="bar br" data-w="22"></div>
+              <div class="bar br" data-w="30"></div>
             </div>
           </div>
           <div class="c-tags"><span class="tag">CRM</span><span class="tag">Excel Financiero</span><span
@@ -300,21 +361,23 @@
             onclick="tc(this)">▼ Ver estado detallado</button>
           <div class="c-status">
 
-            <div class="s-item done"><span class="s-ico">✔</span>Problema operativo identificado</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Problema identificado y alcance definido</div>
             <div class="s-item done"><span class="s-ico">✔</span>Fuentes de información identificadas (CRM y Excel
               financiero)</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Reunión agendada con stakeholders</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Reunión técnica realizada para analizar integración con
+              SAP</div>
 
-            <div class="s-item todo"><span class="s-ico">⏳</span>Definir indicadores requeridos por la junta directiva
+            <div class="s-item todo"><span class="s-ico">⏳</span>Definir modelo de consolidación de datos</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseñar estructura de indicadores comerciales y
+              financieros</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseñar plantilla automática de informe gerencial</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Desarrollar automatización de generación de informes
             </div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Diseñar modelo de consolidación de información</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Diseñar plantilla automática de presentación</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Desarrollar automatización completa</div>
 
           </div>
           <div class="c-foot">
             <div class="c-who">
-              <div class="avatar">ND</div>Nicolás Durán
+              <div class="avatar">ND</div>N. Durán
             </div><span class="c-imp imp-ma">Muy Alto</span>
           </div>
         </div>
@@ -325,9 +388,9 @@
           <div class="c-title">Informe Flujo de Caja Consolidado</div>
           <div class="c-area">Soluciones Financieras — Saritha Gonzalez</div>
           <div class="c-prog">
-            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">70%</span></div>
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">85%</span></div>
             <div class="bar-bg">
-              <div class="bar br" data-w="70"></div>
+              <div class="bar br" data-w="85"></div>
             </div>
           </div>
           <div class="c-tags"><span class="tag">NOVA</span><span class="tag">Modelo Financiero</span><span
@@ -337,18 +400,17 @@
           <div class="c-status">
 
             <div class="s-item done"><span class="s-ico">✔</span>Necesidad estratégica identificada</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Alcance y objetivos definidos</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Uso de NOVA como motor de análisis definido</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Modelo de consolidación definido</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Desarrollo de la solución finalizado</div>
 
-            <div class="s-item todo"><span class="s-ico">⏳</span>Revisión del desarrollo realizado por Oscar</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Validación con cliente</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Identificación de mejoras del modelo</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Implementación de mejoras</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Reunión de validación con el cliente</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Revisión de posibles mejoras del sistema</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Despliegue final en producción</div>
 
           </div>
           <div class="c-foot">
             <div class="c-who">
-              <div class="avatar">SG</div>Saritha Gonzalez
+              <div class="avatar">SG</div>S. Gonzalez
             </div><span class="c-imp imp-ma">Muy Alto</span>
           </div>
         </div>
@@ -359,9 +421,9 @@
           <div class="c-title">Indicadores de Gestión ISO — Automatización de Procesos</div>
           <div class="c-area">Gerencia Aseguramiento — Juan David Rodríguez</div>
           <div class="c-prog">
-            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">35%</span></div>
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">40%</span></div>
             <div class="bar-bg">
-              <div class="bar br" data-w="35"></div>
+              <div class="bar br" data-w="40"></div>
             </div>
           </div>
           <div class="c-tags"><span class="tag">ISO</span><span class="tag">Tablero Consolidado</span><span
@@ -370,13 +432,13 @@
           <div class="c-status">
 
             <div class="s-item done"><span class="s-ico">✔</span>Levantamiento inicial de requerimientos realizado</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Proceso actual documentado</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Proceso actual documentado (AS-IS)</div>
+            <div class="s-item done"><span class="s-ico">✔</span>PDR del proyecto en construcción</div>
 
-            <div class="s-item todo"><span class="s-ico">⏳</span>Evaluación de alternativa técnica (automatización o
-              portal)</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Definición de arquitectura de solución</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Diseño del modelo de indicadores</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Desarrollo del sistema de gestión</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Definir arquitectura técnica del sistema</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseñar modelo definitivo de indicadores</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Desarrollar plataforma de gestión de indicadores</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Realizar pruebas funcionales con el área</div>
 
           </div>
           <div class="c-foot">
@@ -398,9 +460,9 @@
           <div class="c-title">Enlace Cuentas por Pagar Invoway ↔ SAP</div>
           <div class="c-area">Contabilidad y Control Interno — Saritha González</div>
           <div class="c-prog">
-            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">40%</span></div>
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">50%</span></div>
             <div class="bar-bg">
-              <div class="bar bo" data-w="40"></div>
+              <div class="bar bo" data-w="50"></div>
             </div>
           </div>
           <div class="c-tags"><span class="tag">Invoway API</span><span class="tag">SAP</span><span class="tag">Archivo
@@ -409,12 +471,13 @@
           <div class="c-status">
 
             <div class="s-item done"><span class="s-ico">✔</span>Flujo de automatización diseñado</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Campos requeridos en SAP identificados</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Reuniones técnicas realizadas</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Campos requeridos por SAP identificados</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Reunión técnica con equipo SAP realizada</div>
 
-            <div class="s-item todo"><span class="s-ico">⏳</span>Corrección de estructura XML</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Integración definitiva con SAP</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Pruebas piloto del flujo completo</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Corregir flujo de procesamiento XML</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Validar estructura final del archivo plano SAP</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Realizar pruebas piloto con facturas reales</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Despliegue final en producción</div>
 
           </div>
           <div class="c-foot">
@@ -440,13 +503,15 @@
             detallado</button>
           <div class="c-status">
 
-            <div class="s-item done"><span class="s-ico">✔</span>Objetivo del portal definido</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Alcance del portal definido</div>
             <div class="s-item done"><span class="s-ico">✔</span>Fuentes de información identificadas</div>
             <div class="s-item done"><span class="s-ico">✔</span>Subtareas técnicas creadas</div>
 
             <div class="s-item todo"><span class="s-ico">⏳</span>Agendar reunión con solicitante</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Diseñar modelo de datos consolidado</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Desarrollar portal</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Definir modelo de datos consolidado</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseñar arquitectura del portal</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Desarrollar sistema de generación automática de
+              reportes</div>
 
           </div>
           <div class="c-foot">
@@ -462,9 +527,9 @@
           <div class="c-title">Identificación Responsabilidades Tributarias en Municipios</div>
           <div class="c-area">Contabilidad — Juan David Rodríguez</div>
           <div class="c-prog">
-            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">28%</span></div>
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">35%</span></div>
             <div class="bar-bg">
-              <div class="bar bo" data-w="28"></div>
+              <div class="bar bo" data-w="35"></div>
             </div>
           </div>
           <div class="c-tags"><span class="tag">IA PDF</span><span class="tag">SAP</span><span class="tag">40
@@ -472,13 +537,16 @@
             onclick="tc(this)">▼ Ver estado detallado</button>
           <div class="c-status">
 
-            <div class="s-item done"><span class="s-ico">✔</span>Interfaz de carga de archivos desarrollada</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Automatización inicial con n8n</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Archivos de prueba disponibles</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Módulo de carga de archivos PDF desarrollado</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Flujo inicial de automatización en n8n configurado
+            </div>
+            <div class="s-item done"><span class="s-ico">✔</span>Análisis técnico del problema de OCR realizado</div>
 
             <div class="s-item todo"><span class="s-ico">⏳</span>Implementar OCR para documentos escaneados</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Diseñar modelo de extracción de datos</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Realizar pruebas con acuerdos reales</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseñar modelo de extracción de datos tributarios</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Realizar pruebas con acuerdos municipales reales</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Generar tabla automática de responsabilidades
+              tributarias</div>
 
           </div>
           <div class="c-foot">
@@ -494,9 +562,9 @@
           <div class="c-title">Automatización Matriz de Compromisos Contractuales</div>
           <div class="c-area">Aseguramiento de Soluciones — Edwin León</div>
           <div class="c-prog">
-            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">25%</span></div>
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">80%</span></div>
             <div class="bar-bg">
-              <div class="bar bo" data-w="25"></div>
+              <div class="bar bo" data-w="80"></div>
             </div>
           </div>
           <div class="c-tags"><span class="tag">BPO</span><span class="tag">ITO</span><span
@@ -504,20 +572,44 @@
             onclick="tc(this)">▼ Ver estado detallado</button>
           <div class="c-status">
 
-            <div class="s-item done"><span class="s-ico">✔</span>Problema operativo identificado y documentado</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Alcance de la automatización definido</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Validación realizada con la solicitante</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Definición de desarrollar un portal web para gestionar
-              compromisos</div>
-
-            <div class="s-item todo"><span class="s-ico">⏳</span>Diseñar modelo de datos para compromisos contractuales
+            <div class="s-item done"><span class="s-ico">✔</span>Portal web para carga de contratos desarrollado</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Flujo de automatización en n8n implementado</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Integración con IA para análisis documental</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Generación automática de matriz contractual funcional
             </div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Definir arquitectura del portal</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Desarrollar módulo de carga de documentos contractuales
-            </div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Implementar sistema de seguimiento y control de
-              compromisos</div>
 
+            <div class="s-item todo"><span class="s-ico">⏳</span>Mejorar experiencia de usuario del portal</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Implementar indicadores de procesamiento</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Realizar pruebas finales con usuarios</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Despliegue en producción</div>
+
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">EL</div>E. León
+            </div><span class="c-imp imp-a">Alto</span>
+          </div>
+        </div>
+        <div class="card t-o" data-lvl="o">
+          <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-108 · PQE-2217<br>Soluciones Financieras · CC 10729</span><span
+              class="c-pri pr-alta">Alta</span></div>
+          <div class="c-title">Optimización del Reclutamiento — Primer Filtro Automatizado</div>
+          <div class="c-area">Soluciones Financieras — Edwin Leon</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">12%</span></div>
+            <div class="bar-bg">
+              <div class="bar bo" data-w="12"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">Chatbot HV</span><span class="tag">Motor Reglas</span><span
+              class="tag">-70% filtro</span></div><button class="c-expand" onclick="tc(this)">▼ Ver estado
+            detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Meta: 70% reducción tiempo primer filtro</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Alcance: procesos masivos y cargos recurrentes</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Criterios de clasificación por tipo de cargo</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseño chatbot + desarrollo + pruebas</div>
           </div>
           <div class="c-foot">
             <div class="c-who">
@@ -542,24 +634,20 @@
             onclick="tc(this)">▼ Ver estado detallado</button>
           <div class="c-status">
 
-            <div class="s-item done"><span class="s-ico">✔</span>Proceso actual de auditoría de casos documentado</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Levantamiento completo de requerimientos realizado con
-              la solicitante</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Archivos de prueba entregados para iniciar el
-              desarrollo</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Levantamiento completo de requerimientos realizado
+            </div>
+            <div class="s-item done"><span class="s-ico">✔</span>Proceso actual de auditoría documentado</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Archivos de prueba recibidos</div>
 
-            <div class="s-item todo"><span class="s-ico">⏳</span>Diseñar arquitectura técnica del bot de auditoría</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Parametrizar reglas de evaluación según matrices de
-              calidad</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Integrar el bot con la herramienta ITSM (Aranda)</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Realizar pruebas piloto con casos reales</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Implementar versión funcional del sistema de auditoría
-              automatizado</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseñar arquitectura técnica del bot</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Desarrollar reglas de evaluación de calidad</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Integrar bot con herramienta ITSM</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Realizar pruebas piloto</div>
 
           </div>
           <div class="c-foot">
             <div class="c-who">
-              <div class="avatar">EL</div>Edwin Leon
+              <div class="avatar">EL</div>E. León
             </div><span class="c-imp imp-a">Alto</span>
           </div>
         </div>
@@ -570,38 +658,81 @@
       </div>
       <div class="grid reveal">
         <div class="card t-y" data-lvl="y">
+
           <div class="cg"></div>
-          <div class="card-top"><span class="c-id">IN-60 · AUT-702<br>Servicios Generales · CC 10690</span><span
-              class="c-pri pr-media">Media-Alta</span></div>
+
+          <div class="card-top">
+            <span class="c-id">IN-60 · AUT-702<br>Servicios Generales · CC 10690</span>
+            <span class="c-pri pr-media">Media-Alta</span>
+          </div>
+
           <div class="c-title">Planificación Digital y Control de Cargas Operativas</div>
+
           <div class="c-area">Servicios Generales — Juan David Rodríguez</div>
+
           <div class="c-prog">
-            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">32%</span></div>
+            <div class="c-prog-head">
+              <span class="c-prog-lbl">Avance</span>
+              <span class="c-prog-pct">45%</span>
+            </div>
+
             <div class="bar-bg">
-              <div class="bar by" data-w="32"></div>
+              <div class="bar by" data-w="45"></div>
             </div>
           </div>
-          <div class="c-tags"><span class="tag">App Móvil</span><span class="tag">Dashboard</span><span
-              class="tag">Indicadores</span></div><button class="c-expand" onclick="tc(this)">▼ Ver estado
-            detallado</button>
+
+          <div class="c-tags">
+            <span class="tag">App Móvil</span>
+            <span class="tag">Dashboard</span>
+            <span class="tag">Indicadores</span>
+          </div>
+
+          <button class="c-expand" onclick="tc(this)">
+            ▼ Ver estado detallado
+          </button>
+
           <div class="c-status">
 
-            <div class="s-item done"><span class="s-ico">✔</span>Documento inicial de automatización elaborado</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Diagrama conceptual del sistema</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Problema identificado</div>
+            <div class="s-item done">
+              <span class="s-ico">✔</span>Levantamiento de requerimientos realizado
+            </div>
 
-            <div class="s-item todo"><span class="s-ico">⏳</span>Reunión de levantamiento con solicitante</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Definición de modelo de base de datos</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Diseño de arquitectura del sistema</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Desarrollo de herramienta</div>
+            <div class="s-item done">
+              <span class="s-ico">✔</span>Arquitectura definida como aplicación PWA
+            </div>
+
+            <div class="s-item done">
+              <span class="s-ico">✔</span>Desarrollo inicial del frontend iniciado
+            </div>
+
+            <div class="s-item todo">
+              <span class="s-ico">⏳</span>Desarrollar backend del sistema
+            </div>
+
+            <div class="s-item todo">
+              <span class="s-ico">⏳</span>Implementar registro de actividades
+            </div>
+
+            <div class="s-item todo">
+              <span class="s-ico">⏳</span>Desarrollar panel de indicadores
+            </div>
+
+            <div class="s-item todo">
+              <span class="s-ico">⏳</span>Realizar pruebas con usuarios
+            </div>
 
           </div>
+
           <div class="c-foot">
             <div class="c-who">
-              <div class="avatar">JD</div>J. Rodríguez
-            </div><span class="c-imp imp-a">Medio-Alto</span>
+              <div class="avatar">JD</div>
+              J. Rodríguez
+            </div>
+            <span class="c-imp imp-a">Medio-Alto</span>
           </div>
+
         </div>
+
         <div class="card t-y" data-lvl="y">
           <div class="cg"></div>
           <div class="card-top"><span class="c-id">IN-59 · IN-122<br>Servicios Generales · CC 10690</span><span
@@ -616,18 +747,16 @@
           </div>
           <div class="c-tags"><span class="tag">n8n ✓</span><span class="tag">Mini App ✓</span><span class="tag">BD
               ✓</span><span class="tag">Aranda API</span></div>
-          <div class="c-alert ao">🟠 Muy avanzado. Solo falta integración Aranda + paso a productivo.</div><button
-            class="c-expand" onclick="tc(this)">▼ Ver estado detallado</button>
+          <div class="c-alert ao">⚠️PAUSA POR MIGRACIÓN A IVANTI</div><button class="c-expand" onclick="tc(this)">▼ Ver
+            estado detallado</button>
           <div class="c-status">
 
-            <div class="s-item done"><span class="s-ico">✔</span>Mini app desarrollada</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Flujo n8n implementado</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Base de datos implementada</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Pruebas funcionales realizadas</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Formulario web desarrollado</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Flujo automatizado en n8n implementado</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Base de datos de solicitudes operativa</div>
 
-            <div class="s-item todo"><span class="s-ico">⏳</span>Integración final con API de Aranda</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Ajustes finales según validación</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Paso a producción</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Evaluar integración con nueva plataforma IVANTI</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Analizar reutilización del desarrollo actual</div>
 
           </div>
           <div class="c-foot">
@@ -675,7 +804,7 @@
           </div>
           <div class="c-foot">
             <div class="c-who">
-              <div class="avatar">JR</div>Jefrey Román
+              <div class="avatar">JR</div>J. Roman
             </div><span class="c-imp imp-a">Alto</span>
           </div>
         </div>
@@ -687,14 +816,42 @@
       <div class="grid reveal">
         <div class="card t-g" data-lvl="g">
           <div class="cg"></div>
+          <div class="card-top"><span class="c-id">IN-53 · IN-128<br>Contabilidad · CC 10687</span><span
+              class="c-pri pr-media">Media-Alta</span></div>
+          <div class="c-title">Liquidaciones y Capacitaciones de Nómina — SAP</div>
+          <div class="c-area">Contabilidad y Control Interno — Angie Hernandel</div>
+          <div class="c-prog">
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">15%</span></div>
+            <div class="bar-bg">
+              <div class="bar bg" data-w="15"></div>
+            </div>
+          </div>
+          <div class="c-tags"><span class="tag">SAP</span><span class="tag">Excel-Plano</span><span
+              class="tag">16-24h/mes
+              ahorro</span></div><button class="c-expand" onclick="tc(this)">▼ Ver estado
+            detallado</button>
+          <div class="c-status">
+            <div class="s-item done"><span class="s-ico">✔</span>Beneficio cuantificado: 16-24h laborales/mes</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Problema, alcance e impacto definidos</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Levantamiento técnico + estructura archivo SAP</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Desarrollo flujo automatizado + pruebas piloto</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">AH</div>A. Hernandez
+            </div><span class="c-imp imp-m">Medio</span>
+          </div>
+        </div>
+        <div class="card t-g" data-lvl="g">
+          <div class="cg"></div>
           <div class="card-top"><span class="c-id">IN-47 · AUT-693<br>Mercadeo · CC 10683</span><span
               class="c-pri pr-critica">Crítica</span></div>
           <div class="c-title">Chatbot Pág Web Omnicanal</div>
           <div class="c-area">Gerencia de Mercadeo — Nicolás Durán</div>
           <div class="c-prog">
-            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">85%</span></div>
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">90%</span></div>
             <div class="bar-bg">
-              <div class="bar bg" data-w="85"></div>
+              <div class="bar bg" data-w="90"></div>
             </div>
           </div>
           <div class="c-tags"><span class="tag">n8n ✓</span><span class="tag">NOVA ✓</span><span class="tag">WhatsApp
@@ -704,17 +861,17 @@
           <div class="c-status">
 
             <div class="s-item done"><span class="s-ico">✔</span>Frontend del chatbot desarrollado</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Integración con NOVA realizada</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Flujo conversacional funcional</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Integración completa con NOVA</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Base de conocimiento actualizada</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Pruebas funcionales realizadas</div>
 
-            <div class="s-item todo"><span class="s-ico">⏳</span>Validación final con usuarios</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Pruebas finales</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Paso a producción</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Aprobación final del cliente</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Activación en producción</div>
 
           </div>
           <div class="c-foot">
             <div class="c-who">
-              <div class="avatar">ND</div>Nicolás Durán
+              <div class="avatar">ND</div>N. Durán
             </div><span class="c-imp imp-ma">Muy Alto</span>
           </div>
         </div>
@@ -730,25 +887,7 @@
         </svg>Los diagramas de Gantt se integrarán aquí cuando sean provistos.<br><span
           style="font-size:11px;opacity:.4">Sección lista para recibir el cronograma por iniciativa.</span></div>
     </div>
-    <div class="panel" id="panel-prod">
-      <div class="summary reveal">
-        <div class="sum-card">
-          <div class="sum-n" style="color:var(--r)">5</div>
-          <div class="sum-d">Nivel 1 — Mayor dificultad, iniciar hoy</div>
-        </div>
-        <div class="sum-card">
-          <div class="sum-n" style="color:var(--o)">5</div>
-          <div class="sum-d">Nivel 2 — Complejidad media, en ejecución</div>
-        </div>
-        <div class="sum-card">
-          <div class="sum-n" style="color:var(--g)">6</div>
-          <div class="sum-d">Nivel 3 — Implementación rápida</div>
-        </div>
-        <div class="sum-card">
-          <div class="sum-n" style="color:var(--gold2)">16</div>
-          <div class="sum-d">Total iniciativas Producto/Scrum</div>
-        </div>
-      </div>
+    <div class="panel" id="panel-prod">      
       <div class="sec-hd reveal"><span class="sec-pill pill-r">🔴 Nivel 1</span><span class="sec-title">Las Más
           Difíciles — Empezar Ya</span>
         <div class="sec-rule"></div><span class="sec-hint">Mayor riesgo si no inician hoy</span>
@@ -958,33 +1097,7 @@
             </div><span class="c-imp imp-a">Alto</span>
           </div>
         </div>
-        <div class="card t-o" data-lvl="o">
-          <div class="cg"></div>
-          <div class="card-top"><span class="c-id">IN-108 · PQE-2217<br>Soluciones Financieras · CC 10729</span><span
-              class="c-pri pr-alta">Alta</span></div>
-          <div class="c-title">Optimización del Reclutamiento — Primer Filtro Automatizado</div>
-          <div class="c-area">Soluciones Financieras — Jeimy Bernal</div>
-          <div class="c-prog">
-            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">12%</span></div>
-            <div class="bar-bg">
-              <div class="bar bo" data-w="12"></div>
-            </div>
-          </div>
-          <div class="c-tags"><span class="tag">Chatbot HV</span><span class="tag">Motor Reglas</span><span
-              class="tag">-70% filtro</span></div><button class="c-expand" onclick="tc(this)">▼ Ver estado
-            detallado</button>
-          <div class="c-status">
-            <div class="s-item done"><span class="s-ico">✔</span>Meta: 70% reducción tiempo primer filtro</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Alcance: procesos masivos y cargos recurrentes</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Criterios de clasificación por tipo de cargo</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Diseño chatbot + desarrollo + pruebas</div>
-          </div>
-          <div class="c-foot">
-            <div class="c-who">
-              <div class="avatar">JB</div>Jeimy Bernal
-            </div><span class="c-imp imp-a">Alto</span>
-          </div>
-        </div>
+
         <div class="card t-o" data-lvl="o">
           <div class="cg"></div>
           <div class="card-top"><span class="c-id">IN-106 · PQE-2215<br>Arquitectura · CC 10695</span><span
@@ -1077,33 +1190,6 @@
         </div>
         <div class="card t-g" data-lvl="g">
           <div class="cg"></div>
-          <div class="card-top"><span class="c-id">IN-53 · IN-128<br>Contabilidad · CC 10687</span><span
-              class="c-pri pr-media">Media-Alta</span></div>
-          <div class="c-title">Liquidaciones y Capacitaciones de Nómina — SAP</div>
-          <div class="c-area">Contabilidad y Control Interno — Jeimy Bernal</div>
-          <div class="c-prog">
-            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">15%</span></div>
-            <div class="bar-bg">
-              <div class="bar bg" data-w="15"></div>
-            </div>
-          </div>
-          <div class="c-tags"><span class="tag">SAP</span><span class="tag">Excel-Plano</span><span
-              class="tag">16-24h/mes ahorro</span></div><button class="c-expand" onclick="tc(this)">▼ Ver estado
-            detallado</button>
-          <div class="c-status">
-            <div class="s-item done"><span class="s-ico">✔</span>Beneficio cuantificado: 16-24h laborales/mes</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Problema, alcance e impacto definidos</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Levantamiento técnico + estructura archivo SAP</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Desarrollo flujo automatizado + pruebas piloto</div>
-          </div>
-          <div class="c-foot">
-            <div class="c-who">
-              <div class="avatar">JB</div>Jeimy Bernal
-            </div><span class="c-imp imp-m">Medio</span>
-          </div>
-        </div>
-        <div class="card t-g" data-lvl="g">
-          <div class="cg"></div>
           <div class="card-top"><span class="c-id">IN-34 · PQE-2190<br>Gestión Humana · CC 10686</span><span
               class="c-pri pr-media">Media-Alta</span></div>
           <div class="c-title">Envío Automático Cartilla de Bienvenida — Personal Nuevo</div>
@@ -1182,33 +1268,6 @@
             <div class="c-who">
               <div class="avatar">JB</div>Jeimy Bernal
             </div><span class="c-imp imp-a">Medio-Alto</span>
-          </div>
-        </div>
-        <div class="card t-g" data-lvl="g">
-          <div class="cg"></div>
-          <div class="card-top"><span class="c-id">IN-47 · PEQ-2199<br>Arquitectura · CC 10695</span><span
-              class="c-pri pr-muy-alta">Muy Alta</span></div>
-          <div class="c-title">Informe Inteligente — Resumen de Alcances (RFP)</div>
-          <div class="c-area">Arquitectura / Tercerización — Jeimy Bernal</div>
-          <div class="c-prog">
-            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">12%</span></div>
-            <div class="bar-bg">
-              <div class="bar bg" data-w="12"></div>
-            </div>
-          </div>
-          <div class="c-tags"><span class="tag">Formulario IA</span><span class="tag">Word/PDF Export</span><span
-              class="tag">SharePoint</span><span class="tag">Power App</span></div><button class="c-expand"
-            onclick="tc(this)">▼ Ver estado detallado</button>
-          <div class="c-status">
-            <div class="s-item done"><span class="s-ico">✔</span>Flujo funcional conceptualizado</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Sistemas involucrados identificados</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Preguntas guía + modelo de clasificación técnica</div>
-            <div class="s-item todo"><span class="s-ico">⏳</span>Diseño interfaz + prototipo + pruebas con RFP</div>
-          </div>
-          <div class="c-foot">
-            <div class="c-who">
-              <div class="avatar">JB</div>Jeimy Bernal
-            </div><span class="c-imp imp-ma">Muy Alto</span>
           </div>
         </div>
       </div>
