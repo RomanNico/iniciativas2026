@@ -55,12 +55,12 @@
       </div>
       <div class="kpi-grid">
         <div class="kpi-card">
-          <div class="kpi-n kn-gold" data-count="30">0</div>
+          <div class="kpi-n kn-gold" data-count="31">0</div>
           <div class="kpi-div"></div>
           <div class="kpi-l">Total<br>Iniciativas</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-n" data-count="17">0</div>
+          <div class="kpi-n" data-count="18">0</div>
           <div class="kpi-div"></div>
           <div class="kpi-l">Auto-<br>matización</div>
         </div>
@@ -100,7 +100,7 @@
     </div>
   </header>
   <nav class="nav">
-    <div class="tab on" onclick="switchTab('auto')">⚙ Automatización <span class="tab-badge">17</span></div>
+    <div class="tab on" onclick="switchTab('auto')">⚙ Automatización <span class="tab-badge">18</span></div>
     <div class="tab" onclick="switchTab('prod')">🚀 Producto · Scrum <span class="tab-badge">13</span></div>
     <div class="ndiv"></div>
     <span class="nlabel">Gerencia</span>
@@ -388,20 +388,19 @@
           <div class="c-title">Informe Flujo de Caja Consolidado</div>
           <div class="c-area">Soluciones Financieras — Saritha Gonzalez</div>
           <div class="c-prog">
-            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">85%</span></div>
+            <div class="c-prog-head"><span class="c-prog-lbl">Avance</span><span class="c-prog-pct">20%</span></div>
             <div class="bar-bg">
-              <div class="bar br" data-w="85"></div>
+              <div class="bar br" data-w="20"></div>
             </div>
           </div>
           <div class="c-tags"><span class="tag">NOVA</span><span class="tag">Modelo Financiero</span><span
               class="tag">&gt;$500M</span><span class="tag">Análisis Prob.</span></div>
-          <div class="c-alert ay">⚠️ Iniciativa actualmente en pausa. Reactivar cuando se libere capacidad.</div><button
-            class="c-expand" onclick="tc(this)">▼ Ver estado detallado</button>
+          <button class="c-expand" onclick="tc(this)">▼ Ver estado detallado</button>
           <div class="c-status">
 
             <div class="s-item done"><span class="s-ico">✔</span>Necesidad estratégica identificada</div>
             <div class="s-item done"><span class="s-ico">✔</span>Modelo de consolidación definido</div>
-            <div class="s-item done"><span class="s-ico">✔</span>Desarrollo de la solución finalizado</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Diseño técnico de la automatización</div>
 
             <div class="s-item todo"><span class="s-ico">⏳</span>Reunión de validación con el cliente</div>
             <div class="s-item todo"><span class="s-ico">⏳</span>Revisión de posibles mejoras del sistema</div>
@@ -453,6 +452,59 @@
         <div class="sec-rule"></div>
       </div>
       <div class="grid reveal">
+        <div class="card t-o" data-lvl="o">
+
+          <div class="cg"></div>
+
+          <div class="card-top">
+            <span class="c-id">AUT-690<br>Soluciones Financieras · CC 10729</span>
+            <span class="c-pri pr-alta">Alta</span>
+          </div>
+
+          <div class="c-title">Evaluación Financiera de Oportunidades</div>
+
+          <div class="c-area">Soluciones Financieras — Saritha Gonzalez</div>
+
+          <div class="c-prog">
+            <div class="c-prog-head">
+              <span class="c-prog-lbl">Avance</span>
+              <span class="c-prog-pct">65%</span>
+            </div>
+
+            <div class="bar-bg">
+              <div class="bar bo" data-w="65"></div>
+            </div>
+          </div>
+
+          <div class="c-tags">
+            <span class="tag">NOVA IA</span>
+            <span class="tag">Análisis Financiero</span>
+            <span class="tag">n8n</span>
+            <span class="tag">Comparativos</span>
+          </div>
+
+          <button class="c-expand" onclick="tc(this)">▼ Ver estado detallado</button>
+
+          <div class="c-status">
+
+            <div class="s-item done"><span class="s-ico">✔</span>Flujo automatizado desarrollado en n8n</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Procesamiento automático de hojas de costos</div>
+            <div class="s-item done"><span class="s-ico">✔</span>Generación automática de informe financiero</div>
+
+            <div class="s-item todo"><span class="s-ico">⏳</span>Optimización del flujo automatizado</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Validación final con área financiera</div>
+            <div class="s-item todo"><span class="s-ico">⏳</span>Despliegue en entorno productivo</div>
+
+          </div>
+
+          <div class="c-foot">
+            <div class="c-who">
+              <div class="avatar">SG</div>S. Gonzalez
+            </div>
+            <span class="c-imp imp-a">Alto</span>
+          </div>
+
+        </div>
         <div class="card t-o" data-lvl="o">
           <div class="cg"></div>
           <div class="card-top"><span class="c-id">IN-54 · AUT-710<br>Contabilidad · CC 10687</span><span
@@ -887,7 +939,7 @@
         </svg>Los diagramas de Gantt se integrarán aquí cuando sean provistos.<br><span
           style="font-size:11px;opacity:.4">Sección lista para recibir el cronograma por iniciativa.</span></div>
     </div>
-    <div class="panel" id="panel-prod">      
+    <div class="panel" id="panel-prod">
       <div class="sec-hd reveal"><span class="sec-pill pill-r">🔴 Nivel 1</span><span class="sec-title">Las Más
           Difíciles — Empezar Ya</span>
         <div class="sec-rule"></div><span class="sec-hint">Mayor riesgo si no inician hoy</span>

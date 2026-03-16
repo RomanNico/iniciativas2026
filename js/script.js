@@ -378,7 +378,9 @@ const iniciativas = [
   { nombre: "Chatbot Pág Web Omnicanal", tipo: "auto", gerencia: "Mercadeo", avance: 90 },
   { nombre: "Presentación de informes gerenciales", tipo: "auto", gerencia: "Mercadeo", avance: 30 },
   { nombre: "Indicadores Gestión Procesos", tipo: "auto", gerencia: "Gobierno y Aseguramiento", avance: 40 },
-  { nombre: "Informe Flujo de Caja consolidado", tipo: "auto", gerencia: "Soluciones Financieras", avance: 85 },
+  { nombre: "Evaluación Financiera de Oportunidades", tipo: "auto", gerencia: "Soluciones Financieras", avance: 65 },
+  { nombre: "Informe Flujo de Caja consolidado", tipo: "auto", gerencia: "Soluciones Financieras", avance: 20 },
+
   { nombre: "Ecosistema Digital 360", tipo: "auto", gerencia: "Contabilidad", avance: 15 },
   { nombre: "Informe Inteligente Alcances", tipo: "auto", gerencia: "Arquitectura", avance: 12 },
   { nombre: "Optimización Reclutamiento", tipo: "auto", gerencia: "Soluciones Financieras", avance: 12 },
