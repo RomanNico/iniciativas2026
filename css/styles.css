@@ -1508,7 +1508,7 @@ ESTADO PORTAFOLIO
 
 .estado-card:hover {
 
-    transform:translateY(-3px) scale(1.02);
+    transform: translateY(-3px) scale(1.02);
     border-color: rgba(212, 168, 67, .4);
 
 }
