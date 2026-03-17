@@ -14,7 +14,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Informe Inteligente — Resumen de Alcances (RFP)",
         area: "Arquitectura / Tercerización — Jefrey Roman",
-        avance: 12,       
+        avance: 12,
         tags: ["Formulario IA", "Word/PDF Export", "SharePoint", "Power App"],
         alerta: null,
         statusDone: [
@@ -64,7 +64,7 @@ const INICIATIVAS = [
     },
 
     {
-        id: "IN-65 · IN-127",
+        id: "IN-65 · IN-699",
         gerenciaLabel: "Soluciones Financieras · CC 10729",
         tipo: "auto",
         nivel: "r",
@@ -72,24 +72,26 @@ const INICIATIVAS = [
         prioridadClass: "pr-critica",
         titulo: "Asistente SWAT — Plataforma Centralizada de IA Interna",
         area: "Soluciones Financieras — Nicolás Durán",
-        avance: 40,
+        avance: 50,
         tags: ["4 Asistentes IA", "Arquitectura Modular", "APIs ERP", "Transversal"],
         alerta: {
             tipo: "ar",
             texto: "🔴 Impacto transversal. 4 asistentes: Transversal, Arquitectura, Contabilidad y RRHH."
         },
         statusDone: [
-            "Arquitectura conceptual de la plataforma de asistentes definida",
+            "Arquitectura conceptual definida",
             "Asistente de arquitectura desarrollado",
-            "Interfaz interactiva conectada con NOVA implementada",
-            "Revisión inicial del asistente con el área solicitante realizada"
+            "Integración del asistente en NOVA completada",
+            "Interfaz interactiva implementada",
+            "Validación inicial con el área solicitante",
+            "Levantamiento de requerimientos del asistente de gestión humana"
         ],
         statusTodo: [
-            "Ajustar el asistente de arquitectura dentro del asistente NOVA existente",
-            "Realizar levantamiento de requerimientos del asistente de gestión humana",
-            "Evaluar viabilidad del asistente transversal",
-            "Definir arquitectura completa de la plataforma de asistentes",
-            "Desarrollar asistentes restantes"
+            "Ajustes en procesamiento de archivos",
+            "Desarrollo de asistentes restantes",
+            "Integración con sistemas corporativos",
+            "Definición final de arquitectura modular",
+            "Pruebas completas del ecosistema"
         ],
         developer: { iniciales: "ND", nombre: "N. Durán" },
         impacto: "Muy Alto",
@@ -106,7 +108,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Automatización Presentación de Informes Gerenciales — Junta",
         area: "Gerencia de Mercadeo — Nicolás Durán",
-        avance: 40,
+        avance: 50,
         tags: ["CRM", "Excel Financiero", "Auto-PowerPoint", "Dashboard"],
         alerta: null,
         statusDone: [
@@ -135,18 +137,21 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Informe Flujo de Caja Consolidado",
         area: "Soluciones Financieras — Angie Hernandez",
-        avance: 20,
+        avance: 30,
         tags: ["NOVA", "Modelo Financiero", ">$500M", "Análisis Prob."],
         alerta: null,
         statusDone: [
-            "Necesidad estratégica identificada",
-            "Modelo de consolidación definido"
+            "Levantamiento inicial completado",
+            "Segmentación en 2 líneas (flujo de caja y cotizaciones)",
+            "Flujo base de procesamiento implementado",
+            "Normalización y validación de datos",
+            "Generación de resumen ejecutivo"
         ],
         statusTodo: [
-            "Diseño técnico de la automatización",
-            "Reunión de validación con el cliente",
-            "Revisión de posibles mejoras del sistema",
-            "Despliegue final en producción"
+            "Modelo de consolidación financiero",
+            "Visualización del flujo de caja",
+            "Integración con SAP",
+            "Desarrollo completo del sistema"
         ],
         developer: { iniciales: "AH", nombre: "A. Hernandez" },
         impacto: "Muy Alto",
@@ -196,7 +201,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Evaluación Financiera de Oportunidades",
         area: "Soluciones Financieras — Saritha Gonzalez",
-        avance: 65,
+        avance: 70,
         tags: ["NOVA IA", "Análisis Financiero", "n8n", "Comparativos"],
         alerta: null,
         statusDone: [
@@ -224,6 +229,10 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Enlace Cuentas por Pagar Invoway ↔ SAP",
         area: "Contabilidad y Control Interno — Saritha González",
+        alerta: {
+            tipo: "ao",
+            texto: "⚠️ Bloqueo por dependencia técnica con Invoway (en espera de definición)"
+        },
         avance: 60,
         tags: ["Invoway API", "SAP", "Archivo Plano", "Cargue Masivo"],
         alerta: null,
@@ -248,7 +257,7 @@ const INICIATIVAS = [
     },
 
     {
-        id: "IN-63 · IN-126",
+        id: "IN-63 · AUT-700",
         gerenciaLabel: "Compras y Logística · CC 10689",
         tipo: "auto",
         nivel: "o",
@@ -256,19 +265,19 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Portal Integrado de Reportes Mensuales y Anuales (PyG)",
         area: "Compras, Logística e Inventarios — Santiago Moreno",
-        avance: 20,
+        avance: 35,
         tags: ["SAP", "Jira", "APIs Internas", "PyG"],
         alerta: null,
         statusDone: [
-            "Alcance del portal definido",
-            "Fuentes de información identificadas",
-            "Subtareas técnicas creadas"
+            "Archivo base recibido (~20.000 registros)",
+            "Definición de enfoque basado en portal",
+            "Inicio del flujo de carga de datos"
         ],
         statusTodo: [
-            "Agendar reunión con solicitante",
-            "Definir modelo de datos consolidado",
-            "Diseñar arquitectura del portal",
-            "Desarrollar sistema de generación automática de reportes"
+            "Modelo de datos consolidado",
+            "Desarrollo del portal",
+            "Integración con fuentes externas",
+            "Pruebas y despliegue"
         ],
         developer: { iniciales: "SM", nombre: "S. Moreno" },
         impacto: "Alto",
@@ -285,19 +294,21 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Identificación Responsabilidades Tributarias en Municipios",
         area: "Contabilidad — Juan David Rodríguez",
-        avance: 35,
+        avance: 50,
         tags: ["IA PDF", "SAP", "40 municipios/mes", "50-300 págs"],
         alerta: null,
         statusDone: [
-            "Módulo de carga de archivos PDF desarrollado",
-            "Flujo inicial de automatización en n8n configurado",
-            "Análisis técnico del problema de OCR realizado"
+            "Carga de PDFs implementada",
+            "Flujo en n8n funcionando",
+            "OCR implementado con Document AI",
+            "Extracción de texto funcional",
+            "Filtros de datos relevantes aplicados"
         ],
         statusTodo: [
-            "Implementar OCR para documentos escaneados",
-            "Diseñar modelo de extracción de datos tributarios",
-            "Realizar pruebas con acuerdos municipales reales",
-            "Generar tabla automática de responsabilidades tributarias"
+            "Modelo de extracción estructurada",
+            "Generación automática de tabla tributaria",
+            "Pruebas con documentos reales",
+            "Integración con base de datos"
         ],
         developer: { iniciales: "JD", nombre: "J. Rodríguez" },
         impacto: "Alto",
@@ -345,7 +356,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Optimización del Reclutamiento — Primer Filtro Automatizado",
         area: "Soluciones Financieras — Edwin Leon",
-        avance: 12,
+        avance: 20,
         tags: ["Chatbot HV", "Motor Reglas", "-70% filtro"],
         alerta: null,
         statusDone: [
@@ -371,7 +382,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Automatización Auditorías de Casos — Bot ITSM",
         area: "Aseguramiento de Soluciones — Edwin Leon",
-        avance: 40,
+        avance: 50,
         tags: ["ITSM Aranda", "Bot Evaluación", "Comwquality", "Matrices Calidad"],
         alerta: null,
         statusDone: [
@@ -468,7 +479,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-media",
         titulo: "Desarrollo Automatizado Herramientas Comware (Paraguas)",
         area: "Soluciones Financieras — Jefrey Román",
-        avance: 15,
+        avance: 25,
         tags: ["SAP", "INVOWAY", "NOVA", "Iniciativa Paraguas"],
         alerta: null,
         statusDone: [
@@ -531,7 +542,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-critica",
         titulo: "Chatbot Pág Web Omnicanal",
         area: "Gerencia de Mercadeo — Nicolás Durán",
-        avance: 95,
+        avance: 98,
         tags: ["n8n ✓", "NOVA ✓", "WhatsApp API", "CRM", "Frontend ✓"],
         alerta: {
             tipo: "ar",
@@ -546,8 +557,8 @@ const INICIATIVAS = [
         ],
         statusTodo: [
             "Validación final del cliente",
-            "Activación del chatbot en producción",
-            "Configuración final de monitoreo y analítica"
+            "Publicación widget web",
+            "Despliegue en producción"
         ],
         developer: { iniciales: "ND", nombre: "N. Durán" },
         impacto: "Muy Alto",
