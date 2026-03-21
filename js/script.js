@@ -107,7 +107,27 @@ function renderCard(ini) {
       </div>
     </div>`;
 }
+function calcularKPIs() {
 
+  const total = INICIATIVAS.length;
+
+  const automatizacion = INICIATIVAS.filter(i => i.tipo === 'auto').length;
+
+  const producto = INICIATIVAS.filter(i => i.tipo === 'prod').length;
+
+  const casiProduccion = INICIATIVAS.filter(i => i.avance >= 80 && i.avance < 100).length;
+
+  const ejecucionActiva = INICIATIVAS.filter(i => i.avance === 100).length;
+
+  const kpis = document.querySelectorAll('.kpi-n');
+
+  kpis[0].innerText = total;
+  kpis[1].innerText = automatizacion;
+  kpis[2].innerText = producto;
+  kpis[3].innerText = casiProduccion;
+  kpis[4].innerText = ejecucionActiva;
+
+}
 function renderAllCards() {
   // Mapeo: panel-tipo · nivel → id del grid en el HTML
   const grids = {
@@ -470,6 +490,7 @@ INIT — renderizar tarjetas y arrancar animaciones
 
 window.addEventListener('load', () => {
   renderAllCards();
+  calcularKPIs();
   document.querySelectorAll('.card').forEach((c, i) => c.style.animationDelay = (i * .04) + 's');
   observeReveal();
   setTimeout(animateBars, 300);
