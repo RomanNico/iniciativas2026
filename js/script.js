@@ -69,12 +69,12 @@ function renderCard(ini) {
   const alertHTML = ini.alerta
     ? `<div class="c-alert ${ini.alerta.tipo}">${ini.alerta.texto}</div>` : '';
 
-  const tagsHTML = ini.tags.map(t => `<span class="tag">${t}</span>`).join('');
+  const tagsHTML = (ini.tags || []).map(t => `<span class="tag">${t}</span>`).join('');
 
-  const doneHTML = ini.statusDone.map(s =>
+  const doneHTML = (ini.statusDone || []).map(s =>
     `<div class="s-item done"><span class="s-ico">✔</span>${s}</div>`).join('');
 
-  const todoHTML = ini.statusTodo.map(s =>
+  const todoHTML = (ini.statusTodo || []).map(s =>
     `<div class="s-item todo"><span class="s-ico">⏳</span>${s}</div>`).join('');
 
   return `
@@ -115,9 +115,12 @@ function renderAllCards() {
     'auto-o': 'grid-auto-o',
     'auto-y': 'grid-auto-y',
     'auto-g': 'grid-auto-g',
+    'auto-done': 'grid-auto-done',
+
     'prod-r': 'grid-prod-r',
     'prod-o': 'grid-prod-o',
     'prod-g': 'grid-prod-g',
+    'prod-done': 'grid-prod-done',
   };
 
   // Limpiar grids
@@ -128,11 +131,22 @@ function renderAllCards() {
 
   // Poblar cada grid
   INICIATIVAS.forEach(ini => {
+
+    // 👇 SI ESTÁ FINALIZADA
+    if (ini.avance === 100) {
+      const gridId = `${ini.tipo}-done`;
+      const grid = document.getElementById(`grid-${gridId}`);
+      if (grid) grid.insertAdjacentHTML('beforeend', renderCard(ini));
+      return;
+    }
+
     const key = `${ini.tipo}-${ini.nivel}`;
     const gridId = grids[key];
     if (!gridId) return;
+
     const grid = document.getElementById(gridId);
     if (!grid) return;
+
     grid.insertAdjacentHTML('beforeend', renderCard(ini));
   });
 
@@ -169,11 +183,14 @@ function switchTab(t) {
   document.querySelectorAll('.tab').forEach((el, i) => el.classList.toggle('on', i === (t === 'auto' ? 0 : 1)));
   document.querySelectorAll('.panel').forEach(el => el.classList.remove('on'));
   document.getElementById('panel-' + t).classList.add('on');
+
   document.getElementById('fa').style.display = t === 'auto' ? 'flex' : 'none';
   document.getElementById('fp').style.display = t === 'prod' ? 'flex' : 'none';
+
   aplicarFiltros();
   calcularEstados(t);
   calcularTotal(t);
+  renderBarraTop(t);
   setTimeout(animateBars, 80);
 }
 
@@ -391,8 +408,7 @@ function calcularEstados(panel) {
   document.getElementById('estadoProduccion').innerText = produccion;
 }
 
-calcularEstados('auto');
-calcularTotal('auto');
+
 
 function animarEstados() {
   const total = iniciativas.length;
@@ -411,12 +427,51 @@ function animarEstados() {
 setTimeout(animarEstados, 400);
 
 /* =========================
+% POR ÁREA
+========================= */
+function renderBarraTop(panel = 'auto') {
+
+  const data = INICIATIVAS.filter(i => i.tipo === panel);
+  if (!data.length) return;
+
+  const promedio = Math.round(
+    data.reduce((s, i) => s + i.avance, 0) / data.length
+  );
+
+  const barra = document.getElementById('barraTop');
+  const texto = document.getElementById('porcentajeTop');
+  const icono = document.getElementById('iconoTipo');
+
+  // limpiar clases
+  barra.classList.remove('barra-auto', 'barra-prod');
+
+  if (panel === 'auto') {
+    barra.classList.add('barra-auto');
+    icono.innerText = '⚙';
+  } else {
+    barra.classList.add('barra-prod');
+    icono.innerText = '🚀';
+  }
+
+  texto.innerText = promedio + '%';
+
+  setTimeout(() => {
+    barra.style.width = promedio + '%';
+  }, 100);
+}
+
+
+calcularEstados('auto');
+calcularTotal('auto');
+
+/* =========================
 INIT — renderizar tarjetas y arrancar animaciones
 ========================= */
 
 window.addEventListener('load', () => {
-  renderAllCards();                              // ← genera todas las tarjetas desde data.js
+  renderAllCards();
   document.querySelectorAll('.card').forEach((c, i) => c.style.animationDelay = (i * .04) + 's');
   observeReveal();
   setTimeout(animateBars, 300);
+  renderBarraTop('auto');
 });

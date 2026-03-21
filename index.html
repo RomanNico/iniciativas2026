@@ -126,21 +126,44 @@
     </div>
   </nav>
 
-  <div class="filter-row" id="fa">
-    <span class="flbl">Filtrar:</span>
-    <button class="chip on" onclick="fc('auto','all',this)">Todas</button>
-    <button class="chip" onclick="fc('auto','r',this)">🔴 Nivel 1</button>
-    <button class="chip" onclick="fc('auto','o',this)">🟠 Nivel 2</button>
-    <button class="chip" onclick="fc('auto','y',this)">🟡 Nivel 3</button>
-    <button class="chip" onclick="fc('auto','g',this)">🟢 Nivel 4</button>
+
+  <div class="filter-row-wrap">
+
+    <!-- FILTROS -->
+    <div class="filter-row" id="fa">
+      <span class="flbl">Filtrar:</span>
+      <button class="chip on" onclick="fc('auto','all',this)">Todas</button>
+      <button class="chip" onclick="fc('auto','r',this)">🔴 Nivel 1</button>
+      <button class="chip" onclick="fc('auto','o',this)">🟠 Nivel 2</button>
+      <button class="chip" onclick="fc('auto','y',this)">🟡 Nivel 3</button>
+      <button class="chip" onclick="fc('auto','g',this)">🟢 Nivel 4</button>
+    </div>
+
+    <div class="filter-row" id="fp" style="display:none">
+      <span class="flbl">Filtrar:</span>
+      <button class="chip on" onclick="fc('prod','all',this)">Todas</button>
+      <button class="chip" onclick="fc('prod','r',this)">🔴 Nivel 1</button>
+      <button class="chip" onclick="fc('prod','o',this)">🟠 Nivel 2</button>
+      <button class="chip" onclick="fc('prod','g',this)">🟢 Nivel 3</button>
+    </div>
+
+    <div class="barra-tipos-inline">
+
+      <div class="barra-grande">
+        <span id="iconoTipo">⚙</span>
+
+        <div class="barra-bg-grande">
+          <div id="barraTop"></div>
+        </div>
+
+        <span id="porcentajeTop">0%</span>
+      </div>
+
+    </div>
+
   </div>
-  <div class="filter-row" id="fp" style="display:none">
-    <span class="flbl">Filtrar:</span>
-    <button class="chip on" onclick="fc('prod','all',this)">Todas</button>
-    <button class="chip" onclick="fc('prod','r',this)">🔴 Nivel 1</button>
-    <button class="chip" onclick="fc('prod','o',this)">🟠 Nivel 2</button>
-    <button class="chip" onclick="fc('prod','g',this)">🟢 Nivel 3</button>
-  </div>
+
+
 
   <section id="seccionGraficas" style="padding:40px 80px; display:none;">
     <div id="contenedorGraficas">
@@ -210,6 +233,13 @@
     <div class="panel on" id="panel-auto">
 
       <div class="sec-hd reveal">
+        <span class="sec-pill pill-g">✅ Finalizadas</span>
+        <span class="sec-title">Iniciativas completadas</span>
+        <div class="sec-rule"></div>
+      </div>
+      <div class="grid reveal" id="grid-auto-done"></div>
+
+      <div class="sec-hd reveal">
         <span class="sec-pill pill-r">🔴 Nivel 1</span>
         <span class="sec-title">Las Más Difíciles — Empezar Inmediatamente</span>
         <div class="sec-rule"></div>
@@ -258,6 +288,13 @@
          PANEL PRODUCTO / SCRUM
          ════════════════════════════════════════ -->
     <div class="panel" id="panel-prod">
+
+      <div class="sec-hd reveal">
+        <span class="sec-pill pill-g">✅ Finalizadas</span>
+        <span class="sec-title">Iniciativas completadas</span>
+        <div class="sec-rule"></div>
+      </div>
+      <div class="grid reveal" id="grid-prod-done"></div>
 
       <div class="sec-hd reveal">
         <span class="sec-pill pill-r">🔴 Nivel 1</span>

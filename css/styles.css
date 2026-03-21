@@ -1219,6 +1219,13 @@ main {
     line-height: 1.5
 }
 
+.c-alert.ok {
+    background: rgba(34, 204, 136, 0.15);
+    border: 1px solid rgba(34, 204, 136, 0.6);
+    color: #22cc88;
+    box-shadow: 0 0 12px rgba(34, 204, 136, 0.3);
+}
+
 .c-alert.ar {
     background: rgba(240, 85, 85, .07);
     border: 1px solid rgba(240, 85, 85, .2);
@@ -1636,6 +1643,71 @@ ESTADO PORTAFOLIO
 
 .estado-prod:hover {
     box-shadow: 0 0 15px rgba(34, 204, 136, .25);
+}
+
+.estado-auto-porcentaje .estado-num {
+    color: #22c55e;
+}
+
+.estado-prod-porcentaje .estado-num {
+    color: #4a9fff;
+}
+
+#barAuto {
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+#barProdTipo {
+    background: linear-gradient(90deg, #4a9fff, #2563eb);
+}
+
+/* CONTENEDOR GENERAL */
+.filter-row-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 80px;
+}
+
+/* BARRAS INLINE */
+.barra-tipos-inline {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.barra-grande {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.barra-bg-grande {
+    width: 220px;
+    /* 🔥 más grande */
+    height: 10px;
+    /* 🔥 más gruesa */
+    background: #1c223a;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#barraTop {
+    height: 100%;
+    width: 0%;
+    border-radius: 20px;
+    transition: width 1s ease;
+}
+
+/* colores dinámicos */
+.barra-auto {
+    background: linear-gradient(90deg, #22cc88, #4a9fff);
+}
+
+.barra-prod {
+    background: linear-gradient(90deg, #ffb347, #ff5c8a);
 }
 
 @media(max-width:960px) {

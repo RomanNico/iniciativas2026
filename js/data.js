@@ -116,7 +116,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Automatización Presentación de Informes Gerenciales — Junta",
         area: "Gerencia de Mercadeo — Nicolás Durán",
-        avance: 50,
+        avance: 40,
         tags: ["CRM", "Excel Financiero", "Auto-PowerPoint", "Dashboard"],
         alerta: null,
         statusDone: [
@@ -145,38 +145,22 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Informe Flujo de Caja Consolidado",
         area: "Soluciones Financieras — Angie Hernandez",
-        avance: 45,
+        avance: 100,
         tags: ["NOVA", "Modelo Financiero", ">$500M", "Análisis Prob."],
         alerta: {
-            tipo: "ao",
-            texto: "⚠️ Cambio de enfoque en cotizaciones y dependencia crítica del área comercial para parametrización"
+            tipo: "ok",
+            texto: "✅ FASE 1 FINALIZADA — EN PRODUCCIÓN"
         },
         statusDone: [
-            "Levantamiento completo de información realizado con las áreas involucradas",
-            "Segmentación de la iniciativa en dos líneas: Flujo de Caja Consolidado y Automatización de Cotizaciones",
-            "Diseño e implementación de flujo base de procesamiento y validación de información financiera",
-            "Ingesta de datos desde Excel (hojas de costos) y cotizaciones de proveedores",
-            "Extracción y normalización de datos (fechas, valores y estructuras)",
-            "Validación de coherencia y comparación campo a campo",
-            "Generación de alertas por inconsistencias y confirmación de validaciones",
-            "Generación de resumen ejecutivo consolidado",
-            "Desarrollo inicial de backend y frontend",
-            "Integración inicial con IA (NOVA) operativa",
-            "Identificación de limitaciones del modelo de cotizaciones por alta variabilidad de formatos",
-            "Reunión con área comercial para validación del proceso",
-            "Identificación de que los porcentajes del CRM no son confiables para proyección"
+            "Fase 1 (cotizaciones) finalizada",
+            "Agente IA funcional",
+            "Procesamiento de PDFs",
+            "Generación de resúmenes",
+            "Validación con cliente",
+            "Listo para producción"
         ],
         statusTodo: [
-            "Redefinir enfoque de automatización de cotizaciones mediante chatbot IA",
-            "Diseñar flujo de lectura inteligente y análisis dinámico de cotizaciones",
-            "Definir política comercial para parametrización de probabilidades (dependencia crítica)",
-            "Definir arquitectura de datos consolidada",
-            "Diseñar modelo de datos final de flujo de caja",
-            "Ajustar modelo de consolidación financiera",
-            "Diseñar visualización del flujo de caja (mensual y trimestral)",
-            "Validar nuevamente la solución con las áreas involucradas",
-            "Continuar desarrollo del sistema",
-            "Preparar despliegue en entorno productivo"
+            "Desarrollo Fase 2 (flujo de caja consolidado)"
         ],
         developer: { iniciales: "AH", nombre: "A. Hernandez" },
         impacto: "Muy Alto",
@@ -226,18 +210,21 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Evaluación Financiera de Oportunidades",
         area: "Soluciones Financieras — Saritha Gonzalez",
-        avance: 70,
+        avance: 85,
         tags: ["NOVA IA", "Análisis Financiero", "n8n", "Comparativos"],
         alerta: null,
         statusDone: [
-            "Flujo automatizado desarrollado en n8n",
-            "Procesamiento automático de hojas de costos",
-            "Generación automática de informe financiero"
+            "Flujo en n8n completamente funcional",
+            "Procesamiento de múltiples archivos",
+            "Extracción de datos financieros consolidada",
+            "Rediseño del flujo en subprocesos",
+            "Generación de estructuras de resumen ejecutivo"
         ],
         statusTodo: [
-            "Optimización del flujo automatizado",
-            "Validación final con área financiera",
-            "Despliegue en entorno productivo"
+            "Validación final con usuario",
+            "Ajuste de estructura Excel",
+            "Integración con SharePoint",
+            "Despliegue"
         ],
         developer: { iniciales: "SG", nombre: "S. Gonzalez" },
         impacto: "Alto",
@@ -290,18 +277,25 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Portal Integrado de Reportes Mensuales y Anuales (PyG)",
         area: "Compras, Logística e Inventarios — Santiago Moreno",
-        avance: 45,
-        tags: ["SAP", "Jira", "APIs Internas", "PyG"],
-        alerta: null,
+        avance: 65,
         statusDone: [
-            "Objetivo del portal definido",
-            "Fuentes de información identificadas",
-            "Subtareas técnicas creadas"
+            "Base de datos creada con ~20.000 registros",
+            "Carga inicial completada",
+            "Base de datos de usuarios creada",
+            "Autenticación (login) desarrollada",
+            "Servicios backend implementados",
+            "Integración inicial de datos",
+            "Construcción inicial de métricas (ganancias/pérdidas)",
+            "Resolución de conflictos en código",
+            "Consolidación de doble base de datos"
         ],
         statusTodo: [
-            "Agendar reunión con solicitante",
-            "Diseñar modelo de datos",
-            "Desarrollar portal"
+            "Normalización de datos",
+            "Corrección de inconsistencias",
+            "Modelo de datos final",
+            "Desarrollo frontend",
+            "Integración SAP/Jira/APIs",
+            "Generación automática de reportes"
         ],
         developer: { iniciales: "SM", nombre: "S. Moreno" },
         impacto: "Alto",
@@ -318,19 +312,24 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Identificación Responsabilidades Tributarias en Municipios",
         area: "Contabilidad — Juan David Rodríguez",
-        avance: 80,
+        avance: 90,
         tags: ["IA PDF", "SAP", "40 municipios/mes", "50-300 págs"],
         alerta: null,
         statusDone: [
-            "Interfaz de carga desarrollada",
-            "Automatización con n8n implementada",
-            "OCR funcionando",
-            "Extracción de datos inicial operativa"
+            "Flujo end-to-end funcional",
+            "OCR con Document AI implementado",
+            "Extracción de texto desde PDFs escaneados",
+            "Análisis con IA funcionando",
+            "Generación automática de Excel",
+            "Envío automático por correo",
+            "Validación con documentos reales"
         ],
         statusTodo: [
-            "Modelo estructurado de extracción",
-            "Generación automática de tabla",
-            "Pruebas con documentos reales"
+            "Optimizar precisión del modelo",
+            "Evaluar escalabilidad OCR",
+            "Integrar base de datos",
+            "Pruebas masivas",
+            "Preparación a producción"
         ],
         developer: { iniciales: "JD", nombre: "J. Rodríguez" },
         impacto: "Alto",
@@ -439,21 +438,28 @@ const INICIATIVAS = [
         prioridadClass: "pr-media",
         titulo: "Planificación Digital y Control de Cargas Operativas",
         area: "Servicios Generales — Juan David Rodríguez",
-        avance: 65,
+        avance: 75,
         tags: ["App Móvil", "Dashboard", "Indicadores"],
         alerta: null,
         statusDone: [
-            "Documento de automatización elaborado",
-            "Arquitectura definida",
-            "Desarrollo inicial frontend y backend"
+            "Arquitectura PWA definida",
+            "Frontend inicial desarrollado",
+            "Login funcional",
+            "Base de datos en Docker",
+            "Backend en FastAPI",
+            "CRUD parcial implementado",
+            "Categorías integradas",
+            "Modelo de datos ajustado para roles",
+            "Manejo de evidencias implementado",
+            "Base de analítica estructurada"
         ],
         statusTodo: [
-            "Completar funcionalidades",
-            "Integración total",
-            "Dashboard",
-            "Pruebas",
+            "Completar CRUD",
+            "Integración frontend-backend",
+            "Dashboard de indicadores",
+            "Registro diario por usuario",
+            "Pruebas funcionales",
             "Despliegue"
-
         ],
         developer: { iniciales: "JD", nombre: "J. Rodríguez" },
         impacto: "Medio-Alto",
@@ -500,27 +506,29 @@ const INICIATIVAS = [
         prioridadClass: "pr-media",
         titulo: "Desarrollo Automatizado Herramientas Comware (Paraguas)",
         area: "Soluciones Financieras — Jefrey Román",
-        avance: 30,
-        tags: ["SAP", "INVOWAY", "NOVA", "Iniciativa Paraguas"],
+        avance: 45,
+        tags: ["SAP", "INVOWAY", "NOVA", "IA", "Automatización transversal"],
         alerta: null,
         statusDone: [
-            "Idea estratégica de automatización definida",
-            "Beneficios organizacionales identificados",
-            "Alcance general de la iniciativa establecido",
-            "Primera reunión realizada con el solicitante",
-            "Identificación de que la iniciativa agrupa múltiples proyectos de automatización"
+            "Idea estratégica definida",
+            "Alcance corporativo establecido",
+            "Sesiones de levantamiento ejecutadas (Legal, GH, Compras, Contabilidad)",
+            "Procesos AS-IS identificados",
+            "Oportunidades de automatización detectadas",
+            "Definición de metodología de trabajo",
+            "Definición de estrategia incremental (quick wins)",
+            "Recepción de insumos reales para pruebas"
         ],
         statusTodo: [
-            "Realizar sesiones de levantamiento de información con las áreas involucradas",
-            "Identificar y priorizar los procesos que serán automatizados",
-            "Analizar viabilidad técnica de integración con SAP, Invoway y NOVA",
-            "Definir arquitectura general de la solución",
-            "Diseñar y planificar las automatizaciones priorizadas",
-            "Desarrollar prototipos iniciales y realizar pruebas"
+            "Consolidar backlog completo de automatizaciones",
+            "Priorizar por impacto vs complejidad",
+            "Definir arquitectura del ecosistema",
+            "Diseñar MVPs",
+            "Iniciar desarrollo de prototipos"
         ],
         developer: { iniciales: "JR", nombre: "J. Roman" },
-        impacto: "Alto",
-        impactoClass: "imp-a",
+        impacto: "Muy Alto",
+        impactoClass: "imp-ma",
         gerencia: "Soluciones Financieras"
     },
 
@@ -536,17 +544,23 @@ const INICIATIVAS = [
         prioridad: "Media-Alta",
         prioridadClass: "pr-media",
         titulo: "Liquidaciones y Capacitaciones de Nómina — SAP",
-        area: "Contabilidad y Control Interno — Angie Hernandel",
-        avance: 15,
+        area: "Contabilidad y Control Interno — Angie Hernandez",
+        avance: 80,
         tags: ["SAP", "Excel-Plano", "16-24h/mes ahorro"],
         alerta: null,
         statusDone: [
-            "Beneficio cuantificado: 16-24h laborales/mes",
-            "Problema, alcance e impacto definidos"
+            "Aplicativo completamente desarrollado",
+            "Procesamiento de archivos Excel funcional",
+            "Generación automática de archivo plano SAP",
+            "Soporte para nómina y viáticos",
+            "Pruebas técnicas realizadas",
+            "Flujo end-to-end funcional"
         ],
         statusTodo: [
-            "Levantamiento técnico + estructura archivo SAP",
-            "Desarrollo flujo automatizado + pruebas piloto"
+            "Validación con SAP",
+            "Casos excepcionales",
+            "Pruebas piloto reales",
+            "Despliegue en producción"
         ],
         developer: { iniciales: "AH", nombre: "A. Hernandez" },
         impacto: "Medio",
@@ -563,23 +577,24 @@ const INICIATIVAS = [
         prioridadClass: "pr-critica",
         titulo: "Chatbot Pág Web Omnicanal",
         area: "Gerencia de Mercadeo — Nicolás Durán",
-        avance: 98,
+        avance: 100,
         tags: ["n8n ✓", "NOVA ✓", "WhatsApp API", "CRM", "Frontend ✓"],
         alerta: {
-            tipo: "ar",
-            texto: "🔴 Cerrar esta semana. Ya está casi listo. Impacta leads e ingresos directamente."
+            tipo: "ok",
+            texto: "✅ INICIATIVA FINALIZADA — EN PRODUCCIÓN"
         },
         statusDone: [
             "Frontend del chatbot desarrollado",
             "Integración completa con NOVA",
             "Flujo conversacional funcional",
             "Base de conocimiento actualizada con documentos del cliente",
-            "Correcciones solicitadas por el cliente implementadas"
-        ],
-        statusTodo: [
+            "Correcciones solicitadas por el cliente implementadas",
             "Validación final del cliente",
             "Publicación widget web",
             "Despliegue en producción"
+        ],
+        statusTodo: [
+
         ],
         developer: { iniciales: "ND", nombre: "N. Durán" },
         impacto: "Muy Alto",
