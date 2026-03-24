@@ -48,22 +48,24 @@ const INICIATIVAS = [
         prioridadClass: "pr-critica",
         titulo: "Ecosistema Digital 360 — Transformación Operativa Integrada",
         area: "Contabilidad y Control Interno — Jefrey Román",
-        avance: 15,
+        avance: 30,
         tags: ["SAP", "Aranda", "Jira", "Invoway", "Nova", "IA", "Portales"],
         alerta: {
             tipo: "ar",
             texto: "🔴 Iniciativa más grande del portafolio. Integra 5 sistemas + portales internos + IA. Empezar de inmediato."
         },
         statusDone: [
-            "Levantamiento inicial realizado con la solicitante",
-            "Sistemas involucrados identificados (SAP, Aranda, Jira, Invoway y Nova)",
-            "Análisis de iniciativas existentes relacionadas"
+            "Problema identificado",
+            "Sistemas definidos",
+            "Levantamiento inicial",
+            "Clasificación de ideas",
+            "Reunión ampliada"
         ],
         statusTodo: [
-            "Recepción del documento con el levantamiento detallado de ideas restantes",
-            "Definir arquitectura de integración entre plataformas",
-            "Diseñar modelo de datos unificado",
-            "Iniciar desarrollo de los 4 proyectos restantes"
+            "Levantamiento por áreas",
+            "Arquitectura",
+            "Modelo de datos",
+            "Desarrollo"
         ],
         developer: { iniciales: "JR", nombre: "J. Roman" },
         impacto: "Muy Alto",
@@ -177,19 +179,22 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Indicadores de Gestión ISO — Automatización de Procesos",
         area: "Gerencia Aseguramiento — Juan David Rodríguez",
-        avance: 40,
+        avance: 50,
         tags: ["ISO", "Tablero Consolidado", "Alertas Auto", "Fórmulas Dinámicas"],
         alerta: null,
         statusDone: [
-            "Levantamiento inicial de requerimientos realizado",
-            "Proceso actual documentado (AS-IS)",
-            "PDR del proyecto en construcción"
+            "Levantamiento realizado",
+            "Proceso AS-IS documentado",
+            "PDR en construcción",
+            "Inicio desarrollo frontend"
         ],
         statusTodo: [
-            "Definir arquitectura técnica del sistema",
-            "Diseñar modelo definitivo de indicadores",
-            "Desarrollar plataforma de gestión de indicadores",
-            "Realizar pruebas funcionales con el área"
+            "Diseño técnico completo",
+            "Modelo de indicadores",
+            "Backend",
+            "Integración",
+            "Pruebas",
+            "Producción"
         ],
         developer: { iniciales: "JD", nombre: "J. Rodríguez" },
         impacto: "Muy Alto",
@@ -210,7 +215,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Evaluación Financiera de Oportunidades",
         area: "Soluciones Financieras — Saritha Gonzalez",
-        avance: 85,
+        avance: 88,
         tags: ["NOVA IA", "Análisis Financiero", "n8n", "Comparativos"],
         alerta: null,
         statusDone: [
@@ -277,25 +282,25 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Portal Integrado de Reportes Mensuales y Anuales (PyG)",
         area: "Compras, Logística e Inventarios — Santiago Moreno",
-        avance: 65,
+        alerta: {
+            tipo: "am",
+            texto: "🟡 95% — Pendiente validación cliente y despliegue"
+        },
+        avance: 95,
         statusDone: [
-            "Base de datos creada con ~20.000 registros",
-            "Carga inicial completada",
-            "Base de datos de usuarios creada",
-            "Autenticación (login) desarrollada",
-            "Servicios backend implementados",
-            "Integración inicial de datos",
-            "Construcción inicial de métricas (ganancias/pérdidas)",
-            "Resolución de conflictos en código",
-            "Consolidación de doble base de datos"
+            "Base de datos (~20k registros)",
+            "Backend funcional",
+            "Login implementado",
+            "Integración de datos",
+            "Métricas PyG",
+            "Portal funcional end-to-end",
+            "Conflictos resueltos"
         ],
         statusTodo: [
-            "Normalización de datos",
-            "Corrección de inconsistencias",
-            "Modelo de datos final",
-            "Desarrollo frontend",
-            "Integración SAP/Jira/APIs",
-            "Generación automática de reportes"
+            "Validación con cliente",
+            "Ajustes finales",
+            "Despliegue en producción",
+            "Integraciones SAP/Jira futuras"
         ],
         developer: { iniciales: "SM", nombre: "S. Moreno" },
         impacto: "Alto",
@@ -348,7 +353,10 @@ const INICIATIVAS = [
         area: "Aseguramiento de Soluciones — Edwin León",
         avance: 90,
         tags: ["BPO", "ITO", "Contratos", "Seguimiento"],
-        alerta: null,
+        alerta: {
+            tipo: "am",
+            texto: "🟡 90% — Pendiente validación final"
+        },
         statusDone: [
             "Portal web para carga de documentos contractuales desarrollado",
             "Flujo de automatización implementado en n8n",
@@ -376,19 +384,24 @@ const INICIATIVAS = [
         prioridad: "Alta",
         prioridadClass: "pr-alta",
         titulo: "Optimización del Reclutamiento — Primer Filtro Automatizado",
-        area: "Soluciones Financieras — Edwin Leon",
-        avance: 20,
+        area: "Soluciones Financieras — Santiago Moreno",
+        avance: 40,
         tags: ["Chatbot HV", "Motor Reglas", "-70% filtro"],
         alerta: null,
         statusDone: [
-            "Meta: 70% reducción tiempo primer filtro",
-            "Alcance: procesos masivos y cargos recurrentes"
+            "Problema identificado",
+            "Enfoque definido",
+            "Chatbot NOVA creado",
+            "Pruebas iniciales"
         ],
         statusTodo: [
-            "Criterios de clasificación por tipo de cargo",
-            "Diseño chatbot + desarrollo + pruebas"
+            "Criterios de clasificación",
+            "Integración GH",
+            "Flujo completo",
+            "MVP",
+            "Pruebas piloto"
         ],
-        developer: { iniciales: "EL", nombre: "E. León" },
+        developer: { iniciales: "SM", nombre: "S. Moreno" },
         impacto: "Alto",
         impactoClass: "imp-a",
         gerencia: "Soluciones Financieras"
@@ -402,10 +415,13 @@ const INICIATIVAS = [
         prioridad: "Alta",
         prioridadClass: "pr-alta",
         titulo: "Automatización Auditorías de Casos — Bot ITSM",
-        area: "Aseguramiento de Soluciones — Edwin Leon",
+        area: "Aseguramiento de Soluciones — Santiago Moreno",
         avance: 50,
         tags: ["ITSM Aranda", "Bot Evaluación", "Comwquality", "Matrices Calidad"],
-        alerta: null,
+        alerta: {
+            tipo: "ar",
+            texto: "🚨 BLOQUEADA — Falta credenciales Aranda"
+        },
         statusDone: [
             "Levantamiento completo de requerimientos realizado",
             "Proceso actual de auditoría documentado",
@@ -419,7 +435,7 @@ const INICIATIVAS = [
             "Integrar bot con herramienta ITSM (Aranda)",
             "Realizar pruebas piloto con casos reales"
         ],
-        developer: { iniciales: "EL", nombre: "E. León" },
+        developer: { iniciales: "SM", nombre: "S. Moreno" },
         impacto: "Alto",
         impactoClass: "imp-a",
         gerencia: "Gobierno y Aseguramiento"
@@ -438,28 +454,23 @@ const INICIATIVAS = [
         prioridadClass: "pr-media",
         titulo: "Planificación Digital y Control de Cargas Operativas",
         area: "Servicios Generales — Juan David Rodríguez",
-        avance: 75,
+        avance: 85,
         tags: ["App Móvil", "Dashboard", "Indicadores"],
         alerta: null,
         statusDone: [
-            "Arquitectura PWA definida",
-            "Frontend inicial desarrollado",
-            "Login funcional",
-            "Base de datos en Docker",
-            "Backend en FastAPI",
-            "CRUD parcial implementado",
-            "Categorías integradas",
-            "Modelo de datos ajustado para roles",
-            "Manejo de evidencias implementado",
-            "Base de analítica estructurada"
+            "Frontend",
+            "Backend FastAPI",
+            "BD Docker",
+            "CRUD parcial",
+            "Dashboard",
+            "Indicadores por usuario",
+            "Perfil admin"
         ],
         statusTodo: [
-            "Completar CRUD",
-            "Integración frontend-backend",
-            "Dashboard de indicadores",
-            "Registro diario por usuario",
-            "Pruebas funcionales",
-            "Despliegue"
+            "Integración completa",
+            "CRUD completo",
+            "Pruebas",
+            "Producción"
         ],
         developer: { iniciales: "JD", nombre: "J. Rodríguez" },
         impacto: "Medio-Alto",
@@ -545,7 +556,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-media",
         titulo: "Liquidaciones y Capacitaciones de Nómina — SAP",
         area: "Contabilidad y Control Interno — Angie Hernandez",
-        avance: 80,
+        avance: 85,
         tags: ["SAP", "Excel-Plano", "16-24h/mes ahorro"],
         alerta: null,
         statusDone: [
