@@ -14,24 +14,23 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Informe Inteligente — Resumen de Alcances (RFP)",
         area: "Arquitectura / Tercerización — Jefrey Roman",
-        avance: 18,
+        avance: 30,
         tags: ["Formulario IA", "Word/PDF Export", "SharePoint", "Power App"],
         alerta: null,
         statusDone: [
             "Problema operativo identificado en análisis manual de pliegos y RFP",
-            "Alcance de la solución definido (formulario inteligente)",
-            "Flujo funcional de la herramienta conceptualizado",
-            "Sistemas involucrados identificados (App web / Power App, SharePoint, generación Word/PDF)",
-            "Reunión agendada para levantamiento de información con el área solicitante"
+            "Alcance definido",
+            "Flujo funcional conceptualizado",
+            "Sistemas definidos",
+            "Levantamiento detallado realizado con el área",
+            "Identificación de riesgos (tiempo, omisión, reprocesos)"
         ],
-
         statusTodo: [
-            "Realizar levantamiento detallado de preguntas guía con Arquitectura",
-            "Definir modelo de clasificación técnica del alcance",
-            "Diseñar interfaz del formulario inteligente",
-            "Desarrollar prototipo inicial (MVP)",
-            "Realizar pruebas piloto con RFP reales",
-            "Implementar almacenamiento y generación automática de documentos (Word/PDF)"
+            "Definir preguntas guía del formulario",
+            "Estructurar modelo de clasificación técnica",
+            "Diseñar interfaz",
+            "Desarrollar MVP",
+            "Pruebas piloto con RFP reales"
         ],
         developer: { iniciales: "JR", nombre: "J. Roman" },
         impacto: "Muy Alto",
@@ -215,7 +214,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Evaluación Financiera de Oportunidades",
         area: "Soluciones Financieras — Saritha Gonzalez",
-        avance: 88,
+        avance: 90,
         tags: ["NOVA IA", "Análisis Financiero", "n8n", "Comparativos"],
         alerta: null,
         statusDone: [
@@ -250,7 +249,7 @@ const INICIATIVAS = [
             tipo: "ao",
             texto: "⚠️ Bloqueo por dependencia técnica con Invoway (en espera de definición)"
         },
-        avance: 65,
+        avance: 72,
         tags: ["Invoway API", "SAP", "Archivo Plano", "Cargue Masivo"],
         alerta: null,
         statusDone: [
@@ -317,17 +316,17 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Identificación Responsabilidades Tributarias en Municipios",
         area: "Contabilidad — Juan David Rodríguez",
-        avance: 90,
+        avance: 92,
         tags: ["IA PDF", "SAP", "40 municipios/mes", "50-300 págs"],
         alerta: null,
         statusDone: [
-            "Flujo end-to-end funcional",
-            "OCR con Document AI implementado",
-            "Extracción de texto desde PDFs escaneados",
-            "Análisis con IA funcionando",
-            "Generación automática de Excel",
-            "Envío automático por correo",
-            "Validación con documentos reales"
+            "Aplicativo completo (frontend + backend)",
+            "Procesamiento de Excel funcional",
+            "Generación automática archivo plano",
+            "Integración directa con SAP",
+            "Validación automática de usuarios",
+            "Generación de facturas en SAP",
+            "Flujo end-to-end funcional"
         ],
         statusTodo: [
             "Optimizar precisión del modelo",
@@ -385,7 +384,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Optimización del Reclutamiento — Primer Filtro Automatizado",
         area: "Soluciones Financieras — Santiago Moreno",
-        avance: 40,
+        avance: 45,
         tags: ["Chatbot HV", "Motor Reglas", "-70% filtro"],
         alerta: null,
         statusDone: [
@@ -454,7 +453,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-media",
         titulo: "Planificación Digital y Control de Cargas Operativas",
         area: "Servicios Generales — Juan David Rodríguez",
-        avance: 85,
+        avance: 88,
         tags: ["App Móvil", "Dashboard", "Indicadores"],
         alerta: null,
         statusDone: [
@@ -517,7 +516,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-media",
         titulo: "Desarrollo Automatizado Herramientas Comware (Paraguas)",
         area: "Soluciones Financieras — Jefrey Román",
-        avance: 45,
+        avance: 50,
         tags: ["SAP", "INVOWAY", "NOVA", "IA", "Automatización transversal"],
         alerta: null,
         statusDone: [
@@ -556,7 +555,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-media",
         titulo: "Liquidaciones y Capacitaciones de Nómina — SAP",
         area: "Contabilidad y Control Interno — Angie Hernandez",
-        avance: 85,
+        avance: 92,
         tags: ["SAP", "Excel-Plano", "16-24h/mes ahorro"],
         alerta: null,
         statusDone: [
