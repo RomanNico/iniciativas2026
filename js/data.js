@@ -189,7 +189,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Indicadores de Gestión ISO — Automatización de Procesos",
         area: "Gerencia Aseguramiento — Juan David Rodríguez",
-        avance: 65,
+        avance: 70,
         tags: ["ISO", "Tablero Consolidado", "Alertas Auto", "Fórmulas Dinámicas"],
         alerta: {
             tipo: "ok",
@@ -205,8 +205,6 @@ const INICIATIVAS = [
             "Reestructuración del frontend para escalabilidad",
             "Mejora en visualización de múltiples vistas",
             "Arquitectura frontend robusta",
-
-            // 🆕 NUEVO
             "Visualización de indicadores por periodicidad (mensual / trimestral)",
             "Estados por entrega implementados (Pendiente / Entregado)",
             "Lógica de alertas condicional (botón visible solo si está pendiente)"
@@ -314,45 +312,34 @@ const INICIATIVAS = [
         nivel: "o",
         prioridad: "Alta",
         prioridadClass: "pr-alta",
-        titulo: "Portal Integrado de Reportes Mensuales y Anuales (PyG)",
-        area: "Compras, Logística e Inventarios — Santiago Moreno",
+        titulo: "Portal Reportes Mensuales y Anuales (PyG)",
+        area: "Compras — Santiago Moreno",
+        avance: 97,
         alerta: {
             tipo: "ok",
-            texto: "🟢 LISTO — Pendiente validación final cliente"
+            texto: "🟢 LISTO — Solo falta API Key + validación final"
         },
-        avance: 96,
+
         statusDone: [
-            "Base de datos creada (~20k registros)",
-            "Backend desarrollado",
-            "Autenticación funcional",
-            "Integración de datos estabilizada",
-            "Métricas financieras construidas (PyG)",
+            "Base de datos ~20k registros",
+            "Backend funcional",
+            "Autenticación implementada",
             "Portal end-to-end funcional",
-            "Corrección de inconsistencias",
-            "Inicio automatización Excel SAP",
-            "Integración chatbot con envío de datos"
+            "Métricas financieras (PyG)",
+
+            "Excel SAP automatizado",
+            "Validación con cliente OK",
+
+            "Chatbot integrado al portal"
         ],
 
         statusTodo: [
-            "Validación funcional con cliente",
-            "Ajustes UX/UI",
+            "Integración API Key SAP",
             "Corrección datos chatbot",
-            "Finalizar automatización Excel SAP",
-            "Validación de métricas",
-            "Despliegue en producción",
-            "Integraciones futuras"
+            "Validación final cliente",
+            "Despliegue producción"
         ],
 
-        statusTodo: [
-            "Validación funcional con cliente",
-            "Ajustes UX/UI",
-            "Corrección de datos enviados por chatbot",
-            "Finalizar automatización Excel SAP",
-
-            "Validación de métricas",
-            "Despliegue en producción",
-            "Integraciones futuras (SAP, Jira, APIs)"
-        ],
         developer: { iniciales: "SM", nombre: "S. Moreno" },
         impacto: "Alto",
         impactoClass: "imp-a",
@@ -411,11 +398,12 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Automatización Matriz de Compromisos Contractuales",
         area: "Aseguramiento de Soluciones — Edwin León",
-        avance: 95,
+        avance: 100,
+        estado: "produccion",
         tags: ["BPO", "ITO", "Contratos", "Seguimiento"],
         alerta: {
-            tipo: "am",
-            texto: "🟡 95% — Pendiente validación final"
+            tipo: "ok",
+            texto: "✅ INICIATIVA FINALIZADA-EN PRODUCCIÓN"
         },
         statusDone: [
             "Portal web para carga de documentos contractuales desarrollado",
@@ -443,24 +431,27 @@ const INICIATIVAS = [
         nivel: "o",
         prioridad: "Alta",
         prioridadClass: "pr-alta",
-        titulo: "Optimización del Reclutamiento — Primer Filtro Automatizado",
+        titulo: "Automatización Reclutamiento — Primer Filtro",
         area: "Soluciones Financieras — Santiago Moreno",
-        avance: 55,
-        tags: ["Chatbot HV", "Motor Reglas", "-70% filtro"],
-        alerta: null,
+        avance: 65,
+
         statusDone: [
             "Problema identificado",
-            "Enfoque definido",
-            "Chatbot NOVA creado",
-            "Pruebas iniciales"
+            "Chatbot NOVA funcional",
+            "Pruebas con hojas de vida",
+            "API NOVA probada (Postman)",
+            "Inicio integración con portal GH"
         ],
+
         statusTodo: [
-            "Criterios de clasificación",
-            "Integración GH",
+            "Integración completa NOVA",
+            "Definir reglas de clasificación",
             "Flujo completo",
             "MVP",
-            "Pruebas piloto"
+            "Pruebas piloto",
+            "Producción"
         ],
+
         developer: { iniciales: "SM", nombre: "S. Moreno" },
         impacto: "Alto",
         impactoClass: "imp-a",
@@ -512,39 +503,33 @@ const INICIATIVAS = [
         nivel: "y",
         prioridad: "Media-Alta",
         prioridadClass: "pr-media",
-        titulo: "Planificación Digital y Control de Cargas Operativas",
+        titulo: "Planificación Digital y Cargas Operativas",
         area: "Servicios Generales — Juan David Rodríguez",
         avance: 98,
-        tags: ["App Móvil", "Dashboard", "Indicadores"],
-        alerta: null,
+        alerta: {
+            tipo: "ok",
+            texto: "🟢 MVP VALIDADO — EN AJUSTES FINALES"
+        },
+
         statusDone: [
-            "Levantamiento de requerimientos completo",
-            "PDR definido",
-            "Arquitectura PWA definida",
-            "Backend en FastAPI funcional",
-            "Base de datos en Docker",
-            "Frontend con login implementado",
-            "CRUD parcial operativo",
-            "Gestión de roles y categorías",
-            "Manejo de evidencias",
-            "Dashboard con indicadores y gráficas",
-            "Perfil administrador global",
-            "Seguridad implementada (hash contraseñas)",
-            "Scripts de gestión de usuarios",
+            "Sistema completo funcional",
+            "Backend FastAPI",
+            "Frontend con login",
+            "Dashboard con gráficas",
+            "Seguridad implementada",
             "MVP validado con cliente",
-            "Validación funcional realizada",
-            "Identificación de nuevos requerimientos (horas, reportes, tiempos muertos)"
+
+            "Identificación nuevos requerimientos"
         ],
 
         statusTodo: [
-            "Implementar envío de reportes por correo",
-            "Cálculo total de horas trabajadas",
-            "Identificación de tiempos muertos",
-            "Finalizar CRUD (editar / consultar)",
-            "Validación final",
-            "Pruebas QA",
-            "Despliegue en producción"
+            "Envío de reportes por correo",
+            "Cálculo de horas trabajadas",
+            "Visualización tiempos muertos",
+            "QA",
+            "Producción"
         ],
+
         developer: { iniciales: "JD", nombre: "J. Rodríguez" },
         impacto: "Medio-Alto",
         impactoClass: "imp-a",
@@ -588,45 +573,54 @@ const INICIATIVAS = [
         nivel: "y",
         prioridad: "Media",
         prioridadClass: "pr-media",
-        titulo: "Desarrollo Automatizado Herramientas Comware (Paraguas)",
+        titulo: "Desarrollo Automatizado Herramientas Comware (Programa)",
         area: "Soluciones Financieras — Jefrey Román",
-        avance: 65,
-        tags: ["SAP", "INVOWAY", "NOVA", "IA", "Automatización transversal"],
+        avance: 70,
+        tags: ["Programa", "IA", "NOVA", "SAP", "INVOWAY", "Full Stack"],
         alerta: {
-            tipo: "ao",
-            texto: "⚠️ SE DIVIDIÓ LA INICIATIVA"
+            tipo: "ok",
+            texto: "🚀 PROGRAMA EN EJECUCIÓN — YA HAY PRODUCTOS FUNCIONALES (Contabilidad + Legal)"
         },
+
         statusDone: [
-            "Evolución de iniciativa → programa estructurado",
-            "Backlog creado en Jira",
-            "Roadmap por áreas definido",
-            "Priorización: Legal → GH → Contabilidad → Compras",
-            "Levantamiento en áreas clave (Legal, GH, Compras, Contabilidad)",
-            "Procesos AS-IS identificados",
-            "Problemas y oportunidades detectadas",
-            "Backend Node.js + Express funcional (Portal Legal)",
-            "Base de datos PostgreSQL implementada",
+            "Iniciativa evolucionada a programa estructurado",
+            "Backlog en Jira definido",
+            "Roadmap por áreas",
+            "Priorización definida (Legal → GH → Contabilidad → Compras)",
+
+            "Levantamiento en áreas clave",
+            "Procesos críticos identificados",
+            "Metodología AS-IS definida",
+
+            "Portal Legal backend funcional (Node + PostgreSQL)",
             "Procesamiento de PDFs implementado",
             "Asistente NOVA configurado",
-            "Pruebas exitosas de persistencia",
-            "Integración frontend + backend en módulo contabilidad",
+
+            "Producto Contabilidad COMPLETO (frontend + backend)",
             "Carga y procesamiento de Excel real",
-            "Cálculo automático de días (SLA)",
-            "Clasificación automática (verde/amarillo/rojo)",
-            "Sincronización con PostgreSQL",
-            "Control de duplicados (UNIQUE + ON CONFLICT)",
+            "Cálculo dinámico con CURRENT_DATE",
+            "Clasificación SLA automática",
+            "Persistencia PostgreSQL",
+
             "Dashboard con KPIs + filtros + buscador",
-            "Flujo completo funcional (producto usable)"
+            "Gráficas (pie + barras)",
+            "Agrupación por responsable",
+            "Orden por criticidad",
+
+            "Envío de correos (MAILER)",
+            "Alertas automáticas por responsable",
+            "Flujo end-to-end validado"
         ],
 
         statusTodo: [
-            "Levantamiento con Tesorería y Costos",
-            "Definición de arquitectura global del ecosistema",
-            "Diseño técnico completo por solución",
             "Integración NOVA ↔ backend (bloqueada)",
+            "Levantamiento Tesorería y Costos",
+            "Arquitectura global del ecosistema",
+            "Diseño técnico completo por solución",
             "Desarrollo de MVPs restantes",
             "Estrategia de despliegue corporativo"
         ],
+
         developer: { iniciales: "JR", nombre: "J. Roman" },
         impacto: "Muy Alto",
         impactoClass: "imp-ma",
@@ -646,7 +640,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-media",
         titulo: "Liquidaciones y Capacitaciones de Nómina — SAP",
         area: "Contabilidad y Control Interno — Angie Hernandez",
-        avance: 97,
+        avance: 99,
         tags: ["SAP", "Excel-Plano", "16-24h/mes ahorro"],
         alerta: null,
         statusDone: [
@@ -655,11 +649,11 @@ const INICIATIVAS = [
             "Generación automática de archivo plano SAP",
             "Soporte para nómina y viáticos",
             "Pruebas técnicas realizadas",
-            "Flujo end-to-end funcional"
+            "Flujo end-to-end funcional",
+            "Validación con SAP"
         ],
         statusTodo: [
-            "Validación con SAP",
-            "Casos excepcionales",
+            
             "Pruebas piloto reales",
             "Despliegue en producción"
         ],
