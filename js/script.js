@@ -62,7 +62,46 @@ loop();
 /* =========================
 RENDER TARJETAS DESDE DATA
 ========================= */
+function getStatusReal(ini) {
 
+  const id = ini.id;
+
+  // 🔥 CASOS ESPECIALES (PRIORIDAD ALTA)
+  if (id.includes("IN-35") || id.includes("IN-61")) return "❌ Cancelada";
+  if (id.includes("IN-59")) return "⏸️ Pausada (IVANTI)";
+  if (id.includes("IN-52")) return "⚠️ En pausa (OCR NOVA)";
+  if (id.includes("IN-57")) return "🚨 Bloqueada (Aranda)";
+  if (id.includes("IN-111")) return "🚀 Programa en ejecución";
+
+  // 🔥 PRODUCCIÓN
+  if (ini.avance === 100) return "✅ Producción";
+
+  // 🔥 PRE-PRODUCCIÓN
+  if (ini.avance >= 90) return "🚀 Pre-producción";
+
+  // 🔥 EJECUCIÓN
+  if (ini.avance >= 60) return "⚙️ En ejecución";
+
+  // 🔥 DESARROLLO
+  if (ini.avance >= 30) return "🧩 En desarrollo";
+
+  // 🔥 LEVANTAMIENTO
+  return "📊 Levantamiento";
+}
+function getStatusClass(ini) {
+  const s = getStatusReal(ini);
+
+  if (s.includes("Producción")) return "st-prod";
+  if (s.includes("Pre-producción")) return "st-pre";
+  if (s.includes("ejecución")) return "st-ejec";
+  if (s.includes("desarrollo")) return "st-dev";
+  if (s.includes("Levantamiento")) return "st-lev";
+  if (s.includes("Pausada")) return "st-pause";
+  if (s.includes("Bloqueada")) return "st-block";
+  if (s.includes("Cancelada")) return "st-cancel";
+
+  return "";
+}
 function renderCard(ini) {
   const barClass = { r: 'br', o: 'bo', y: 'by', g: 'bg' }[ini.nivel];
 
@@ -85,6 +124,13 @@ function renderCard(ini) {
         <span class="c-pri ${ini.prioridadClass}">${ini.prioridad}</span>
       </div>
       <div class="c-title">${ini.titulo}</div>
+      <div class="c-status-badge ${getStatusClass(ini)}">
+      ${getStatusReal(ini)}
+      </div>
+      <div>
+      -
+      </div>
+
       <div class="c-area">${ini.area}</div>
       <div class="c-prog">
         <div class="c-prog-head">

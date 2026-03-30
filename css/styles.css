@@ -1710,6 +1710,56 @@ ESTADO PORTAFOLIO
     background: linear-gradient(90deg, #ffb347, #ff5c8a);
 }
 
+.c-status-badge {
+    font-size: 11px;
+    margin-top: 6px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    display: inline-block;
+    font-weight: 600;
+}
+
+/* 🔥 COLORES */
+.st-prod {
+    background: #22c55e;
+    color: #fff;
+}
+
+.st-pre {
+    background: #4ade80;
+    color: #000;
+}
+
+.st-ejec {
+    background: #facc15;
+    color: #000;
+}
+
+.st-dev {
+    background: #fb923c;
+    color: #000;
+}
+
+.st-lev {
+    background: #94a3b8;
+    color: #000;
+}
+
+.st-pause {
+    background: #fbbf24;
+    color: #000;
+}
+
+.st-block {
+    background: #ef4444;
+    color: #fff;
+}
+
+.st-cancel {
+    background: #991b1b;
+    color: #fff;
+}
+
 @media(max-width:960px) {
 
     .hero,
