@@ -189,7 +189,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Indicadores de Gestión ISO — Automatización de Procesos",
         area: "Gerencia Aseguramiento — Juan David Rodríguez",
-        avance: 70,
+        avance: 75,
         tags: ["ISO", "Tablero Consolidado", "Alertas Auto", "Fórmulas Dinámicas"],
         alerta: {
             tipo: "ok",
@@ -207,7 +207,10 @@ const INICIATIVAS = [
             "Arquitectura frontend robusta",
             "Visualización de indicadores por periodicidad (mensual / trimestral)",
             "Estados por entrega implementados (Pendiente / Entregado)",
-            "Lógica de alertas condicional (botón visible solo si está pendiente)"
+            "Lógica de alertas condicional (botón visible solo si está pendiente)",
+            "Estructura backend creada",
+            "Conexión inicial backend ↔ BD",
+            "Endpoints en desarrollo"
         ],
 
         statusTodo: [
@@ -271,11 +274,11 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Enlace Cuentas por Pagar Invoway ↔ SAP",
         area: "Contabilidad y Control Interno — Saritha González",
-        alerta: {
+        aalerta: {
             tipo: "ao",
-            texto: "⚠️ Bloqueo por dependencia técnica con Invoway (evaluando API vs RPA)"
+            texto: "⚠️ Integración en curso (RPA activo) — Dependencia de permisos en Invoway"
         },
-        avance: 78,
+        avance: 82,
         tags: ["Invoway API", "SAP", "Archivo Plano", "Cargue Masivo"],
         statusDone: [
             "Flujo de automatización diseñado",
@@ -287,7 +290,9 @@ const INICIATIVAS = [
             "Identificación de errores en SAP",
             "Definición enfoque RPA",
             "Acceso parcial a Invoway (desbloqueo clave)",
-            "Sesión técnica de RPA realizada"
+            "Sesión técnica de RPA realizada",
+            "Inicio implementación RPA",
+            "Login automatizado en Invoway"
         ],
 
         statusTodo: [
@@ -314,10 +319,10 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Portal Reportes Mensuales y Anuales (PyG)",
         area: "Compras — Santiago Moreno",
-        avance: 97,
+        avance: 99,
         alerta: {
             tipo: "ok",
-            texto: "🟢 LISTO — Solo falta API Key + validación final"
+            texto: "🟢 LISTO — Solo falta Validación final"
         },
 
         statusDone: [
@@ -326,10 +331,10 @@ const INICIATIVAS = [
             "Autenticación implementada",
             "Portal end-to-end funcional",
             "Métricas financieras (PyG)",
-
             "Excel SAP automatizado",
             "Validación con cliente OK",
-
+            "Chatbot integrado al portal",
+            "Excel SAP automatizado validado con cliente",
             "Chatbot integrado al portal"
         ],
 
@@ -359,7 +364,7 @@ const INICIATIVAS = [
         tags: ["IA PDF", "SAP", "40 municipios/mes", "50-300 págs"],
         alerta: {
             tipo: "ao",
-            texto: "⚠️ EN PAUSA — Definición de OCR con NOVA / solución escalable"
+            texto: "⚠️ EN PAUSA — Definición OCR escalable / integración con NOVA"
         },
         statusDone: [
             "Interfaz de carga de documentos implementada",
@@ -433,7 +438,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Automatización Reclutamiento — Primer Filtro",
         area: "Soluciones Financieras — Santiago Moreno",
-        avance: 65,
+        avance: 70,
 
         statusDone: [
             "Problema identificado",
@@ -518,8 +523,9 @@ const INICIATIVAS = [
             "Dashboard con gráficas",
             "Seguridad implementada",
             "MVP validado con cliente",
-
-            "Identificación nuevos requerimientos"
+            "Identificación nuevos requerimientos",
+            "MVP validado con cliente",
+            "Seguridad implementada (hash contraseñas)"
         ],
 
         statusTodo: [
@@ -575,45 +581,32 @@ const INICIATIVAS = [
         prioridadClass: "pr-media",
         titulo: "Desarrollo Automatizado Herramientas Comware (Programa)",
         area: "Soluciones Financieras — Jefrey Román",
-        avance: 70,
         tags: ["Programa", "IA", "NOVA", "SAP", "INVOWAY", "Full Stack"],
         alerta: {
             tipo: "ok",
-            texto: "🚀 PROGRAMA EN EJECUCIÓN — YA HAY PRODUCTOS FUNCIONALES (Contabilidad + Legal)"
+            texto: "🚀 PROGRAMA EN EJECUCIÓN (Contabilidad + Legal)"
         },
-
+        avance: 55,
         statusDone: [
-            "Iniciativa evolucionada a programa estructurado",
-            "Backlog en Jira definido",
-            "Roadmap por áreas",
+            "Programa estructurado con roadmap y backlog",
             "Priorización definida (Legal → GH → Contabilidad → Compras)",
-
             "Levantamiento en áreas clave",
             "Procesos críticos identificados",
-            "Metodología AS-IS definida",
-
-            "Portal Legal backend funcional (Node + PostgreSQL)",
-            "Procesamiento de PDFs implementado",
+            "Portal Legal backend funcional",
+            "Procesamiento de PDFs",
             "Asistente NOVA configurado",
-
-            "Producto Contabilidad COMPLETO (frontend + backend)",
+            "Producto Contabilidad COMPLETO",
             "Carga y procesamiento de Excel real",
             "Cálculo dinámico con CURRENT_DATE",
             "Clasificación SLA automática",
             "Persistencia PostgreSQL",
-
-            "Dashboard con KPIs + filtros + buscador",
+            "Dashboard con KPIs y filtros",
             "Gráficas (pie + barras)",
-            "Agrupación por responsable",
-            "Orden por criticidad",
-
-            "Envío de correos (MAILER)",
             "Alertas automáticas por responsable",
             "Flujo end-to-end validado"
         ],
-
         statusTodo: [
-            "Integración NOVA ↔ backend (bloqueada)",
+            "Integración NOVA ↔ backend",
             "Levantamiento Tesorería y Costos",
             "Arquitectura global del ecosistema",
             "Diseño técnico completo por solución",
@@ -670,7 +663,7 @@ const INICIATIVAS = [
                 nombre: "Contabilidad - Invo-way",
                 area: "Contabilidad",
                 responsable: "Kirya Aguirre",
-                avance: 90,
+                avance: 95,
                 estado: "Pre-producción",
                 descripcion: "Automatización del seguimiento de facturas con dashboard y alertas.",
                 statusDone: [
@@ -690,7 +683,7 @@ const INICIATIVAS = [
                 nombre: "Compras - Aprobaciones SAP",
                 area: "Compras",
                 responsable: "Vivian Yuseli",
-                avance: 25,
+                avance: 30,
                 estado: "Levantamiento",
                 descripcion: "Automatización de recordatorios de aprobaciones en SAP.",
                 statusDone: [
@@ -725,9 +718,13 @@ const INICIATIVAS = [
         prioridadClass: "pr-media",
         titulo: "Liquidaciones y Capacitaciones de Nómina — SAP",
         area: "Contabilidad y Control Interno — Angie Hernandez",
-        avance: 99,
+        avance: 100,
         tags: ["SAP", "Excel-Plano", "16-24h/mes ahorro"],
-        alerta: null,
+        estado: "produccion",
+        alerta: {
+            tipo: "ok",
+            texto: "✅ INICIATIVA FINALIZADA — EN PRODUCCIÓN"
+        },
         statusDone: [
             "Aplicativo completamente desarrollado",
             "Procesamiento de archivos Excel funcional",
@@ -735,12 +732,15 @@ const INICIATIVAS = [
             "Soporte para nómina y viáticos",
             "Pruebas técnicas realizadas",
             "Flujo end-to-end funcional",
-            "Validación con SAP"
+            "Validación con SAP",
+            "Corrección de inconsistencias de datos (cédulas)",
+            "Facturas generadas en estado preliminar",
+            "Validación con equipo SAP realizada",
+            "Aprobación para despliegue en producción"
         ],
         statusTodo: [
-
-            "Pruebas piloto reales",
-            "Despliegue en producción"
+            "Monitoreo en producción",
+            "Ajustes post-despliegue"
         ],
         developer: { iniciales: "AH", nombre: "A. Hernandez" },
         impacto: "Medio",
