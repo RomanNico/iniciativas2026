@@ -64,28 +64,34 @@ RENDER TARJETAS DESDE DATA
 ========================= */
 function getStatusReal(ini) {
 
+  const esPrograma = ini.id.includes("IN-111");
+  const avance = esPrograma
+    ? calcularAvanceSubIniciativas(ini)
+    : ini.avance;
+
   const id = ini.id;
 
-  // 🔥 CASOS ESPECIALES (PRIORIDAD ALTA)
+  // 🔥 CASOS ESPECIALES
   if (id.includes("IN-35") || id.includes("IN-61")) return "❌ Cancelada";
   if (id.includes("IN-59")) return "⏸️ Pausada (IVANTI)";
   if (id.includes("IN-52")) return "⚠️ En pausa (OCR NOVA)";
   if (id.includes("IN-57")) return "🚨 Bloqueada (Aranda)";
-  if (id.includes("IN-111")) return "🚀 Programa en ejecución";
+  if (id.includes("IN-111")) {
+    return `🚀 Programa en ejecución (${avance}%)`;
+  }
 
   // 🔥 PRODUCCIÓN
-  if (ini.avance === 100) return "✅ Producción";
+  if (avance === 100) return "✅ Producción";
 
   // 🔥 PRE-PRODUCCIÓN
-  if (ini.avance >= 90) return "🚀 Pre-producción";
+  if (avance >= 90) return "🚀 Pre-producción";
 
   // 🔥 EJECUCIÓN
-  if (ini.avance >= 60) return "⚙️ En ejecución";
+  if (avance >= 60) return "⚙️ En ejecución";
 
   // 🔥 DESARROLLO
-  if (ini.avance >= 30) return "🧩 En desarrollo";
+  if (avance >= 30) return "🧩 En desarrollo";
 
-  // 🔥 LEVANTAMIENTO
   return "📊 Levantamiento";
 }
 function getStatusClass(ini) {
@@ -105,6 +111,12 @@ function getStatusClass(ini) {
 function renderCard(ini) {
   const barClass = { r: 'br', o: 'bo', y: 'by', g: 'bg' }[ini.nivel];
 
+  // 🔥 SOLO PARA IN-111
+  const esPrograma = ini.id.includes("IN-111");
+  const avanceReal = esPrograma
+    ? calcularAvanceSubIniciativas(ini)
+    : ini.avance;
+
   const alertHTML = ini.alerta
     ? `<div class="c-alert ${ini.alerta.tipo}">${ini.alerta.texto}</div>` : '';
 
@@ -116,38 +128,73 @@ function renderCard(ini) {
   const todoHTML = (ini.statusTodo || []).map(s =>
     `<div class="s-item todo"><span class="s-ico">⏳</span>${s}</div>`).join('');
 
+  // 🔥 SUB-INICIATIVAS (como ya las tienes)
+  const subHTML = (ini.subIniciativas || []).map(sub => `
+    <div class="sub-item">
+      <div class="sub-head">
+        <strong>${sub.id}</strong> · ${sub.nombre}
+        <span class="sub-avance">${sub.avance}%</span>
+      </div>
+      <div class="sub-bar-bg">
+        <div class="sub-bar" style="width:${sub.avance}%"></div>
+      </div>
+    </div>
+  `).join('');
+
   return `
     <div class="card t-${ini.nivel}" data-lvl="${ini.nivel}">
       <div class="cg"></div>
+
       <div class="card-top">
         <span class="c-id">${ini.id}<br>${ini.gerenciaLabel}</span>
         <span class="c-pri ${ini.prioridadClass}">${ini.prioridad}</span>
       </div>
+
       <div class="c-title">${ini.titulo}</div>
+
       <div class="c-status-badge ${getStatusClass(ini)}">
-      ${getStatusReal(ini)}
-      </div>
-      <div>
-      -
+        ${getStatusReal(ini)}
       </div>
 
+      <div>-</div>
+
       <div class="c-area">${ini.area}</div>
+
       <div class="c-prog">
         <div class="c-prog-head">
           <span class="c-prog-lbl">Avance</span>
-          <span class="c-prog-pct">${ini.avance}%</span>
+          <span class="c-prog-pct">
+            ${avanceReal}% ${esPrograma ? "🧠" : ""}
+          </span>
         </div>
         <div class="bar-bg">
-          <div class="bar ${barClass}" data-w="${ini.avance}"></div>
+          <div class="bar ${barClass}" data-w="${avanceReal}"></div>
         </div>
       </div>
+
       <div class="c-tags">${tagsHTML}</div>
+
       ${alertHTML}
+
+      <!-- 🔥 SUB-INICIATIVAS -->
+      ${ini.subIniciativas ? `
+        <div class="sub-container">
+          <div class="sub-title">Sub-iniciativas</div>
+          ${subHTML}
+        </div>
+      ` : ''}
+
       <button class="c-expand" onclick="tc(this)">▼ Ver estado detallado</button>
-      <div class="c-status">${doneHTML}${todoHTML}</div>
+
+      <div class="c-status">
+        ${doneHTML}
+        ${todoHTML}
+      </div>
+
       <div class="c-foot">
         <div class="c-who">
-          <div class="avatar">${ini.developer.iniciales}</div>${ini.developer.nombre}
+          <div class="avatar">${ini.developer.iniciales}</div>
+          ${ini.developer.nombre}
         </div>
         <span class="c-imp ${ini.impactoClass}">${ini.impacto}</span>
       </div>
@@ -155,15 +202,23 @@ function renderCard(ini) {
 }
 function calcularKPIs() {
 
+  const getAvance = (i) =>
+    i.id.includes("IN-111")
+      ? calcularAvanceSubIniciativas(i)
+      : i.avance;
+
   const total = INICIATIVAS.length;
 
   const automatizacion = INICIATIVAS.filter(i => i.tipo === 'auto').length;
 
   const producto = INICIATIVAS.filter(i => i.tipo === 'prod').length;
 
-  const casiProduccion = INICIATIVAS.filter(i => i.avance >= 80 && i.avance < 100).length;
+  const casiProduccion = INICIATIVAS.filter(i => {
+    const a = getAvance(i);
+    return a >= 80 && a < 100;
+  }).length;
 
-  const ejecucionActiva = INICIATIVAS.filter(i => i.avance === 100).length;
+  const ejecucionActiva = INICIATIVAS.filter(i => getAvance(i) === 100).length;
 
   const kpis = document.querySelectorAll('.kpi-n');
 
@@ -172,7 +227,12 @@ function calcularKPIs() {
   kpis[2].innerText = producto;
   kpis[3].innerText = casiProduccion;
   kpis[4].innerText = ejecucionActiva;
+}
+function calcularAvanceSubIniciativas(ini) {
+  if (!ini.subIniciativas || !ini.subIniciativas.length) return ini.avance;
 
+  const total = ini.subIniciativas.reduce((sum, sub) => sum + sub.avance, 0);
+  return Math.round(total / ini.subIniciativas.length);
 }
 function renderAllCards() {
   // Mapeo: panel-tipo · nivel → id del grid en el HTML
@@ -198,8 +258,14 @@ function renderAllCards() {
   // Poblar cada grid
   INICIATIVAS.forEach(ini => {
 
-    // 👇 SI ESTÁ FINALIZADA
-    if (ini.avance === 100) {
+    const esPrograma = ini.id.includes("IN-111");
+
+    const avanceReal = esPrograma
+      ? calcularAvanceSubIniciativas(ini)
+      : ini.avance;
+
+    // 👇 USAR EL REAL, NO EL ORIGINAL
+    if (avanceReal === 100) {
       const gridId = `${ini.tipo}-done`;
       const grid = document.getElementById(`grid-${gridId}`);
       if (grid) grid.insertAdjacentHTML('beforeend', renderCard(ini));
@@ -363,7 +429,9 @@ const iniciativas = INICIATIVAS.map(i => ({
   nombre: i.titulo,
   tipo: i.tipo,
   gerencia: i.gerencia,
-  avance: i.avance
+  avance: i.id.includes("IN-111")
+    ? calcularAvanceSubIniciativas(i)
+    : i.avance
 }));
 
 function toggleGraficas() {

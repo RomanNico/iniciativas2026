@@ -620,7 +620,92 @@ const INICIATIVAS = [
             "Desarrollo de MVPs restantes",
             "Estrategia de despliegue corporativo"
         ],
+        subIniciativas: [
 
+            {
+                id: "AUT-1215",
+                nombre: "Portal Legal",
+                area: "Legal",
+                responsable: "Yenny Cely",
+                avance: 70,
+                estado: "En desarrollo",
+                descripcion: "Automatización de PQR, tutelas y demandas mediante portal web + IA.",
+                statusDone: [
+                    "Backend funcional",
+                    "Procesamiento de PDFs",
+                    "Base de datos operativa",
+                    "Flujo definido"
+                ],
+                statusTodo: [
+                    "Integración con NOVA",
+                    "Dashboard",
+                    "Alertas",
+                    "Integración correo"
+                ]
+            },
+
+            {
+                id: "AUT-1216",
+                nombre: "Gestión Humana - IA Reclutamiento",
+                area: "Gestión Humana",
+                responsable: "Alejandra Soto",
+                avance: 30,
+                estado: "Levantamiento",
+                descripcion: "IA para análisis de hojas de vida y ranking de candidatos.",
+                statusDone: [
+                    "Problema identificado",
+                    "Levantamiento completo",
+                    "Flujo definido"
+                ],
+                statusTodo: [
+                    "Arquitectura",
+                    "Modelo de datos",
+                    "Desarrollo",
+                    "Integración IA"
+                ]
+            },
+
+            {
+                id: "AUT-1217",
+                nombre: "Contabilidad - Invo-way",
+                area: "Contabilidad",
+                responsable: "Kirya Aguirre",
+                avance: 90,
+                estado: "Pre-producción",
+                descripcion: "Automatización del seguimiento de facturas con dashboard y alertas.",
+                statusDone: [
+                    "Frontend + Backend",
+                    "Procesamiento Excel",
+                    "Dashboard",
+                    "Correos automáticos",
+                    "Flujo end-to-end"
+                ],
+                statusTodo: [
+                    "Ajustes finales con usuarios"
+                ]
+            },
+
+            {
+                id: "AUT-1218",
+                nombre: "Compras - Aprobaciones SAP",
+                area: "Compras",
+                responsable: "Vivian Yuseli",
+                avance: 25,
+                estado: "Levantamiento",
+                descripcion: "Automatización de recordatorios de aprobaciones en SAP.",
+                statusDone: [
+                    "Levantamiento",
+                    "Reunión con SAP",
+                    "Validación técnica (QUERY)"
+                ],
+                statusTodo: [
+                    "Extracción de datos",
+                    "Arquitectura",
+                    "Desarrollo"
+                ]
+            }
+
+        ],
         developer: { iniciales: "JR", nombre: "J. Roman" },
         impacto: "Muy Alto",
         impactoClass: "imp-ma",
@@ -653,7 +738,7 @@ const INICIATIVAS = [
             "Validación con SAP"
         ],
         statusTodo: [
-            
+
             "Pruebas piloto reales",
             "Despliegue en producción"
         ],
