@@ -13,7 +13,7 @@ const INICIATIVAS = [
         prioridad: "Muy Alta",
         prioridadClass: "pr-muy-alta",
         titulo: "Informe Inteligente — Resumen de Alcances (RFP)",
-        area: "Arquitectura / Tercerización — Jefrey Roman",
+        area: "Arquitectura / Tercerización — Angie Hernandez",
         avance: 35,
         tags: ["Formulario IA", "Word/PDF Export", "SharePoint", "Power App"],
         alerta: null,
@@ -35,7 +35,7 @@ const INICIATIVAS = [
             "Desarrollo MVP",
             "Pruebas piloto con RFP reales"
         ],
-        developer: { iniciales: "JR", nombre: "J. Roman" },
+        developer: { iniciales: "AH", nombre: "A. Hernandez" },
         impacto: "Muy Alto",
         impactoClass: "imp-ma",
         gerencia: "Arquitectura"
@@ -189,7 +189,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Indicadores de Gestión ISO — Automatización de Procesos",
         area: "Gerencia Aseguramiento — Juan David Rodríguez",
-        avance: 75,
+        avance: 88,
         tags: ["ISO", "Tablero Consolidado", "Alertas Auto", "Fórmulas Dinámicas"],
         alerta: {
             tipo: "ok",
@@ -243,7 +243,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Evaluación Financiera de Oportunidades",
         area: "Soluciones Financieras — Saritha Gonzalez",
-        avance: 98,
+        avance: 99,
         tags: ["NOVA IA", "Análisis Financiero", "n8n", "Comparativos"],
         alerta: null,
         statusDone: [
@@ -278,7 +278,7 @@ const INICIATIVAS = [
             tipo: "ao",
             texto: "⚠️ Integración en curso (RPA activo) — Dependencia de permisos en Invoway"
         },
-        avance: 82,
+        avance: 84,
         tags: ["Invoway API", "SAP", "Archivo Plano", "Cargue Masivo"],
         statusDone: [
             "Flujo de automatización diseñado",
@@ -510,7 +510,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-media",
         titulo: "Planificación Digital y Cargas Operativas",
         area: "Servicios Generales — Juan David Rodríguez",
-        avance: 98,
+        avance: 99,
         alerta: {
             tipo: "ok",
             texto: "🟢 MVP VALIDADO — EN AJUSTES FINALES"
@@ -620,7 +620,7 @@ const INICIATIVAS = [
                 nombre: "Portal Legal",
                 area: "Legal",
                 responsable: "Yenny Cely",
-                avance: 70,
+                avance: 97,
                 estado: "En desarrollo",
                 descripcion: "Automatización de PQR, tutelas y demandas mediante portal web + IA.",
                 statusDone: [
@@ -642,7 +642,7 @@ const INICIATIVAS = [
                 nombre: "Gestión Humana - IA Reclutamiento",
                 area: "Gestión Humana",
                 responsable: "Alejandra Soto",
-                avance: 30,
+                avance: 45,
                 estado: "Levantamiento",
                 descripcion: "IA para análisis de hojas de vida y ranking de candidatos.",
                 statusDone: [
@@ -663,7 +663,7 @@ const INICIATIVAS = [
                 nombre: "Contabilidad - Invo-way",
                 area: "Contabilidad",
                 responsable: "Kirya Aguirre",
-                avance: 95,
+                avance: 97,
                 estado: "Pre-producción",
                 descripcion: "Automatización del seguimiento de facturas con dashboard y alertas.",
                 statusDone: [
