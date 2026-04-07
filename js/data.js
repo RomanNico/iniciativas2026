@@ -189,7 +189,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Indicadores de Gestión ISO — Automatización de Procesos",
         area: "Gerencia Aseguramiento — Juan David Rodríguez",
-        avance: 88,
+        avance: 90,
         tags: ["ISO", "Tablero Consolidado", "Alertas Auto", "Fórmulas Dinámicas"],
         alerta: {
             tipo: "ok",
@@ -584,17 +584,20 @@ const INICIATIVAS = [
         tags: ["Programa", "IA", "NOVA", "SAP", "INVOWAY", "Full Stack"],
         alerta: {
             tipo: "ok",
-            texto: "🚀 PROGRAMA EN EJECUCIÓN (Contabilidad + Legal)"
+            texto: "🚀 PROGRAMA EN EJECUCIÓN (Legal + Contabilidad + Gestión Humana IA)"
         },
-        avance: 55,
+        avance: 65,
+
         statusDone: [
             "Programa estructurado con roadmap y backlog",
             "Priorización definida (Legal → GH → Contabilidad → Compras)",
             "Levantamiento en áreas clave",
             "Procesos críticos identificados",
+
             "Portal Legal backend funcional",
             "Procesamiento de PDFs",
             "Asistente NOVA configurado",
+
             "Producto Contabilidad COMPLETO",
             "Carga y procesamiento de Excel real",
             "Cálculo dinámico con CURRENT_DATE",
@@ -603,16 +606,28 @@ const INICIATIVAS = [
             "Dashboard con KPIs y filtros",
             "Gráficas (pie + barras)",
             "Alertas automáticas por responsable",
-            "Flujo end-to-end validado"
+            "Flujo end-to-end validado",
+
+            "Desarrollo Talent Hub AI (Gestión Humana)",
+            "Evaluación automática de candidatos con IA",
+            "Ranking inteligente de candidatos",
+            "Procesamiento de hojas de vida (PDF/Word)",
+            "Generación de resúmenes automáticos",
+            "Detección de brechas (gaps)",
+            "Arquitectura full-stack operativa",
+            "Optimización de rendimiento (eliminación errores 504)"
         ],
+
         statusTodo: [
-            "Integración NOVA ↔ backend",
+            "Integración completa NOVA ↔ backend",
             "Levantamiento Tesorería y Costos",
             "Arquitectura global del ecosistema",
             "Diseño técnico completo por solución",
-            "Desarrollo de MVPs restantes",
-            "Estrategia de despliegue corporativo"
+            "Validación con usuarios reales (GH)",
+            "QA completo",
+            "Despliegue productivo corporativo"
         ],
+
         subIniciativas: [
 
             {
@@ -620,7 +635,7 @@ const INICIATIVAS = [
                 nombre: "Portal Legal",
                 area: "Legal",
                 responsable: "Yenny Cely",
-                avance: 97,
+                avance: 98,
                 estado: "En desarrollo",
                 descripcion: "Automatización de PQR, tutelas y demandas mediante portal web + IA.",
                 statusDone: [
@@ -639,22 +654,34 @@ const INICIATIVAS = [
 
             {
                 id: "AUT-1216",
-                nombre: "Gestión Humana - IA Reclutamiento",
+                nombre: "Gestión Humana - Talent Hub AI",
                 area: "Gestión Humana",
                 responsable: "Alejandra Soto",
-                avance: 45,
-                estado: "Levantamiento",
-                descripcion: "IA para análisis de hojas de vida y ranking de candidatos.",
+                avance: 70,
+                estado: "Desarrollo avanzado",
+                descripcion: "IA para análisis de hojas de vida, ranking de candidatos y evaluación automática.",
+
                 statusDone: [
-                    "Problema identificado",
                     "Levantamiento completo",
-                    "Flujo definido"
+                    "Flujo definido",
+                    "Asistente IA (Nova) configurado",
+                    "Evaluación ponderada implementada",
+                    "Procesamiento de hojas de vida (PDF/Word)",
+                    "Ranking automático de candidatos",
+                    "Generación de resúmenes profesionales",
+                    "Detección de fortalezas y brechas",
+                    "Frontend funcional",
+                    "Backend integrado",
+                    "Base de datos operativa",
+                    "Procesamiento distribuido por candidato",
+                    "Optimización de rendimiento"
                 ],
+
                 statusTodo: [
-                    "Arquitectura",
-                    "Modelo de datos",
-                    "Desarrollo",
-                    "Integración IA"
+                    "Validación con usuarios reales",
+                    "Ajustes del modelo de evaluación",
+                    "Pruebas masivas",
+                    "Despliegue productivo"
                 ]
             },
 
@@ -699,6 +726,7 @@ const INICIATIVAS = [
             }
 
         ],
+
         developer: { iniciales: "JR", nombre: "J. Roman" },
         impacto: "Muy Alto",
         impactoClass: "imp-ma",
