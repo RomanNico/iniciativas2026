@@ -189,7 +189,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Indicadores de Gestión ISO — Automatización de Procesos",
         area: "Gerencia Aseguramiento — Juan David Rodríguez",
-        avance: 90,
+        avance: 95,
         tags: ["ISO", "Tablero Consolidado", "Alertas Auto", "Fórmulas Dinámicas"],
         alerta: {
             tipo: "ok",
@@ -210,16 +210,17 @@ const INICIATIVAS = [
             "Lógica de alertas condicional (botón visible solo si está pendiente)",
             "Estructura backend creada",
             "Conexión inicial backend ↔ BD",
-            "Endpoints en desarrollo"
-        ],
-
-        statusTodo: [
+            "Endpoints en desarrollo",
             "Diseño técnico detallado del sistema",
             "Definición del modelo de indicadores (fórmulas)",
             "Diseño de lógica de negocio completa",
             "Desarrollo backend",
             "Integración frontend ↔ backend",
-            "Implementación de alertas automáticas (backend)",
+            "Implementación de alertas automáticas (backend)"
+        ],
+
+        statusTodo: [
+            
             "Flujos de seguimiento",
             "Pruebas funcionales",
             "Despliegue en producción"
@@ -243,7 +244,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Evaluación Financiera de Oportunidades",
         area: "Soluciones Financieras — Saritha Gonzalez",
-        avance: 99,
+        avance: 97,
         tags: ["NOVA IA", "Análisis Financiero", "n8n", "Comparativos"],
         alerta: null,
         statusDone: [
@@ -278,7 +279,7 @@ const INICIATIVAS = [
             tipo: "ao",
             texto: "⚠️ Integración en curso (RPA activo) — Dependencia de permisos en Invoway"
         },
-        avance: 84,
+        avance: 87,
         tags: ["Invoway API", "SAP", "Archivo Plano", "Cargue Masivo"],
         statusDone: [
             "Flujo de automatización diseñado",
@@ -360,11 +361,9 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Identificación Responsabilidades Tributarias en Municipios",
         area: "Contabilidad — Juan David Rodríguez",
-        avance: 92,
+        avance: 95,
         tags: ["IA PDF", "SAP", "40 municipios/mes", "50-300 págs"],
         alerta: {
-            tipo: "ao",
-            texto: "⚠️ EN PAUSA — Definición OCR escalable / integración con NOVA"
         },
         statusDone: [
             "Interfaz de carga de documentos implementada",
@@ -378,10 +377,11 @@ const INICIATIVAS = [
             "Flujo end-to-end validado",
             "Procesamiento de documentos multipágina",
             "Optimización de filtros OCR",
-            "Diseño de flujo desacoplado (OCR + NOVA)"
+            "Diseño de flujo desacoplado (OCR + NOVA)",
+            "Mejorar precisión del modelo de extracción",
         ],
         statusTodo: [
-            "Mejorar precisión del modelo de extracción",
+            
             "Validación de resultados",
             "Integración con base de datos estructurada",
             "Definir solución OCR escalable",
@@ -657,7 +657,7 @@ const INICIATIVAS = [
                 nombre: "Gestión Humana - Talent Hub AI",
                 area: "Gestión Humana",
                 responsable: "Alejandra Soto",
-                avance: 70,
+                avance: 97,
                 estado: "Desarrollo avanzado",
                 descripcion: "IA para análisis de hojas de vida, ranking de candidatos y evaluación automática.",
 
@@ -690,7 +690,7 @@ const INICIATIVAS = [
                 nombre: "Contabilidad - Invo-way",
                 area: "Contabilidad",
                 responsable: "Kirya Aguirre",
-                avance: 97,
+                avance: 98,
                 estado: "Pre-producción",
                 descripcion: "Automatización del seguimiento de facturas con dashboard y alertas.",
                 statusDone: [
