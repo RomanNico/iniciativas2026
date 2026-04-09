@@ -16,25 +16,29 @@ const INICIATIVAS = [
         area: "Arquitectura / Tercerización — Angie Hernandez",
         avance: 35,
         tags: ["Formulario IA", "Word/PDF Export", "SharePoint", "Power App"],
-        alerta: null,
+        alerta: {
+            tipo: "ao",
+            texto: "⏸️ INICIATIVA EN PAUSA — Falta información para continuar definición funcional"
+        },
+
         statusDone: [
-            "Problema operativo identificado en análisis manual de pliegos",
+            "Problema operativo identificado",
             "Alcance definido",
-            "Flujo funcional conceptualizado",
-            "Sistemas definidos",
-            "Levantamiento detallado con el área",
+            "Flujo conceptual",
+            "Levantamiento realizado",
             "Identificación de riesgos",
-            "Estructura base del formulario definida",
-            "Enfoque de solución con IA validado"
+            "Estructura base definida",
+            "Enfoque IA validado"
         ],
 
         statusTodo: [
-            "Definir preguntas guía finales",
-            "Modelo de clasificación técnica",
+            "Definir preguntas guía",
+            "Modelo de clasificación",
             "Diseño UI/UX",
             "Desarrollo MVP",
-            "Pruebas piloto con RFP reales"
+            "Pruebas piloto"
         ],
+
         developer: { iniciales: "AH", nombre: "A. Hernandez" },
         impacto: "Muy Alto",
         impactoClass: "imp-ma",
@@ -84,27 +88,29 @@ const INICIATIVAS = [
         prioridadClass: "pr-critica",
         titulo: "Asistente SWAT — Plataforma Centralizada de IA Interna",
         area: "Soluciones Financieras — Nicolás Durán",
-        avance: 50,
-        tags: ["4 Asistentes IA", "Arquitectura Modular", "APIs ERP", "Transversal"],
+        avance: 85,
+        tags: ["Asistente IA", "NOVA", "Arquitectura Modular"],
         alerta: {
             tipo: "ar",
-            texto: "🔴 Impacto transversal. 4 asistentes: Transversal, Arquitectura, Contabilidad y RRHH."
+            texto: "🚨 BLOQUEADO — Dependencia crítica de NOVA"
         },
+
         statusDone: [
-            "Arquitectura conceptual definida",
-            "Asistente de arquitectura desarrollado",
-            "Integración del asistente en NOVA completada",
-            "Interfaz interactiva implementada",
-            "Validación inicial con el área solicitante",
-            "Levantamiento de requerimientos del asistente de gestión humana"
+            "Arquitectura definida",
+            "Asistente desarrollado",
+            "Integración NOVA",
+            "Interfaz funcional",
+            "Validación inicial",
+            "Redefinición alcance (4 → 1 asistente)"
         ],
+
         statusTodo: [
-            "Ajustes en procesamiento de archivos",
-            "Desarrollo de asistentes restantes",
-            "Integración con sistemas corporativos",
-            "Definición final de arquitectura modular",
-            "Pruebas completas del ecosistema"
+            "Correcciones en NOVA",
+            "Validación final",
+            "Definición tecnológica",
+            "Despliegue"
         ],
+
         developer: { iniciales: "ND", nombre: "N. Durán" },
         impacto: "Muy Alto",
         impactoClass: "imp-ma",
@@ -189,42 +195,33 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Indicadores de Gestión ISO — Automatización de Procesos",
         area: "Gerencia Aseguramiento — Juan David Rodríguez",
-        avance: 95,
-        tags: ["ISO", "Tablero Consolidado", "Alertas Auto", "Fórmulas Dinámicas"],
+        avance: 96,
+        tags: ["ISO", "Dashboard", "JWT", "AWS"],
         alerta: {
             tipo: "ok",
-            texto: "🟢 FRONTEND + LÓGICA IMPLEMENTADA — Sistema ya funcional a nivel visual"
+            texto: "🟢 SISTEMA LISTO — Pendiente QA y despliegue"
         },
+
         statusDone: [
-            "Problema identificado y documentado",
-            "Levantamiento inicial realizado",
-            "Análisis del proceso AS-IS",
-            "Definición preliminar de solución",
-            "PDR consolidado",
-            "Inicio desarrollo frontend",
-            "Reestructuración del frontend para escalabilidad",
-            "Mejora en visualización de múltiples vistas",
-            "Arquitectura frontend robusta",
-            "Visualización de indicadores por periodicidad (mensual / trimestral)",
-            "Estados por entrega implementados (Pendiente / Entregado)",
-            "Lógica de alertas condicional (botón visible solo si está pendiente)",
-            "Estructura backend creada",
-            "Conexión inicial backend ↔ BD",
-            "Endpoints en desarrollo",
-            "Diseño técnico detallado del sistema",
-            "Definición del modelo de indicadores (fórmulas)",
-            "Diseño de lógica de negocio completa",
-            "Desarrollo backend",
-            "Integración frontend ↔ backend",
-            "Implementación de alertas automáticas (backend)"
+            "Frontend completo",
+            "Backend estructurado",
+            "BD en AWS",
+            "Endpoints funcionales",
+            "Integración completa",
+            "Dashboard analítico",
+            "Alertas automáticas",
+            "Histórico de indicadores",
+            "Autenticación JWT",
+            "Encriptación contraseñas",
+            "Validación cliente"
         ],
 
         statusTodo: [
-            
-            "Flujos de seguimiento",
-            "Pruebas funcionales",
-            "Despliegue en producción"
+            "Configuración correos",
+            "QA",
+            "Despliegue producción"
         ],
+
         developer: { iniciales: "JD", nombre: "J. Rodríguez" },
         impacto: "Muy Alto",
         impactoClass: "imp-ma",
@@ -275,36 +272,34 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Enlace Cuentas por Pagar Invoway ↔ SAP",
         area: "Contabilidad y Control Interno — Saritha González",
-        aalerta: {
+        alerta: {
             tipo: "ao",
-            texto: "⚠️ Integración en curso (RPA activo) — Dependencia de permisos en Invoway"
+            texto: "⚠️ Integración RPA en fase final — errores en extracción aún presentes"
         },
-        avance: 87,
-        tags: ["Invoway API", "SAP", "Archivo Plano", "Cargue Masivo"],
+        avance: 88,
+        tags: ["Invoway", "SAP", "RPA", "Extracción Datos"],
+
         statusDone: [
-            "Flujo de automatización diseñado",
-            "Integración inicial con NOVA",
-            "Procesamiento parcial de facturas",
-            "Identificación de campos SAP",
-            "Acceso a SAP restablecido",
-            "Validación de documentos preliminares (drafts)",
-            "Identificación de errores en SAP",
-            "Definición enfoque RPA",
-            "Acceso parcial a Invoway (desbloqueo clave)",
-            "Sesión técnica de RPA realizada",
-            "Inicio implementación RPA",
-            "Login automatizado en Invoway"
+            "Flujo automatización diseñado",
+            "Integración con NOVA",
+            "Acceso SAP restablecido",
+            "Validación drafts SAP",
+            "Definición RPA",
+            "Login automatizado Invoway",
+            "Inicio extracción de datos",
+            "Identificación de campos",
+            "Inicio modelado BD"
         ],
 
         statusTodo: [
-            "Corrección de errores en flujo RPA",
-            "Ajuste de permisos en Invoway",
-            "Definir arquitectura final (RPA vs API)",
-            "Completar integración Invoway - SAP",
-            "Pruebas piloto con facturas reales",
-            "Validación funcional",
-            "Despliegue en producción"
+            "Corrección errores selección documentos",
+            "Finalizar extracción",
+            "Modelo de datos completo",
+            "Integración completa Invoway-SAP",
+            "Pruebas piloto",
+            "Despliegue"
         ],
+
         developer: { iniciales: "SG", nombre: "S. González" },
         impacto: "Alto",
         impactoClass: "imp-a",
@@ -362,32 +357,33 @@ const INICIATIVAS = [
         titulo: "Identificación Responsabilidades Tributarias en Municipios",
         area: "Contabilidad — Juan David Rodríguez",
         avance: 95,
-        tags: ["IA PDF", "SAP", "40 municipios/mes", "50-300 págs"],
+        tags: ["IA PDF", "SAP", "OCR", "Automatización"],
         alerta: {
+            tipo: "ao",
+            texto: "⏸️ EN PAUSA — Pendiente microservicio OCR para integración final"
         },
+
         statusDone: [
-            "Interfaz de carga de documentos implementada",
-            "Integración con n8n funcional",
-            "Flujo automatizado configurado",
+            "Interfaz de carga implementada",
+            "Integración n8n funcional",
             "OCR implementado (Document AI)",
-            "Extracción de texto desde PDFs escaneados",
-            "Análisis mediante IA funcional",
+            "Extracción de texto",
+            "IA funcional",
             "Generación automática de Excel",
             "Envío automático por correo",
             "Flujo end-to-end validado",
-            "Procesamiento de documentos multipágina",
-            "Optimización de filtros OCR",
-            "Diseño de flujo desacoplado (OCR + NOVA)",
-            "Mejorar precisión del modelo de extracción",
+            "Procesamiento multipágina",
+            "Optimización OCR",
+            "Arquitectura desacoplada OCR + NOVA"
         ],
+
         statusTodo: [
-            
-            "Validación de resultados",
-            "Integración con base de datos estructurada",
-            "Definir solución OCR escalable",
-            "Pruebas masivas con alto volumen",
-            "Preparación para producción"
+            "Integración con microservicio OCR",
+            "Base de datos estructurada",
+            "Pruebas masivas",
+            "Preparación producción"
         ],
+
         developer: { iniciales: "JD", nombre: "J. Rodríguez" },
         impacto: "Alto",
         impactoClass: "imp-a",
@@ -581,52 +577,12 @@ const INICIATIVAS = [
         prioridadClass: "pr-media",
         titulo: "Desarrollo Automatizado Herramientas Comware (Programa)",
         area: "Soluciones Financieras — Jefrey Román",
-        tags: ["Programa", "IA", "NOVA", "SAP", "INVOWAY", "Full Stack"],
+        avance: 90,
+
         alerta: {
             tipo: "ok",
-            texto: "🚀 PROGRAMA EN EJECUCIÓN (Legal + Contabilidad + Gestión Humana IA)"
+            texto: "🚀 PROGRAMA EN EJECUCIÓN — Productos reales funcionales"
         },
-        avance: 65,
-
-        statusDone: [
-            "Programa estructurado con roadmap y backlog",
-            "Priorización definida (Legal → GH → Contabilidad → Compras)",
-            "Levantamiento en áreas clave",
-            "Procesos críticos identificados",
-
-            "Portal Legal backend funcional",
-            "Procesamiento de PDFs",
-            "Asistente NOVA configurado",
-
-            "Producto Contabilidad COMPLETO",
-            "Carga y procesamiento de Excel real",
-            "Cálculo dinámico con CURRENT_DATE",
-            "Clasificación SLA automática",
-            "Persistencia PostgreSQL",
-            "Dashboard con KPIs y filtros",
-            "Gráficas (pie + barras)",
-            "Alertas automáticas por responsable",
-            "Flujo end-to-end validado",
-
-            "Desarrollo Talent Hub AI (Gestión Humana)",
-            "Evaluación automática de candidatos con IA",
-            "Ranking inteligente de candidatos",
-            "Procesamiento de hojas de vida (PDF/Word)",
-            "Generación de resúmenes automáticos",
-            "Detección de brechas (gaps)",
-            "Arquitectura full-stack operativa",
-            "Optimización de rendimiento (eliminación errores 504)"
-        ],
-
-        statusTodo: [
-            "Integración completa NOVA ↔ backend",
-            "Levantamiento Tesorería y Costos",
-            "Arquitectura global del ecosistema",
-            "Diseño técnico completo por solución",
-            "Validación con usuarios reales (GH)",
-            "QA completo",
-            "Despliegue productivo corporativo"
-        ],
 
         subIniciativas: [
 
@@ -635,54 +591,47 @@ const INICIATIVAS = [
                 nombre: "Portal Legal",
                 area: "Legal",
                 responsable: "Yenny Cely",
-                avance: 98,
-                estado: "En desarrollo",
-                descripcion: "Automatización de PQR, tutelas y demandas mediante portal web + IA.",
+                avance: 99,
+                estado: "MVP funcional",
+                descripcion: "Portal legal con IA para PQR, tutelas y demandas",
+
                 statusDone: [
-                    "Backend funcional",
-                    "Procesamiento de PDFs",
-                    "Base de datos operativa",
-                    "Flujo definido"
+                    "Backend Node.js funcional",
+                    "PostgreSQL operativo",
+                    "Procesamiento PDF",
+                    "Estructura datos legal",
+                    "Asistente NOVA configurado",
+                    "Pruebas BD exitosas"
                 ],
+
                 statusTodo: [
-                    "Integración con NOVA",
+                    "Integración NOVA ↔ backend",
                     "Dashboard",
                     "Alertas",
-                    "Integración correo"
+                    "Despliegue"
                 ]
             },
 
             {
                 id: "AUT-1216",
-                nombre: "Gestión Humana - Talent Hub AI",
+                nombre: "Talent Hub 360",
                 area: "Gestión Humana",
                 responsable: "Alejandra Soto",
-                avance: 97,
-                estado: "Desarrollo avanzado",
-                descripcion: "IA para análisis de hojas de vida, ranking de candidatos y evaluación automática.",
+                avance: 100,
+                estado: "LISTO PARA PRODUCCIÓN",
+                descripcion: "IA para evaluación y ranking de candidatos",
 
                 statusDone: [
-                    "Levantamiento completo",
-                    "Flujo definido",
-                    "Asistente IA (Nova) configurado",
-                    "Evaluación ponderada implementada",
-                    "Procesamiento de hojas de vida (PDF/Word)",
-                    "Ranking automático de candidatos",
-                    "Generación de resúmenes profesionales",
-                    "Detección de fortalezas y brechas",
-                    "Frontend funcional",
-                    "Backend integrado",
-                    "Base de datos operativa",
-                    "Procesamiento distribuido por candidato",
-                    "Optimización de rendimiento"
+                    "Motor IA completo",
+                    "Ranking candidatos",
+                    "PDF automático",
+                    "Dashboard KPI",
+                    "Login JWT",
+                    "Dockerizado",
+                    "Sistema productivo"
                 ],
 
-                statusTodo: [
-                    "Validación con usuarios reales",
-                    "Ajustes del modelo de evaluación",
-                    "Pruebas masivas",
-                    "Despliegue productivo"
-                ]
+                statusTodo: []
             },
 
             {
@@ -690,18 +639,21 @@ const INICIATIVAS = [
                 nombre: "Contabilidad - Invo-way",
                 area: "Contabilidad",
                 responsable: "Kirya Aguirre",
-                avance: 98,
-                estado: "Pre-producción",
-                descripcion: "Automatización del seguimiento de facturas con dashboard y alertas.",
+                avance: 100,
+                estado: "LISTO",
+                descripcion: "Dashboard + alertas automáticas facturas",
+
                 statusDone: [
                     "Frontend + Backend",
                     "Procesamiento Excel",
-                    "Dashboard",
+                    "Dashboard KPI",
                     "Correos automáticos",
-                    "Flujo end-to-end"
+                    "Flujo end-to-end",
+                    "Automatización completa"
                 ],
+
                 statusTodo: [
-                    "Ajustes finales con usuarios"
+                    "Ajustes menores cliente"
                 ]
             },
 
@@ -710,21 +662,25 @@ const INICIATIVAS = [
                 nombre: "Compras - Aprobaciones SAP",
                 area: "Compras",
                 responsable: "Vivian Yuseli",
-                avance: 30,
-                estado: "Levantamiento",
-                descripcion: "Automatización de recordatorios de aprobaciones en SAP.",
+                avance: 70,
+                estado: "Pre-producción",
+                descripcion: "Automatización aprobaciones SAP con alertas",
+
                 statusDone: [
-                    "Levantamiento",
-                    "Reunión con SAP",
-                    "Validación técnica (QUERY)"
+                    "QUERY SAP listo",
+                    "Credenciales configuradas",
+                    "Frontend conectado",
+                    "Plantillas correo",
+                    "Integración AWS",
+                    "Sandbox pruebas"
                 ],
+
                 statusTodo: [
-                    "Extracción de datos",
-                    "Arquitectura",
-                    "Desarrollo"
+                    "Conectividad VPN productiva",
+                    "Pruebas reales",
+                    "Despliegue"
                 ]
             }
-
         ],
 
         developer: { iniciales: "JR", nombre: "J. Roman" },
