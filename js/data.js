@@ -14,12 +14,8 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Informe Inteligente — Resumen de Alcances (RFP)",
         area: "Arquitectura / Tercerización — Angie Hernandez",
-        avance: 35,
+        avance: 40,
         tags: ["Formulario IA", "Word/PDF Export", "SharePoint", "Power App"],
-        alerta: {
-            tipo: "ao",
-            texto: "⏸️ INICIATIVA EN PAUSA — Falta información para continuar definición funcional"
-        },
 
         statusDone: [
             "Problema operativo identificado",
@@ -195,11 +191,11 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Indicadores de Gestión ISO — Automatización de Procesos",
         area: "Gerencia Aseguramiento — Juan David Rodríguez",
-        avance: 96,
+        avance: 97,
         tags: ["ISO", "Dashboard", "JWT", "AWS"],
         alerta: {
             tipo: "ok",
-            texto: "🟢 SISTEMA LISTO — Pendiente QA y despliegue"
+            texto: "Pendiente QA y despliegue"
         },
 
         statusDone: [
@@ -274,9 +270,9 @@ const INICIATIVAS = [
         area: "Contabilidad y Control Interno — Saritha González",
         alerta: {
             tipo: "ao",
-            texto: "⚠️ Integración RPA en fase final — errores en extracción aún presentes"
+            texto: "⚠️ Integración RPA en fase final"
         },
-        avance: 88,
+        avance: 93,
         tags: ["Invoway", "SAP", "RPA", "Extracción Datos"],
 
         statusDone: [
@@ -601,13 +597,13 @@ const INICIATIVAS = [
                     "Procesamiento PDF",
                     "Estructura datos legal",
                     "Asistente NOVA configurado",
-                    "Pruebas BD exitosas"
-                ],
-
-                statusTodo: [
+                    "Pruebas BD exitosas",
                     "Integración NOVA ↔ backend",
                     "Dashboard",
                     "Alertas",
+                ],
+
+                statusTodo: [
                     "Despliegue"
                 ]
             },
@@ -617,7 +613,7 @@ const INICIATIVAS = [
                 nombre: "Talent Hub 360",
                 area: "Gestión Humana",
                 responsable: "Alejandra Soto",
-                avance: 100,
+                avance: 99,
                 estado: "LISTO PARA PRODUCCIÓN",
                 descripcion: "IA para evaluación y ranking de candidatos",
 
@@ -631,7 +627,9 @@ const INICIATIVAS = [
                     "Sistema productivo"
                 ],
 
-                statusTodo: []
+                statusTodo: [
+                    "Despliegue"
+                ]
             },
 
             {
@@ -639,7 +637,7 @@ const INICIATIVAS = [
                 nombre: "Contabilidad - Invo-way",
                 area: "Contabilidad",
                 responsable: "Kirya Aguirre",
-                avance: 100,
+                avance: 99,
                 estado: "LISTO",
                 descripcion: "Dashboard + alertas automáticas facturas",
 
@@ -653,7 +651,7 @@ const INICIATIVAS = [
                 ],
 
                 statusTodo: [
-                    "Ajustes menores cliente"
+                    "D"
                 ]
             },
 
@@ -662,7 +660,7 @@ const INICIATIVAS = [
                 nombre: "Compras - Aprobaciones SAP",
                 area: "Compras",
                 responsable: "Vivian Yuseli",
-                avance: 70,
+                avance: 85,
                 estado: "Pre-producción",
                 descripcion: "Automatización aprobaciones SAP con alertas",
 
@@ -672,11 +670,11 @@ const INICIATIVAS = [
                     "Frontend conectado",
                     "Plantillas correo",
                     "Integración AWS",
-                    "Sandbox pruebas"
+                    "Sandbox pruebas",
+                    "Conectividad VPN productiva"
                 ],
 
                 statusTodo: [
-                    "Conectividad VPN productiva",
                     "Pruebas reales",
                     "Despliegue"
                 ]
