@@ -191,7 +191,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-muy-alta",
         titulo: "Indicadores de Gestión ISO — Automatización de Procesos",
         area: "Gerencia Aseguramiento — Juan David Rodríguez",
-        avance: 97,
+        avance: 99,
         tags: ["ISO", "Dashboard", "JWT", "AWS"],
         alerta: {
             tipo: "ok",
@@ -209,11 +209,11 @@ const INICIATIVAS = [
             "Histórico de indicadores",
             "Autenticación JWT",
             "Encriptación contraseñas",
-            "Validación cliente"
+            "Validación cliente",
+            "Configuración correos",
         ],
 
         statusTodo: [
-            "Configuración correos",
             "QA",
             "Despliegue producción"
         ],
@@ -237,7 +237,7 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Evaluación Financiera de Oportunidades",
         area: "Soluciones Financieras — Saritha Gonzalez",
-        avance: 97,
+        avance: 99,
         tags: ["NOVA IA", "Análisis Financiero", "n8n", "Comparativos"],
         alerta: null,
         statusDone: [
@@ -245,11 +245,11 @@ const INICIATIVAS = [
             "Procesamiento de múltiples archivos",
             "Extracción de datos financieros consolidada",
             "Rediseño del flujo en subprocesos",
-            "Generación de estructuras de resumen ejecutivo"
-        ],
-        statusTodo: [
+            "Generación de estructuras de resumen ejecutivo",
             "Validación final con usuario",
             "Ajuste de estructura Excel",
+        ],
+        statusTodo: [
             "Integración con SharePoint",
             "Despliegue"
         ],
@@ -430,6 +430,10 @@ const INICIATIVAS = [
         prioridadClass: "pr-alta",
         titulo: "Automatización Reclutamiento — Primer Filtro",
         area: "Soluciones Financieras — Santiago Moreno",
+        alerta: {
+            tipo: "ao",
+            texto: "⏸️ EN PAUSA"
+        },
         avance: 70,
 
         statusDone: [
@@ -573,11 +577,10 @@ const INICIATIVAS = [
         prioridadClass: "pr-media",
         titulo: "Desarrollo Automatizado Herramientas Comware (Programa)",
         area: "Soluciones Financieras — Jefrey Román",
-        avance: 90,
-
+        avance: 99,
         alerta: {
             tipo: "ok",
-            texto: "🚀 PROGRAMA EN EJECUCIÓN — Productos reales funcionales"
+            texto: "PRE-PRODUCCIÓN"
         },
 
         subIniciativas: [
@@ -651,7 +654,7 @@ const INICIATIVAS = [
                 ],
 
                 statusTodo: [
-                    "D"
+                    "Despliegue"
                 ]
             },
 
@@ -660,7 +663,7 @@ const INICIATIVAS = [
                 nombre: "Compras - Aprobaciones SAP",
                 area: "Compras",
                 responsable: "Vivian Yuseli",
-                avance: 85,
+                avance: 99,
                 estado: "Pre-producción",
                 descripcion: "Automatización aprobaciones SAP con alertas",
 
@@ -675,7 +678,6 @@ const INICIATIVAS = [
                 ],
 
                 statusTodo: [
-                    "Pruebas reales",
                     "Despliegue"
                 ]
             }

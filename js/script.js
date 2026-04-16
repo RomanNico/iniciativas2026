@@ -324,6 +324,7 @@ function switchTab(t) {
   calcularTotal(t);
   renderBarraTop(t);
   setTimeout(animateBars, 80);
+  actualizarDatosGraficas(); // 🔥 Actualizar gráficas cuando cambies de pestaña
 }
 
 /* =========================
@@ -425,24 +426,9 @@ DATOS PARA GRÁFICAS
 (se derivan automáticamente de INICIATIVAS)
 ========================= */
 
-const iniciativas = INICIATIVAS.map(i => ({
-  nombre: i.titulo,
-  tipo: i.tipo,
-  gerencia: i.gerencia,
-  avance: i.id.includes("IN-111")
-    ? calcularAvanceSubIniciativas(i)
-    : i.avance
-}));
-
-function toggleGraficas() {
-  const graficas = document.getElementById('seccionGraficas');
-  const btn = document.getElementById('btnGraficas');
-  if (graficas.style.display === 'none') {
-    graficas.style.display = 'block'; btn.innerText = '📉Ocultar gráficas';
-  } else {
-    graficas.style.display = 'none'; btn.innerText = '📊Ver gráficas';
-  }
-}
+let iniciativas = [];
+let chartGraficaIniciativas = null;
+let chartGraficaAvanceGerencia = null;
 
 const colores = {
   "Soluciones Financieras": "#4a9fff",
@@ -455,72 +441,114 @@ const colores = {
   "Gestión Humana": "#9aa8c4"
 };
 
-/* CANTIDAD DE INICIATIVAS */
-const conteoGerencias = {};
-iniciativas.forEach(i => { conteoGerencias[i.gerencia] = (conteoGerencias[i.gerencia] || 0) + 1; });
+// 🔥 ACTUALIZAR DATOS Y REGENERAR GRÁFICAS
+function actualizarDatosGraficas() {
+  // Regenerar array de iniciativas
+  iniciativas = INICIATIVAS.map(i => ({
+    nombre: i.titulo,
+    tipo: i.tipo,
+    gerencia: i.gerencia,
+    avance: i.id.includes("IN-111")
+      ? calcularAvanceSubIniciativas(i)
+      : i.avance
+  }));
+
+  // Destruir gráficas antiguas
+  if (chartGraficaIniciativas) chartGraficaIniciativas.destroy();
+  if (chartGraficaAvanceGerencia) chartGraficaAvanceGerencia.destroy();
+
+  // Recrear gráficas con datos actualizados
+  crearGraficas();
+}
+
+function crearGraficas() {
+  Chart.register(ChartDataLabels);
+
+  /* CANTIDAD DE INICIATIVAS */
+  const conteoGerencias = {};
+  iniciativas.forEach(i => { conteoGerencias[i.gerencia] = (conteoGerencias[i.gerencia] || 0) + 1; });
+
+  const ordenCantidad = Object.entries(conteoGerencias).sort((a, b) => b[1] - a[1]);
+  const labels = ordenCantidad.map(g => g[0]);
+  const data = ordenCantidad.map(g => g[1]);
+  const backgroundColors = labels.map(g => colores[g]);
+
+  /* GRAFICA 1 */
+  chartGraficaIniciativas = new Chart(document.getElementById('graficaIniciativas').getContext('2d'), {
+    type: 'bar',
+    data: { labels, datasets: [{ label: 'Cantidad de iniciativas', data, backgroundColor: backgroundColors }] },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        datalabels: { color: '#fff', anchor: 'end', align: 'top', font: { size: 14, weight: 'bold' } }
+      },
+      scales: { y: { beginAtZero: true } }
+    }
+  });
+
+  /* PROMEDIO AVANCE GERENCIA */
+  const avanceGerencias = {};
+  iniciativas.forEach(i => {
+    if (!avanceGerencias[i.gerencia]) avanceGerencias[i.gerencia] = { total: 0, cantidad: 0 };
+    avanceGerencias[i.gerencia].total += i.avance;
+    avanceGerencias[i.gerencia].cantidad++;
+  });
+  const avanceOrdenado = Object.entries(avanceGerencias)
+    .map(([g, v]) => [g, v.total / v.cantidad]).sort((a, b) => b[1] - a[1]);
+  const labelsAvance = avanceOrdenado.map(g => g[0]);
+  const dataAvance = avanceOrdenado.map(g => g[1].toFixed(1));
+
+  /* GRAFICA 2 */
+  chartGraficaAvanceGerencia = new Chart(document.getElementById('graficaAvanceGerencia').getContext('2d'), {
+    type: 'bar',
+    data: { labels: labelsAvance, datasets: [{ label: 'Promedio avance %', data: dataAvance, backgroundColor: labelsAvance.map(g => colores[g]) }] },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        datalabels: { color: '#fff', anchor: 'end', align: 'top', formatter: v => v + '%', font: { weight: 'bold' } }
+      },
+      scales: { y: { beginAtZero: true, max: 100 } }
+    },
+    plugins: [ChartDataLabels]
+  });
+}
 
 function calcularTotal(panel) {
   const total = iniciativas.filter(i => !panel || i.tipo === panel).length;
   document.getElementById('estadoTotal').innerText = panel ? iniciativas.filter(i => i.tipo === panel).length : total;
 }
 
-const ordenCantidad = Object.entries(conteoGerencias).sort((a, b) => b[1] - a[1]);
-const labels = ordenCantidad.map(g => g[0]);
-const data = ordenCantidad.map(g => g[1]);
-const backgroundColors = labels.map(g => colores[g]);
-
-/* GRAFICA 1 */
-Chart.register(ChartDataLabels);
-new Chart(document.getElementById('graficaIniciativas').getContext('2d'), {
-  type: 'bar',
-  data: { labels, datasets: [{ label: 'Cantidad de iniciativas', data, backgroundColor: backgroundColors }] },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: { display: false },
-      datalabels: { color: '#fff', anchor: 'end', align: 'top', font: { size: 14, weight: 'bold' } }
-    },
-    scales: { y: { beginAtZero: true } }
+function toggleGraficas() {
+  const graficas = document.getElementById('seccionGraficas');
+  const btn = document.getElementById('btnGraficas');
+  if (graficas.style.display === 'none') {
+    graficas.style.display = 'block'; btn.innerText = '📉Ocultar gráficas';
+    actualizarDatosGraficas();
+  } else {
+    graficas.style.display = 'none'; btn.innerText = '📊Ver gráficas';
   }
-});
+}
 
-/* PROMEDIO AVANCE GERENCIA */
-const avanceGerencias = {};
-iniciativas.forEach(i => {
-  if (!avanceGerencias[i.gerencia]) avanceGerencias[i.gerencia] = { total: 0, cantidad: 0 };
-  avanceGerencias[i.gerencia].total += i.avance;
-  avanceGerencias[i.gerencia].cantidad++;
-});
-const avanceOrdenado = Object.entries(avanceGerencias)
-  .map(([g, v]) => [g, v.total / v.cantidad]).sort((a, b) => b[1] - a[1]);
-const labelsAvance = avanceOrdenado.map(g => g[0]);
-const dataAvance = avanceOrdenado.map(g => g[1].toFixed(1));
+// 🔥 FUNCIÓN PARA ACTUALIZAR TODO MANUALMENTE
+function refrescarDatos() {
+  console.log('🔄 Refrescando datos...');
+  actualizarDatosGraficas();
+  renderAllCards();
+  calcularKPIs();
+  calcularAvanceGlobal();
+  calcularEstados('auto');
+  renderBarraTop('auto');
+  console.log('✅ Datos actualizados');
+}
 
-/* GRAFICA 2 */
-new Chart(document.getElementById('graficaAvanceGerencia').getContext('2d'), {
-  type: 'bar',
-  data: { labels: labelsAvance, datasets: [{ label: 'Promedio avance %', data: dataAvance, backgroundColor: labelsAvance.map(g => colores[g]) }] },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: { display: false },
-      datalabels: { color: '#fff', anchor: 'end', align: 'top', formatter: v => v + '%', font: { weight: 'bold' } }
-    },
-    scales: { y: { beginAtZero: true, max: 100 } }
-  },
-  plugins: [ChartDataLabels]
-});
-
-/* =========================
-AVANCE GLOBAL PORTAFOLIO
-========================= */
-
+// 🔥 AVANCE GLOBAL PORTAFOLIO
 function calcularAvanceGlobal() {
   const promedio = Math.round(iniciativas.reduce((s, i) => s + i.avance, 0) / iniciativas.length);
   document.getElementById('avanceGlobal').innerText = promedio + '%';
   setTimeout(() => { document.getElementById('barraGlobal').style.width = promedio + '%'; }, 400);
 }
-calcularAvanceGlobal();
 
 /* =========================
 ESTADOS DEL PORTAFOLIO
@@ -603,6 +631,7 @@ INIT — renderizar tarjetas y arrancar animaciones
 ========================= */
 
 window.addEventListener('load', () => {
+  actualizarDatosGraficas(); // 🔥 Inicializar gráficas con datos
   renderAllCards();
   calcularKPIs();
   document.querySelectorAll('.card').forEach((c, i) => c.style.animationDelay = (i * .04) + 's');
